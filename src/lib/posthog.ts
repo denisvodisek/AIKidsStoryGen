@@ -1,17 +1,15 @@
 import posthog from 'posthog-js'
-import { PostHogProvider } from 'posthog-js/react'
 
-// Initialize PostHog
 export const initPostHog = () => {
   if (typeof window !== 'undefined' && process.env.NEXT_PUBLIC_POSTHOG_KEY) {
     posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
-      api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://app.posthog.com',
+      api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://eu.i.posthog.com',
       loaded: (posthog) => {
         if (process.env.NODE_ENV === 'development') {
           console.log('PostHog loaded')
         }
       },
-      capture_pageview: false, // We'll capture pageviews manually
+      capture_pageview: false,
       capture_pageleave: true,
       session_recording: {
         recordCrossOriginIframes: true,
