@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
@@ -7,13 +8,32 @@ export default function Footer() {
         <div className="grid gap-8 md:grid-cols-4">
           <div>
             <div className="mb-6 flex items-center space-x-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-yellow-400 to-orange-500">
-                <span className="text-lg">✨</span>
-              </div>
-              <span className="text-xl font-bold">AI Kids Story Gen</span>
+              <Image
+                src="/emojis/Bug.png"
+                alt="Sparkles"
+                width={30}
+                height={30}
+              />
+              <span className="text-2xl font-bold tracking-wide text-white">
+                Bubika
+              </span>
             </div>
             <p className="text-lg leading-relaxed font-light text-gray-300">
-              Creating magical stories for amazing kids everywhere! 🌍✨
+              Creating magical stories for amazing kids everywhere!
+              <span className="mt-1 flex items-center gap-1">
+                <Image
+                  src="/emojis/Globe.png"
+                  alt="Globe"
+                  width={30}
+                  height={30}
+                />
+                <Image
+                  src="/emojis/Full-Moon-Face.png"
+                  alt="Moon"
+                  width={30}
+                  height={30}
+                />
+              </span>
             </p>
           </div>
           <div>
@@ -94,8 +114,15 @@ export default function Footer() {
         </div>
         <div className="mt-12 border-t border-gray-700 pt-8 text-center text-gray-400">
           <p className="text-lg font-light">
-            © 2024 AI Kids Story Gen. Made with ❤️ for amazing kids and
-            families!
+            © {new Date().getFullYear()} Bubika. Made with{' '}
+            <Image
+              src="/emojis/Smiling-Face-With-Hearts.png"
+              alt="Smiling-Face-With-Hearts"
+              width={24}
+              height={24}
+              className="inline"
+            />{' '}
+            for amazing kids and families!
           </p>
         </div>
       </div>

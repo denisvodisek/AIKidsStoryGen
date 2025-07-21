@@ -1,9 +1,14 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { useStoryStore } from '@/store/story-store';
 
 export default function LandingPage() {
+  const { clearAllStoryData } = useStoryStore();
+
   return (
     <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800">
       {/* Magical background elements */}
@@ -57,40 +62,93 @@ export default function LandingPage() {
                 Create Magical
               </span>
               <br />
-              <span className="text-white">Adventures! 🌟</span>
+              <span className="flex items-center justify-center gap-1 text-white">
+                Adventures!{' '}
+                <Image
+                  src="/emojis/Sparkles.png"
+                  alt="Star"
+                  width={80}
+                  height={80}
+                />
+              </span>
             </h1>
             {/* Floating elements around title */}
             <div className="absolute -top-4 -right-4 animate-bounce text-4xl">
-              🦄
+              <Image src="/emojis/Bird.png" alt="Bird" width={60} height={60} />
             </div>
-            <div className="absolute -bottom-4 -left-4 animate-pulse text-3xl">
-              🌈
+            <div className="absolute -bottom-4 -left-4 text-3xl">
+              <Image
+                src="/emojis/Butterfly.png"
+                alt="Butterfly"
+                width={60}
+                height={60}
+              />
             </div>
           </div>
 
           <p className="mx-auto mb-12 max-w-3xl text-lg leading-relaxed font-light text-white/90 drop-shadow-lg md:text-xl">
-            Make your child the ⭐{' '}
-            <span className="font-medium text-yellow-300">main character</span>{' '}
-            ⭐ in their own magical stories!
+            Make your child the{' '}
+            <span className="inline-flex items-center justify-center gap-1 ps-1 pe-1">
+              <Image src="/emojis/Star.png" alt="Star" width={20} height={20} />
+              <span className="mt-1.5 font-medium text-yellow-300">
+                main character
+              </span>
+              <Image src="/emojis/Star.png" alt="Star" width={20} height={20} />
+            </span>
+            in their own magical stories!
             <br />
             <span className="font-normal">
               AI creates personalized tales with beautiful pictures in seconds!
             </span>{' '}
-            📚✨
+            <span className="inline-flex items-center justify-center gap-1 ps-1 pe-1">
+              <Image
+                src="/emojis/Books.png"
+                alt="Book"
+                width={20}
+                height={20}
+              />
+
+              <Image
+                src="/emojis/Sparkles.png"
+                alt="Sparkles"
+                width={20}
+                height={20}
+              />
+            </span>
           </p>
 
           <div className="mb-16 flex flex-col justify-center space-y-4 sm:flex-row sm:space-y-0 sm:space-x-6">
             <Link
               href="/onboarding/step-1"
               className="flex transform items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-green-400 to-blue-500 px-10 py-4 text-xl font-semibold text-white shadow-2xl transition-all duration-300 hover:scale-110 hover:from-green-500 hover:to-blue-600"
+              onClick={() => {
+                clearAllStoryData();
+              }}
             >
-              <span>🚀 Start Creating!</span>
+              <span className="flex items-center justify-center gap-2">
+                <Image
+                  src="/emojis/Rocket.png"
+                  alt="Rocket"
+                  width={24}
+                  height={24}
+                />{' '}
+                Start Creating
+              </span>
             </Link>
             <Link
               href="/stories"
               className="flex transform items-center justify-center space-x-2 rounded-full border-2 border-white/30 bg-white/20 px-10 py-4 text-xl font-medium text-white shadow-2xl backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:bg-white/30"
             >
-              <span>👀 See Examples</span>
+              <span className="flex items-center justify-center gap-1">
+                <Image
+                  src="/emojis/Eyes.png"
+                  alt="Eyes"
+                  width={24}
+                  height={24}
+                  className="-mt-1"
+                />
+                See Examples
+              </span>
             </Link>
           </div>
         </div>
@@ -103,21 +161,21 @@ export default function LandingPage() {
                 alt="Snap & Transform"
                 width={200}
                 height={200}
-                className="h-auto rounded-2xl object-cover"
+                className="-mt-10 h-auto rounded-2xl border-8 border-white object-cover object-right shadow-2xl"
               />
               <Image
                 src="/images/arrow.png"
                 alt="Arrow"
                 width={180}
                 height={180}
-                className="absolute top-0 invert"
+                className="absolute top-0 z-10 invert"
               />
               <Image
                 src="/images/step1transformed.jpg"
                 alt="Snap & Transform"
                 width={250}
                 height={250}
-                className="rounded-2xl"
+                className="rotate-5 rounded-2xl border-8 border-white object-cover object-right shadow-2xl"
               />
             </div>
             <div className="group relative">
@@ -130,8 +188,14 @@ export default function LandingPage() {
                   Upload your child's photo and watch our AI magically transform
                   them into a story hero!
                 </p>
-                <p className="text-sm font-light text-gray-300">
-                  🔒 100% secure & private - photos are never stored
+                <p className="flex items-center gap-1 text-sm font-light text-gray-300">
+                  <Image
+                    src="/emojis/Locked.png"
+                    alt="Lock"
+                    width={20}
+                    height={20}
+                  />{' '}
+                  100% secure & private - photos are never stored
                 </p>
               </div>
             </div>
@@ -142,11 +206,25 @@ export default function LandingPage() {
               <div className="absolute -inset-1 rounded-2xl"></div>
               <div className="relative flex h-full flex-col rounded-2xl">
                 <Image
-                  src="/images/step2.png"
+                  src="/images/story_choose_en.png"
                   alt="Choose Adventure"
                   width={1200}
                   height={1200}
-                  className="mb-4 h-60 w-full rounded-2xl object-cover"
+                  className="mb-4 h-60 w-full rounded-2xl object-cover opacity-0"
+                />
+                <Image
+                  src="/images/story_choose_en.png"
+                  alt="Choose Adventure"
+                  width={1200}
+                  height={1200}
+                  className="absolute -top-5 -left-0 z-10 mb-4 h-60 w-60 -rotate-5 rounded-2xl border-6 border-white object-cover shadow-2xl"
+                />
+                <Image
+                  src="/images/story_personalize_en.png"
+                  alt="Personalize Story"
+                  width={1200}
+                  height={1200}
+                  className="absolute -top-0 -right-0 mb-4 h-60 w-90 rotate-5 rounded-2xl border-6 border-white object-cover shadow-2xl"
                 />
                 <div className="mb-2 text-3xl font-bold text-white">STEP 2</div>
                 <h3 className="mb-4 text-2xl font-bold text-white">
@@ -156,8 +234,14 @@ export default function LandingPage() {
                   Pick from magical templates or create your own unique
                   storyline. Dragons, castles, space adventures - you choose!
                 </p>
-                <p className="text-sm font-light text-gray-300">
-                  🌟 Unlimited possibilities await
+                <p className="flex items-center gap-1 text-sm font-light text-gray-300">
+                  <Image
+                    src="/emojis/Star.png"
+                    alt="Sparkles"
+                    width={20}
+                    height={20}
+                  />{' '}
+                  Unlimited possibilities await
                 </p>
               </div>
             </div>
@@ -167,11 +251,33 @@ export default function LandingPage() {
               <div className="absolute -inset-1 rounded-2xl"></div>
               <div className="relative flex h-full flex-col rounded-2xl">
                 <Image
-                  src="/images/step1transformed.jpg"
+                  src="/images/Denis-and-the-Giggleberry-Adventure-page-1.jpg"
                   alt="Story Magic!"
-                  width={200}
-                  height={200}
-                  className="mb-4 h-60 w-full rounded-2xl object-cover"
+                  width={1000}
+                  height={1000}
+                  className="h-60 w-full rounded-2xl border-8 border-white object-cover opacity-0 shadow-2xl"
+                />
+                <Image
+                  src="/images/Denis-and-the-Giggleberry-Adventure-page-1.jpg"
+                  alt="Story Magic!"
+                  width={1000}
+                  height={1000}
+                  className="absolute -top-10 -right-40 mb-4 h-60 w-90 rotate-5 rounded-2xl border-6 border-white object-cover shadow-2xl"
+                />
+
+                <Image
+                  src="/images/Ema-and-the-Friendship-Flame-page-1.jpg"
+                  alt="Story Magic!"
+                  width={1000}
+                  height={1000}
+                  className="absolute -top-9 left-0 mb-4 h-60 w-60 rounded-2xl border-6 border-white object-cover shadow-2xl"
+                />
+                <Image
+                  src="/images/Denis-and-FireStation.png"
+                  alt="Story Magic!"
+                  width={1000}
+                  height={1000}
+                  className="absolute top-0 left-70 mb-4 h-60 w-auto -translate-x-1/2 rotate-10 rounded-2xl border-6 border-white object-cover shadow-2xl"
                 />
                 <div className="mb-2 text-3xl font-bold text-white">STEP 3</div>
                 <h3 className="mb-4 text-2xl font-bold text-white">
@@ -181,11 +287,37 @@ export default function LandingPage() {
                   Watch your personalized story come to life with beautiful
                   illustrations. Reading time just became magical!
                 </p>
-                <p className="text-sm font-light text-gray-300">
-                  📚 Perfect for bedtime stories
+                <p className="flex items-center gap-1 text-sm font-light text-gray-300">
+                  <Image
+                    src="/emojis/Books.png"
+                    alt="Book"
+                    width={20}
+                    height={20}
+                  />{' '}
+                  Perfect for bedtime stories
                 </p>
               </div>
             </div>
+          </div>
+
+          <div className="flex justify-center">
+            <Link
+              href="/onboarding/step-1"
+              className="flex transform items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-green-400 to-blue-500 px-10 py-4 text-xl font-semibold text-white shadow-2xl transition-all duration-300 hover:scale-110 hover:from-green-500 hover:to-blue-600"
+              onClick={() => {
+                clearAllStoryData();
+              }}
+            >
+              <span className="flex items-center justify-center gap-2">
+                <Image
+                  src="/emojis/Rocket.png"
+                  alt="Rocket"
+                  width={24}
+                  height={24}
+                />{' '}
+                Start Your Own Adventure
+              </span>
+            </Link>
           </div>
 
           {/* <div className="text-center">
@@ -221,34 +353,168 @@ export default function LandingPage() {
 
         {/* Enhanced Features Section */}
         <div className="mx-auto mt-24">
-          {/* Main Feature - New Story Every Night */}
-          <Image
-            src="/images/nightsky.png"
-            alt="A New Story Every Night"
-            width={1024}
-            height={1024}
-            className="parallax h-90 w-full rounded-2xl object-cover object-[100%_40%]"
-          />
-          <div className="to-pink-7 00 relative z-10 mx-auto -mt-20 mb-16 max-w-5xl rounded-2xl bg-gradient-to-br from-indigo-900 via-purple-900 to-purple-900 p-8 text-center shadow-2xl shadow-purple-500/50">
-            <h2 className="mb-6 text-4xl font-bold text-white md:text-5xl">
-              A New Story Every Night 🌙
+          {/* Main Feature - Magical Story Creation */}
+          <div className="relative overflow-hidden rounded-3xl">
+            <Image
+              src="/images/nightsky.png"
+              alt="Magical Story Creation"
+              width={1024}
+              height={1024}
+              className="h-90 w-full rounded-3xl object-cover object-[100%_40%]"
+            />
+            {/* Floating magical elements over the image */}
+            <div className="absolute inset-0 overflow-hidden rounded-3xl">
+              <div className="absolute top-20 left-20 h-3 w-3 animate-pulse rounded-full bg-yellow-300/70"></div>
+              <div className="absolute top-32 right-32 h-2 w-2 animate-ping rounded-full bg-pink-300/80"></div>
+              <div className="absolute bottom-32 left-1/3 h-4 w-4 animate-pulse rounded-full bg-blue-300/60 [animation-delay:-1s]"></div>
+              <div className="absolute top-1/2 right-20 h-3 w-3 animate-pulse rounded-full bg-purple-300/70 [animation-delay:-1.5s]"></div>
+            </div>
+
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+          </div>
+          <div className="mx-auto -mt-20 mb-10 max-w-5xl rounded-3xl bg-white/10 p-8 text-center backdrop-blur-sm">
+            <h2 className="mb-4 flex items-center justify-center gap-3 text-4xl font-bold text-white drop-shadow-2xl md:text-5xl">
+              Pick Their Perfect Adventure
+              <Image
+                src="/emojis/Parachute.png"
+                alt="Parachute"
+                width={50}
+                height={50}
+              />
             </h2>
-            <p className="mx-auto max-w-4xl text-xl leading-relaxed font-light text-white/90">
-              Your children become the{' '}
-              <span className="font-semibold text-yellow-300">
-                heroes of their own personalized stories
-              </span>
-              , making bedtime a magical experience for the whole family! The
-              stories are supported with{' '}
-              <span className="font-semibold text-pink-300">
-                loving illustrations
-              </span>{' '}
-              that stimulate children's imagination.
+            <p className="mx-auto max-w-4xl text-xl leading-relaxed font-light text-white/95 drop-shadow-lg">
+              Watch your child's eyes light up as they see themselves in their
+              favorite world!
             </p>
+          </div>
+
+          {/* Story Style Showcase */}
+          <div className="mb-16">
+            <div className="grid gap-8 lg:grid-cols-2 xl:grid-cols-4">
+              {/* Classic Disney Style */}
+              <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-pink-500/20 to-purple-600/20 p-1 backdrop-blur-md transition-all hover:scale-105">
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-pink-400 to-purple-400 opacity-50 blur-sm transition-all group-hover:opacity-75"></div>
+                <div className="relative rounded-3xl bg-white/10 p-6 backdrop-blur-md">
+                  <div className="mb-4 aspect-16/13 overflow-hidden rounded-2xl">
+                    <video
+                      src="/images/classic-disney.mp4"
+                      className="h-full w-full object-cover transition-all group-hover:scale-110"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                    />
+                  </div>
+                  <div className="text-center">
+                    <h3 className="mb-2 text-xl font-bold text-white">
+                      Classic Disney Magic
+                    </h3>
+                    <p className="mb-4 text-sm text-white/80">
+                      Transform your child into a Disney princess or prince!
+                    </p>
+                    <div className="flex items-center justify-center gap-2 text-yellow-300">
+                      <span className="text-lg">⭐⭐⭐⭐⭐</span>
+                      <span className="text-sm">Parent favorite</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Pixar Adventure */}
+              <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-500/20 to-green-600/20 p-1 backdrop-blur-md transition-all hover:scale-105">
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-400 to-green-400 opacity-50 blur-sm transition-all group-hover:opacity-75"></div>
+                <div className="relative rounded-3xl bg-white/10 p-6 backdrop-blur-md">
+                  <div className="mb-4 aspect-16/13 overflow-hidden rounded-2xl">
+                    <video
+                      src="/images/disney-pixar.mp4"
+                      className="h-full w-full object-cover transition-all group-hover:scale-110"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                    />
+                  </div>
+                  <div className="text-center">
+                    <h3 className="mb-2 text-xl font-bold text-white">
+                      Pixar Adventures
+                    </h3>
+                    <p className="mb-4 text-sm text-white/80">
+                      Epic quests with incredible character development!
+                    </p>
+                    <div className="flex items-center justify-center gap-2 text-yellow-300">
+                      <span className="text-lg">⭐⭐⭐⭐⭐</span>
+                      <span className="text-sm">Kids love it</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Lego Adventure */}
+              <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-yellow-500/20 to-orange-600/20 p-1 backdrop-blur-md transition-all hover:scale-105">
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-yellow-400 to-orange-400 opacity-50 blur-sm transition-all group-hover:opacity-75"></div>
+                <div className="relative rounded-3xl bg-white/10 p-6 backdrop-blur-md">
+                  <div className="mb-4 aspect-16/13 overflow-hidden rounded-2xl">
+                    <video
+                      src="/images/lego.mp4"
+                      className="h-full w-full object-cover transition-all group-hover:scale-110"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                    />
+                  </div>
+                  <div className="text-center">
+                    <h3 className="mb-2 text-xl font-bold text-white">
+                      Lego Adventures
+                    </h3>
+                    <p className="mb-4 text-sm text-white/80">
+                      Build incredible worlds brick by brick with your hero!
+                    </p>
+                    <div className="flex items-center justify-center gap-2 text-yellow-300">
+                      <span className="text-lg">⭐⭐⭐⭐⭐</span>
+                      <span className="text-sm">Kid approved</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Paw Patrol Style */}
+              <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-teal-500/20 to-blue-600/20 p-1 backdrop-blur-md transition-all hover:scale-105">
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-teal-400 to-blue-400 opacity-50 blur-sm transition-all group-hover:opacity-75"></div>
+                <div className="relative rounded-3xl bg-white/10 p-6 backdrop-blur-md">
+                  <div className="mb-4 aspect-16/13 overflow-hidden rounded-2xl">
+                    <video
+                      src="/images/paw-patrol.mp4"
+                      className="h-full w-full object-cover transition-all group-hover:scale-110"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                    />
+                  </div>
+                  <div className="text-center">
+                    <h3 className="mb-2 text-xl font-bold text-white">
+                      Hero Rescue Stories
+                    </h3>
+                    <p className="mb-4 text-sm text-white/80">
+                      Your little one saves the day with courage and teamwork!
+                    </p>
+                    <div className="flex items-center justify-center gap-2 text-yellow-300">
+                      <span className="text-lg">⭐⭐⭐⭐⭐</span>
+                      <span className="text-sm">Top requested</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         <div className="mx-auto mt-16 space-y-36">
+          <h2 className="mb-4 mb-16 flex items-center justify-center gap-3 text-4xl font-bold text-white drop-shadow-2xl md:text-5xl">
+            ... and never run out of bedtime magic
+            <Image src="/emojis/Zzz.png" alt="zzz" width={50} height={50} />
+          </h2>
           {/* Feature Grid */}
           <div className="mx-auto flex max-w-5xl items-end">
             <Image
@@ -258,9 +524,15 @@ export default function LandingPage() {
               height={1024}
               className="h-90 w-1/2 rounded-2xl object-cover"
             />
-            <div className="sticky top-0 -mb-10 -ml-10 h-full flex-1 rounded-2xl bg-white/90 p-8 shadow-2xl">
-              <h3 className="mb-3 text-2xl font-bold">
-                Strengthen Family Bonds 💖
+            <div className="sticky top-0 -mb-10 -ml-10 h-full flex-1 rounded-2xl bg-white/80 p-8 shadow-2xl backdrop-blur-xs">
+              <h3 className="mb-3 flex items-center justify-center gap-2 text-2xl font-bold">
+                Strengthen Family Bonds
+                <Image
+                  src="/emojis/Family.png"
+                  alt="Heart"
+                  width={32}
+                  height={32}
+                />
               </h3>
               <p className="text-lg leading-relaxed font-light">
                 Actively participate in your child's bedtime storytelling,
@@ -270,9 +542,15 @@ export default function LandingPage() {
             </div>
           </div>
           <div className="mx-auto flex max-w-5xl items-start">
-            <div className="relative -mt-10 -mr-10 h-full flex-1 rounded-2xl bg-white/90 p-8 shadow-2xl">
-              <h3 className="mb-3 text-2xl font-bold">
-                Hassle-Free Bedtime ⏰
+            <div className="relative -mt-10 -mr-10 h-full flex-1 rounded-2xl bg-white/80 p-8 shadow-2xl backdrop-blur-xs">
+              <h3 className="mb-3 flex items-center justify-center gap-2 text-2xl font-bold">
+                Hassle-Free Bedtime
+                <Image
+                  src="/emojis/Hugging-Face.png"
+                  alt="Clock"
+                  width={32}
+                  height={32}
+                />
               </h3>
               <p className="text-lg leading-relaxed font-light">
                 Fresh stories for bedtime every night, saving parents time and
@@ -290,11 +568,168 @@ export default function LandingPage() {
           </div>
         </div>
 
+        {/* Subscription CTA Section */}
+        <div className="relative z-20 mx-auto mt-24 max-w-5xl">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-pink-500/20 via-purple-600/20 to-blue-600/20 p-1 backdrop-blur-md">
+            {/* Magical border shimmer */}
+            <div className="absolute inset-0 animate-pulse rounded-3xl bg-gradient-to-r from-pink-400 via-blue-400 via-purple-400 to-pink-400 opacity-75 blur-sm"></div>
+
+            {/* Main content */}
+            <div className="relative rounded-3xl bg-gradient-to-br from-indigo-900/90 via-purple-900/90 to-pink-800/90 p-12 backdrop-blur-md">
+              {/* Floating magical elements */}
+              <div className="absolute top-6 left-6 h-2 w-2 animate-pulse rounded-full bg-yellow-300/70"></div>
+              <div className="absolute top-12 right-12 h-1 w-1 animate-ping rounded-full bg-pink-300/80"></div>
+              <div className="absolute bottom-8 left-12 h-3 w-3 animate-pulse rounded-full bg-blue-300/60 [animation-delay:-1s]"></div>
+              <div className="absolute right-6 bottom-6 h-2 w-2 animate-pulse rounded-full bg-purple-300/70 [animation-delay:-1.5s]"></div>
+
+              <div className="text-center">
+                {/* Compelling headline */}
+                <h2 className="mb-4 text-4xl font-bold text-white md:text-4xl">
+                  Ready to Create Magic Every Night?
+                </h2>
+                <p className="mx-auto mb-8 max-w-3xl text-lg leading-relaxed text-white/90">
+                  Join 50,000+ families already creating unforgettable
+                  adventures!
+                  <br />
+                  Get{' '}
+                  <span className="font-semibold text-yellow-300">
+                    unlimited personalized stories
+                  </span>{' '}
+                  for less than a coffee.
+                </p>
+
+                {/* Value proposition */}
+                <div className="mb-8 grid gap-6 text-center md:grid-cols-3">
+                  <div className="rounded-2xl bg-white/10 p-6 backdrop-blur-sm">
+                    <div className="mb-3 flex justify-center">
+                      <Image
+                        src="/emojis/Magic-Wand.png"
+                        alt="Magic"
+                        width={32}
+                        height={32}
+                      />
+                    </div>
+                    <h3 className="mb-2 text-lg font-bold text-white">
+                      Personalized Stories
+                    </h3>
+                    <p className="text-sm text-white/80">
+                      600 tokens monthly - never run out of bedtime magic*!
+                    </p>
+                  </div>
+                  <div className="rounded-2xl bg-white/10 p-6 backdrop-blur-sm">
+                    <div className="mb-3 flex justify-center">
+                      <Image
+                        src="/emojis/OK-Hand.png"
+                        alt="Premium"
+                        width={32}
+                        height={32}
+                      />
+                    </div>
+                    <h3 className="mb-2 text-lg font-bold text-white">
+                      Premium Quality
+                    </h3>
+                    <p className="text-sm text-white/80">
+                      Beautiful illustrations & personalized adventures!
+                    </p>
+                  </div>
+                  <div className="rounded-2xl bg-white/10 p-6 backdrop-blur-sm">
+                    <div className="mb-3 flex justify-center">
+                      <Image
+                        src="/emojis/Heart-Hands.png"
+                        alt="Safe"
+                        width={32}
+                        height={32}
+                      />
+                    </div>
+                    <h3 className="mb-2 text-lg font-bold text-white">
+                      100% Safe
+                    </h3>
+                    <p className="text-sm text-white/80">
+                      Private, secure, and designed for families!
+                    </p>
+                  </div>
+                </div>
+
+                {/* Pricing highlight */}
+                <div className="mb-8">
+                  <div className="flex items-baseline justify-center gap-2">
+                    <span className="text-5xl font-bold text-white">$5.99</span>
+                    <span className="text-2xl text-white/70">/month</span>
+                  </div>
+                  <p className="mt-2 text-lg text-white/80">
+                    Less than a pizza{' '}
+                    <Image
+                      src="/emojis/Pizza.png"
+                      alt="Pizza"
+                      width={24}
+                      height={24}
+                      className="-mt-0.5 inline-block"
+                    />{' '}
+                    • Cancel anytime • 30-day guarantee
+                  </p>
+                </div>
+
+                {/* CTA buttons */}
+                <div className="flex flex-col justify-center gap-4 sm:flex-row sm:gap-6">
+                  <Link
+                    href="/subscription"
+                    className="flex transform items-center justify-center gap-3 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 px-10 py-4 text-xl font-bold text-white shadow-2xl transition-all duration-300 hover:scale-110 hover:from-pink-400 hover:to-purple-500"
+                  >
+                    <Image
+                      src="/emojis/Crown.png"
+                      alt="Crown"
+                      width={24}
+                      height={24}
+                    />
+                    Get Unlimited Magic
+                  </Link>
+                  <Link
+                    href="/onboarding/step-1"
+                    className="flex transform items-center justify-center gap-3 rounded-full border-2 border-white/30 bg-white/20 px-10 py-4 text-xl font-medium text-white shadow-2xl backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:bg-white/30"
+                    onClick={() => {
+                      clearAllStoryData();
+                    }}
+                  >
+                    <Image
+                      src="/emojis/Rocket.png"
+                      alt="Rocket"
+                      width={24}
+                      height={24}
+                    />
+                    Try Free First
+                  </Link>
+                </div>
+
+                <p className="mt-6 text-sm text-white/60">
+                  <Image
+                    src="/emojis/Wrapped-Gift.png"
+                    alt="Gift"
+                    width={22}
+                    height={22}
+                    className="-mt-0.5 inline-block"
+                  />{' '}
+                  Start with{' '}
+                  <span className="font-semibold text-yellow-300">
+                    120 free tokens
+                  </span>{' '}
+                  when you sign up - create your first magical story today!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* REVIEWS */}
         <div className="relative z-20 mx-auto mt-24 max-w-5xl">
           <div className="mb-16 text-center">
-            <h2 className="mb-4 text-4xl font-bold text-white drop-shadow-lg md:text-5xl">
-              What Parents Say ✨
+            <h2 className="mb-4 flex items-center justify-center gap-2 text-4xl font-bold text-white drop-shadow-lg md:text-5xl">
+              What Parents Say
+              <Image
+                src="/emojis/Love-Letter.png"
+                alt="Sparkles"
+                width={60}
+                height={60}
+              />
             </h2>
             <p className="mx-auto max-w-2xl text-xl font-light text-white/80">
               Real families sharing their magical story adventures!
@@ -307,9 +742,13 @@ export default function LandingPage() {
               <div className="absolute -inset-1 rounded-2xl bg-white transition duration-300 group-hover:opacity-80"></div>
               <div className="relative flex h-full flex-col rounded-2xl p-8">
                 <div className="mb-6 flex items-center space-x-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-pink-400 to-purple-500 text-2xl shadow-lg">
-                    👩‍💼
-                  </div>
+                  <Image
+                    src={'/images/parentsreview1_en.jpeg'}
+                    alt={'Parent Review Profile Photo'}
+                    width={100}
+                    height={100}
+                    className="h-12 w-12 rounded-full shadow-lg"
+                  />
                   <div>
                     <div className="font-semibold">Sarah M.</div>
                     <div className="text-sm text-pink-500">Mom of Emma, 6</div>
@@ -338,9 +777,13 @@ export default function LandingPage() {
               <div className="absolute -inset-1 rounded-2xl bg-white transition duration-300 group-hover:opacity-80"></div>
               <div className="relative flex h-full flex-col rounded-2xl p-8">
                 <div className="mb-6 flex items-center space-x-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-blue-400 to-cyan-500 text-2xl shadow-lg">
-                    👨‍👩‍👧‍👦
-                  </div>
+                  <Image
+                    src={'/images/parentsreview2_en.jpeg'}
+                    alt={'Parent Review Profile Photo'}
+                    width={100}
+                    height={100}
+                    className="h-12 w-12 rounded-full shadow-lg"
+                  />
                   <div>
                     <div className="font-semibold">Mike & Lisa</div>
                     <div className="text-sm text-blue-500">
@@ -371,9 +814,13 @@ export default function LandingPage() {
               <div className="absolute -inset-1 rounded-2xl bg-white transition duration-300 group-hover:opacity-80"></div>
               <div className="relative flex h-full flex-col rounded-2xl p-8">
                 <div className="mb-6 flex items-center space-x-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-green-400 to-emerald-500 text-2xl shadow-lg">
-                    🧑‍🏫
-                  </div>
+                  <Image
+                    src={'/images/parentsreview4_en.jpeg'}
+                    alt={'Parent Review Profile Photo'}
+                    width={100}
+                    height={100}
+                    className="h-12 w-12 rounded-full shadow-lg"
+                  />
                   <div>
                     <div className="font-semibold">Teacher Amy</div>
                     <div className="text-sm text-green-500">
@@ -401,14 +848,18 @@ export default function LandingPage() {
           </div>
 
           {/* Additional testimonials row */}
-          <div className="mt-12 grid gap-8 md:grid-cols-2">
+          <div className="mt-8 grid gap-8 md:grid-cols-2">
             {/* Testimonial 4 */}
             <div className="group relative">
               <div className="absolute -inset-1 rounded-2xl bg-white transition duration-300 group-hover:opacity-80"></div>
-              <div className="relative flex rounded-2xl p-8">
-                <div className="mr-6 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-orange-400 to-red-500 text-3xl shadow-lg">
-                  👨‍⚕️
-                </div>
+              <div className="relative flex gap-3 rounded-2xl p-8">
+                <Image
+                  src={'/images/parentsreview6_en.jpeg'}
+                  alt={'Parent Review Profile Photo'}
+                  width={100}
+                  height={100}
+                  className="h-12 w-12 rounded-full shadow-lg"
+                />
                 <div className="flex-1">
                   <div className="mb-2 flex items-center space-x-3">
                     <div className="font-semibold">Dr. Rodriguez</div>
@@ -435,10 +886,14 @@ export default function LandingPage() {
             {/* Testimonial 5 */}
             <div className="group relative">
               <div className="absolute -inset-1 rounded-2xl bg-white transition duration-300 group-hover:opacity-80"></div>
-              <div className="relative flex rounded-2xl p-8">
-                <div className="mr-6 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-purple-400 to-pink-500 text-3xl shadow-lg">
-                  👩‍💻
-                </div>
+              <div className="relative flex gap-3 rounded-2xl p-8">
+                <Image
+                  src={'/images/parentsreview5_en.jpeg'}
+                  alt={'Parent Review Profile Photo'}
+                  width={100}
+                  height={100}
+                  className="h-12 w-12 rounded-full shadow-lg"
+                />
                 <div className="flex-1">
                   <div className="mb-2 flex items-center space-x-3">
                     <div className="font-semibold">Tech Mom Jenny</div>

@@ -1,23 +1,23 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import RangeSlider from '@/components/RangeSlider';
-import { uploadChildPhoto, deleteChildPhoto } from '@/lib/supabase';
+import { uploadChildPhoto } from '@/lib/supabase';
+import { useOnboardingStore } from '@/store';
 
 export default function OnboardingStep1() {
   const router = useRouter();
-  const [formData, setFormData] = useState({
-    photo: null as File | null,
-    photoPreview: '',
-    photoUrl: '',
-    photoPath: '',
-    name: '',
-    age: 2,
-    gender: '',
-  });
-  const [isUploading, setIsUploading] = useState(false);
+  const {
+    step1FormData,
+    setStep1FormData,
+    isUploading,
+    setIsUploading,
+    setStep1Data,
+    isStep1Valid,
+  } = useOnboardingStore();
 
   const handlePhotoUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -29,10 +29,9 @@ export default function OnboardingStep1() {
       // Create preview for immediate display
       const reader = new FileReader();
       reader.onload = e => {
-        setFormData(prev => ({
-          ...prev,
+        setStep1FormData({
           photoPreview: e.target?.result as string,
-        }));
+        });
       };
       reader.readAsDataURL(file);
 
@@ -46,12 +45,12 @@ export default function OnboardingStep1() {
       }
 
       if (data) {
-        setFormData(prev => ({
-          ...prev,
+        // Note: photoUrl is a signed URL that expires in 24 hours
+        setStep1FormData({
           photo: file,
           photoUrl: data.publicUrl,
           photoPath: data.path,
-        }));
+        });
       }
     } catch (error) {
       console.error('Upload error:', error);
@@ -61,220 +60,331 @@ export default function OnboardingStep1() {
     }
   };
 
-  const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-  };
-
-  const isFormValid = () => {
-    return (
-      formData.photoUrl && formData.name && formData.age && formData.gender
-    );
+  const handleInputChange = (field: string, value: string | number) => {
+    setStep1FormData({ [field]: value });
   };
 
   const handleContinue = () => {
-    if (isFormValid()) {
-      // Store form data in localStorage with photo URL
+    if (isStep1Valid()) {
+      // Store form data using Zustand store
       const dataToStore = {
-        name: formData.name,
-        age: formData.age,
-        gender: formData.gender,
-        photoUrl: formData.photoUrl,
-        photoPath: formData.photoPath, // For cleanup if needed
+        name: step1FormData.name,
+        age: step1FormData.age,
+        gender: step1FormData.gender,
+        photoUrl: step1FormData.photoUrl,
+        photoPath: step1FormData.photoPath, // For cleanup if needed
       };
-      localStorage.setItem('onboarding-step1', JSON.stringify(dataToStore));
+      setStep1Data(dataToStore);
       router.push('/onboarding/step-2');
     }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-200 via-white to-cyan-50">
-      <div className="container mx-auto px-4 py-8">
-        <div className="mx-auto mt-6 max-w-4xl">
-          <div className="mb-8 text-center">
-            <h1 className="mb-4 text-2xl font-bold text-gray-800 md:text-3xl">
-              Let's Create Your Child's Story! ✨
-            </h1>
-            <p className="text-lg text-gray-600">
-              First, tell us about your little hero
-            </p>
+    <div className="inset-0">
+      {/* Magical Background */}
+      <div className="fixed inset-0 bg-gradient-to-br from-purple-600 via-indigo-700 to-pink-800 transition-all duration-1000 ease-in-out">
+        {/* Floating magical elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Gentle floating particles - responsive positioning */}
+          <div className="absolute top-16 left-4 h-2 w-2 animate-pulse rounded-full bg-yellow-300/50 opacity-70 sm:top-24 sm:left-20 sm:h-3 sm:w-3"></div>
+          <div className="absolute top-32 right-4 h-1 w-1 animate-pulse rounded-full bg-pink-300/60 opacity-80 [animation-delay:-0.5s] sm:top-40 sm:right-28 sm:h-2 sm:w-2"></div>
+          <div className="absolute bottom-32 left-1/4 h-3 w-3 animate-pulse rounded-full bg-cyan-300/40 opacity-60 [animation-delay:-1s] sm:bottom-40 sm:h-4 sm:w-4"></div>
+          <div className="absolute top-2/3 right-1/3 h-2 w-2 animate-pulse rounded-full bg-purple-300/50 opacity-70 [animation-delay:-1.5s] sm:h-3 sm:w-3"></div>
+
+          {/* Soft magical orbs - responsive sizes */}
+          <div className="absolute top-20 right-4 h-12 w-12 animate-pulse rounded-full bg-gradient-to-br from-pink-400/20 to-purple-400/20 blur-lg [animation-delay:-0.8s] sm:top-28 sm:right-20 sm:h-16 sm:w-16"></div>
+          <div className="absolute bottom-20 left-4 h-16 w-16 animate-pulse rounded-full bg-gradient-to-br from-cyan-400/20 to-blue-400/20 blur-lg [animation-delay:-1.3s] sm:bottom-28 sm:left-20 sm:h-20 sm:w-20"></div>
+          <div className="absolute top-1/2 left-1/2 h-12 w-12 animate-pulse rounded-full bg-gradient-to-br from-yellow-400/20 to-pink-400/20 blur-lg [animation-delay:-1.8s] sm:h-16 sm:w-16"></div>
+
+          {/* Sparkle effects - hidden on mobile for cleaner look */}
+          <div className="absolute top-12 right-1/2 hidden animate-ping text-lg opacity-60 sm:block sm:text-xl">
+            ✨
           </div>
+          <div className="absolute bottom-16 left-1/3 hidden animate-ping text-xl opacity-70 [animation-delay:-0.6s] sm:block sm:text-2xl">
+            ⭐
+          </div>
+          <div className="absolute top-1/3 right-8 hidden animate-ping text-base opacity-50 [animation-delay:-1.1s] sm:right-16 sm:block sm:text-lg">
+            🌟
+          </div>
+          <div className="absolute bottom-1/3 left-8 hidden animate-ping text-lg opacity-65 [animation-delay:-1.7s] sm:left-20 sm:block sm:text-xl">
+            💫
+          </div>
+        </div>
+      </div>
 
-          <div className="rounded-3xl bg-white/80 p-8 shadow-2xl backdrop-blur-sm">
-            <div className="grid gap-8 md:grid-cols-2">
-              {/* Photo Upload Section */}
-              <div className="space-y-6">
-                <div>
-                  <h2 className="mb-4 text-xl font-bold text-gray-800">
-                    📸 Upload Your Child's Photo
-                  </h2>
-                  <div className="relative">
-                    <input
-                      type="file"
-                      accept="image/*"
-                      onChange={handlePhotoUpload}
-                      disabled={isUploading}
-                      className="hidden"
-                      id="photo-upload"
-                    />
-                    <label
-                      htmlFor="photo-upload"
-                      className={`flex h-80 w-full flex-col items-center justify-center rounded-2xl border-2 border-dashed border-gray-300 bg-gray-50 transition-all ${
-                        isUploading
-                          ? 'cursor-not-allowed opacity-75'
-                          : 'cursor-pointer hover:border-purple-400 hover:bg-purple-50'
-                      }`}
-                    >
-                      {isUploading ? (
-                        <div className="flex flex-col items-center">
-                          <div className="mb-4 h-8 w-8 animate-spin rounded-full border-4 border-purple-200 border-t-purple-600"></div>
-                          <p className="font-medium text-purple-600">
-                            Uploading photo...
-                          </p>
-                        </div>
-                      ) : formData.photoPreview ? (
-                        <div className="relative h-full w-full">
-                          <Image
-                            src={formData.photoPreview}
-                            alt="Child's photo"
-                            fill
-                            className="rounded-2xl object-cover"
-                          />
-                          <div className="absolute inset-0 flex items-center justify-center rounded-2xl bg-black/20 opacity-0 transition-opacity hover:opacity-100">
-                            <span className="font-semibold text-white">
-                              Change Photo
-                            </span>
-                          </div>
-                        </div>
-                      ) : (
-                        <>
-                          <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-purple-100">
-                            <span className="text-3xl">📸</span>
-                          </div>
-                          <p className="text-center text-gray-600">
-                            <span className="font-semibold text-purple-600">
-                              Click to upload
-                            </span>
-                            <br />
-                            or drag and drop your photo here
-                          </p>
-                        </>
-                      )}
-                    </label>
-                  </div>
-                  <p className="mt-2 text-sm text-gray-500">
-                    🔒 Your photo is secure, won't be stored, and will only be
-                    used to create your story.
-                  </p>
+      {/* Main Content */}
+      <div className="relative z-10 min-h-screen overflow-y-auto">
+        <div className="container mx-auto px-4 py-8 sm:px-6 lg:px-8">
+          <div className="mx-auto mt-4 max-w-5xl sm:mt-6">
+            {/* Header */}
+            <div className="relative mb-8 text-center sm:mb-12">
+              {/* Progress Indicator */}
+              <div className="mt-6 mb-6 flex justify-center sm:mt-8">
+                <div className="flex items-center gap-2">
+                  <div className="h-2 w-8 rounded-full bg-gradient-to-r from-pink-400 to-purple-400"></div>
+                  <div className="h-2 w-8 rounded-full bg-white/20"></div>
+                  <div className="h-2 w-8 rounded-full bg-white/20"></div>
+                  <span className="ml-2 text-sm text-white/70">
+                    Step 1 of 3
+                  </span>
                 </div>
-
-                {/* Preview Section */}
-                {formData.photoPreview && (
-                  <div className="rounded-2xl border-2 border-purple-200 bg-purple-50 p-4">
-                    <p className="text-sm text-purple-600">
-                      ✨ Our AI will transform this photo into a magical cartoon
-                      character for their stories!
-                    </p>
-                  </div>
-                )}
               </div>
 
-              {/* Form Section */}
-              <div className="space-y-6">
-                <div>
-                  <h2 className="mb-4 text-xl font-bold text-gray-800">
-                    👶 Tell Us About Your Child
-                  </h2>
+              <h1 className="mb-4 text-2xl leading-tight font-bold text-white sm:mb-6 xl:text-4xl">
+                Let's Create Your Child's Story!
+              </h1>
+              <p className="mx-auto max-w-2xl text-base text-white/90 sm:text-lg">
+                First, tell us about your little hero so we can create their
+                perfect adventure
+              </p>
+            </div>
 
-                  {/* Name */}
-                  <div className="mb-6">
-                    <label className="mb-2 block text-base font-semibold text-gray-700">
-                      What's your child's name?
-                    </label>
-                    <input
-                      type="text"
-                      value={formData.name}
-                      onChange={e => handleInputChange('name', e.target.value)}
-                      placeholder="Cody Marshall"
-                      className="w-full rounded-xl border-2 border-gray-200 bg-white px-4 py-3 transition-colors focus:border-purple-400 focus:ring-2 focus:ring-purple-100 focus:outline-none"
-                    />
-                  </div>
-
-                  {/* Age Slider */}
-                  <div className="mb-6">
-                    <RangeSlider
-                      min={1}
-                      max={7}
-                      value={formData.age}
-                      onChange={age => setFormData(prev => ({ ...prev, age }))}
-                      label="How old is your child?"
-                      unit="years old"
-                    />
-                  </div>
-
-                  {/* Gender */}
-                  <div className="mb-6">
-                    <label className="mb-2 block text-base font-semibold text-gray-700">
-                      Gender
-                    </label>
-                    <div className="flex space-x-4">
-                      <label className="flex cursor-pointer items-center space-x-3 rounded-xl border-2 border-gray-200 bg-white px-4 py-3 transition-all hover:border-purple-300 hover:bg-purple-50">
-                        <input
-                          type="radio"
-                          name="gender"
-                          value="boy"
-                          checked={formData.gender === 'boy'}
-                          onChange={e =>
-                            handleInputChange('gender', e.target.value)
-                          }
-                          className="h-5 w-5 text-purple-600"
-                        />
-                        <span className="text-lg text-gray-700">👦 Boy</span>
-                      </label>
-                      <label className="flex cursor-pointer items-center space-x-3 rounded-xl border-2 border-gray-200 bg-white px-4 py-3 transition-all hover:border-purple-300 hover:bg-purple-50">
-                        <input
-                          type="radio"
-                          name="gender"
-                          value="girl"
-                          checked={formData.gender === 'girl'}
-                          onChange={e =>
-                            handleInputChange('gender', e.target.value)
-                          }
-                          className="h-5 w-5 text-purple-600"
-                        />
-                        <span className="text-lg text-gray-700">👧 Girl</span>
+            <div className="rounded-2xl bg-white/20 p-6 shadow-2xl backdrop-blur-md sm:rounded-3xl sm:p-8">
+              <div className="grid gap-8 md:grid-cols-2">
+                {/* Photo Upload Section */}
+                <div className="space-y-6">
+                  <div>
+                    <h2 className="mb-4 flex gap-1 text-lg font-bold text-white sm:text-xl">
+                      <Image
+                        src="/emojis/Camera.png"
+                        alt="Camera"
+                        width={24}
+                        height={24}
+                        className="-mt-2 mr-2 object-contain"
+                      />
+                      Upload Your Child's Photo
+                    </h2>
+                    <div className="relative">
+                      <input
+                        type="file"
+                        accept="image/*"
+                        onChange={handlePhotoUpload}
+                        disabled={isUploading}
+                        className="hidden"
+                        id="photo-upload"
+                      />
+                      <label
+                        htmlFor="photo-upload"
+                        className={`flex h-60 w-full flex-col items-center justify-center rounded-2xl border-2 border-dashed transition-all sm:h-80 ${
+                          isUploading
+                            ? 'cursor-not-allowed border-white/30 bg-white/5 opacity-75'
+                            : 'cursor-pointer border-white/30 bg-white/5 hover:border-pink-400 hover:bg-white/10'
+                        }`}
+                      >
+                        {isUploading ? (
+                          <div className="flex flex-col items-center">
+                            <div className="mb-4 h-8 w-8 animate-spin rounded-full border-4 border-pink-200 border-t-pink-400"></div>
+                            <p className="font-medium text-pink-300">
+                              Uploading photo...
+                            </p>
+                          </div>
+                        ) : step1FormData.photoPreview ? (
+                          <div className="relative h-full w-full">
+                            <Image
+                              src={step1FormData.photoPreview}
+                              alt="Child's photo"
+                              fill
+                              className="rounded-2xl object-cover"
+                            />
+                            <div className="absolute inset-0 flex items-center justify-center rounded-2xl bg-black/20 opacity-0 transition-opacity hover:opacity-100">
+                              <span className="font-semibold text-white">
+                                Change Photo
+                              </span>
+                            </div>
+                          </div>
+                        ) : (
+                          <>
+                            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-white/20 sm:h-16 sm:w-16">
+                              <Image
+                                src="/emojis/Camera-With-Flash.png"
+                                alt="Camera"
+                                width={32}
+                                height={32}
+                                className="sm:h-10 sm:w-10"
+                              />
+                            </div>
+                            <p className="text-center text-white/90">
+                              <span className="font-semibold text-pink-300">
+                                Click to upload
+                              </span>
+                              <br />
+                              <span className="text-sm text-white/70">
+                                or drag and drop your photo here
+                              </span>
+                            </p>
+                          </>
+                        )}
                       </label>
                     </div>
+                    <p className="mt-2 flex items-start text-sm text-white/70">
+                      <Image
+                        src="/emojis/Locked.png"
+                        alt="Lock"
+                        width={20}
+                        height={20}
+                        className="mr-1 object-contain"
+                      />
+                      Your photo is secure, won't be stored, and will only be
+                      used to create your story.
+                    </p>
                   </div>
 
-                  {/* Privacy Note */}
-                  <div className="mb-6 rounded-2xl bg-gradient-to-r from-blue-50 to-cyan-50 p-4 shadow-inner">
-                    <div className="flex items-start space-x-2">
-                      <span className="text-blue-600">🔒</span>
-                      <div>
-                        <h4 className="font-semibold text-blue-800">
-                          How do we use this information?
-                        </h4>
-                        <p className="text-sm text-blue-600">
-                          We use a photo reference of your child, age and gender
-                          to create a unique and realistic character resemblance
-                          with the help of AI.
-                        </p>
+                  {/* Preview Section */}
+                  {step1FormData.photoPreview && (
+                    <div className="rounded-2xl border-2 border-pink-300/30 bg-white/10 p-4 backdrop-blur-sm">
+                      <p className="flex items-start gap-1 text-sm text-pink-100">
+                        <Image
+                          src="/emojis/Robot.png"
+                          alt="Star"
+                          width={24}
+                          height={24}
+                          className="mr-1 object-contain"
+                        />
+                        Our AI will transform this photo into a magical cartoon
+                        character for their stories!
+                      </p>
+                    </div>
+                  )}
+                </div>
+
+                {/* Form Section */}
+                <div className="space-y-6">
+                  <div>
+                    <h2 className="mb-4 flex gap-1 text-lg font-bold text-white sm:text-xl">
+                      <Image
+                        src="/emojis/Star.png"
+                        alt="Star"
+                        width={24}
+                        height={24}
+                        className="mr-1 object-contain"
+                      />
+                      Tell Us About Your Child
+                    </h2>
+
+                    {/* Name */}
+                    <div className="mb-6">
+                      <label className="mb-2 block text-base font-semibold text-white">
+                        What's your child's name?
+                      </label>
+                      <input
+                        type="text"
+                        value={step1FormData.name}
+                        onChange={e =>
+                          handleInputChange('name', e.target.value)
+                        }
+                        placeholder="Emma Johnson"
+                        className="w-full rounded-xl border-2 border-white/20 bg-white/10 px-4 py-3 text-white backdrop-blur-sm transition-colors placeholder:text-white/60 focus:border-pink-400 focus:ring-2 focus:ring-pink-100/20 focus:outline-none"
+                      />
+                    </div>
+
+                    {/* Age Slider */}
+                    <div className="mb-6">
+                      <RangeSlider
+                        min={1}
+                        max={7}
+                        value={step1FormData.age}
+                        onChange={age => setStep1FormData({ age })}
+                        label="How old is your child?"
+                        unit="years old"
+                      />
+                    </div>
+
+                    {/* Gender */}
+                    <div className="mb-6">
+                      <label className="mb-2 block text-base font-semibold text-white">
+                        Gender
+                      </label>
+                      <div className="flex gap-3 sm:flex-row sm:gap-4">
+                        <label className="flex cursor-pointer items-center space-x-3 rounded-xl border-2 border-white/20 bg-white/10 px-4 py-3 backdrop-blur-sm transition-all hover:border-pink-300 hover:bg-white/20">
+                          <input
+                            type="radio"
+                            name="gender"
+                            value="male"
+                            checked={step1FormData.gender === 'male'}
+                            onChange={e =>
+                              handleInputChange('gender', e.target.value)
+                            }
+                            className="h-5 w-5 text-pink-400"
+                          />
+                          <span className="flex items-center text-base text-white sm:text-lg">
+                            <Image
+                              src="/emojis/Boy.png"
+                              alt="Boy"
+                              width={24}
+                              height={24}
+                              className="mr-1 object-contain"
+                            />
+                            Boy
+                          </span>
+                        </label>
+                        <label className="flex cursor-pointer items-center space-x-3 rounded-xl border-2 border-white/20 bg-white/10 px-4 py-3 backdrop-blur-sm transition-all hover:border-pink-300 hover:bg-white/20">
+                          <input
+                            type="radio"
+                            name="gender"
+                            value="female"
+                            checked={step1FormData.gender === 'female'}
+                            onChange={e =>
+                              handleInputChange('gender', e.target.value)
+                            }
+                            className="h-5 w-5 text-pink-400"
+                          />
+                          <span className="flex items-center text-base text-white sm:text-lg">
+                            <Image
+                              src="/emojis/Girl.png"
+                              alt="Girl"
+                              width={24}
+                              height={24}
+                              className="mr-1 object-contain"
+                            />
+                            Girl
+                          </span>
+                        </label>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Continue Button */}
-                  <button
-                    onClick={handleContinue}
-                    disabled={!isFormValid()}
-                    className={`w-full rounded-full px-8 py-4 text-lg font-semibold transition-all ${
-                      isFormValid()
-                        ? 'bg-gradient-to-r from-pink-500 to-purple-600 text-white shadow-lg hover:scale-105 hover:from-pink-600 hover:to-purple-700'
-                        : 'cursor-not-allowed bg-gray-300 text-gray-500'
-                    }`}
-                  >
-                    ✨ Continue
-                  </button>
+                    {/* Privacy Note */}
+                    <div className="mb-6 rounded-2xl border border-cyan-300/30 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 p-4 backdrop-blur-sm">
+                      <div className="flex items-start space-x-2">
+                        <Image
+                          src="/emojis/Locked-With-Key.png"
+                          alt="Lock"
+                          width={24}
+                          height={24}
+                          className="mr-1 object-contain"
+                        />
+                        <div>
+                          <h4 className="font-semibold text-cyan-200">
+                            How do we use this information?
+                          </h4>
+                          <p className="text-sm text-cyan-100/90">
+                            We use a photo reference of your child, age and
+                            gender to create a unique and realistic character
+                            resemblance with the help of AI.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Continue Button */}
+                    <button
+                      onClick={handleContinue}
+                      disabled={!isStep1Valid()}
+                      className={`gap flex w-full items-center justify-center gap-1 rounded-2xl px-6 py-4 text-lg font-semibold transition-all sm:rounded-full sm:px-8 ${
+                        isStep1Valid()
+                          ? 'bg-gradient-to-r from-pink-500 to-purple-600 text-white shadow-lg hover:scale-105 hover:from-pink-600 hover:to-purple-700'
+                          : 'cursor-not-allowed bg-white/20 text-white/50'
+                      }`}
+                    >
+                      <Image
+                        src="/emojis/Sparkles.png"
+                        alt="Arrow Right"
+                        width={24}
+                        height={24}
+                        className=""
+                      />
+                      Continue to Next Step
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

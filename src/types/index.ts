@@ -1,173 +1,176 @@
-export interface User {
-  id: string
-  email: string
-  name?: string
-  avatar_url?: string
-  subscription_tier: 'free' | 'pro' | 'unlimited'
-  stories_generated_this_month: number
-  created_at: string
-  updated_at: string
+// =============================================================================
+// ONBOARDING & USER DATA TYPES
+// =============================================================================
+
+export interface OnboardingData {
+  name: string;
+  age: number;
+  gender: string;
+  photoUrl: string;
+  photoPath: string;
 }
 
-export interface Story {
-  id: string
-  user_id: string
-  title: string
-  content: string
-  character: string
-  setting: string
-  lesson: string
-  age_group: '3-5' | '6-8' | '9-12'
-  language: string
-  story_length: 'short' | 'medium' | 'long'
-  pages: StoryPage[]
-  cover_image_url?: string
-  status: 'generating' | 'completed' | 'failed'
-  created_at: string
-  updated_at: string
+export interface OnboardingStep2Data {
+  destination: string;
+  themes: string[];
+  style: string;
+  customPrompt: string;
+  pageCount: number;
+}
+
+// =============================================================================
+// STORY GENERATION TYPES
+// =============================================================================
+
+export interface StoryGenerationParams {
+  kidCharacterName: string;
+  kidCharacterDescription: string;
+  storyArtStyle: string;
+  storyArtStyleDescription: string;
+  kidAge: number; // 1-7
+  desiredPageCount: number; // Must be 5, 10, or 15
+  parentStoryIdea: string;
 }
 
 export interface StoryPage {
-  id: string
-  story_id: string
-  page_number: number
-  text: string
-  image_url?: string
-  image_prompt: string
-  created_at: string
+  page_number: number;
+  page_type: 'cover' | 'table_of_contents' | 'story_page';
+  chapter_title?: string;
+  content: string;
+  reasoning: string;
+  photo_description: string;
+  photo_data?: string | null;
+  photo_url?: string | null;
 }
 
-export interface Character {
-  id: string
-  user_id: string
-  name: string
-  description: string
-  image_url?: string
-  age_group: '3-5' | '6-8' | '9-12'
-  personality_traits: string[]
-  created_at: string
-  updated_at: string
+export interface GeneratedStory {
+  id: string;
+  story_title: string;
+  pages: StoryPage[];
+  photo_generation_stats?: {
+    total: number;
+    successful: number;
+    failed: number;
+  };
 }
 
-export interface StoryTemplate {
-  id: string
-  name: string
-  description: string
-  character_prompt: string
-  setting_prompt: string
-  lesson_categories: string[]
-  age_groups: ('3-5' | '6-8' | '9-12')[]
-  thumbnail_url?: string
-  is_premium: boolean
+// =============================================================================
+// CHARACTER ANALYSIS TYPES
+// =============================================================================
+
+export interface CharacterGenerationParams {
+  character_name: string;
+  character_age: number;
+  character_gender: string;
 }
 
-export interface Subscription {
-  id: string
-  user_id: string
-  stripe_subscription_id: string
-  status: 'active' | 'canceled' | 'past_due' | 'unpaid'
-  tier: 'pro' | 'unlimited'
-  current_period_start: string
-  current_period_end: string
-  cancel_at_period_end: boolean
-  created_at: string
-  updated_at: string
+export interface CharacterAnalysis {
+  character_name: string;
+  character_age: string;
+  character_gender: string;
+  body_type_build: string;
+  height_perception: string;
+  hairstyle: string;
+  hair_color: string;
+  eye_color: string;
+  nose_shape: string;
+  eyebrow_style: string;
+  chin_shape: string;
+  jawline: string;
+  cheek_shape: string;
+  ear_shape_placement: string;
+  distinctive_facial_features: string;
+  facial_proportions_symmetry: string;
+  skin_tone: string;
+  accessories: string;
+  description: string;
 }
 
-export interface UserFeedback {
-  id: string
-  user_id: string
-  story_id?: string
-  rating: 1 | 2 | 3 | 4 | 5
-  feedback_text?: string
-  feedback_type: 'story_quality' | 'image_quality' | 'general' | 'bug_report'
-  created_at: string
+// =============================================================================
+// IMAGE GENERATION TYPES
+// =============================================================================
+
+export interface ImageGenerationParams {
+  prompt: string;
+  modelId?: string;
+  width?: number;
+  height?: number;
+  numImages?: number;
+  guidance?: number;
+  steps?: number;
 }
 
-// API Response Types
+export interface GeneratedImage {
+  id: string;
+  url: string;
+  likelyGens: number;
+  nsfw: boolean;
+}
+
+// =============================================================================
+// COMPONENT PROP TYPES
+// =============================================================================
+
+export interface HeaderProps {
+  showAuthButton?: boolean;
+}
+
+export interface RangeSliderProps {
+  min: number;
+  max: number;
+  step?: number;
+  value: number;
+  onChange: (value: number) => void;
+  label?: string;
+  unit?: string;
+  showValue?: boolean;
+  className?: string;
+}
+
+// =============================================================================
+// UTILITY TYPES
+// =============================================================================
+
+export interface UploadResult {
+  path: string;
+  publicUrl: string;
+  fileName: string;
+}
+
 export interface ApiResponse<T = any> {
-  success: boolean
-  data?: T
-  error?: string
-  message?: string
+  data: T | null;
+  error: Error | null;
 }
 
-export interface PaginatedResponse<T> {
-  data: T[]
-  total: number
-  page: number
-  limit: number
-  has_more: boolean
+// =============================================================================
+// THEME & STYLE TYPES
+// =============================================================================
+
+export interface ThemeOption {
+  id: string;
+  label: string;
+  color: string;
 }
 
-// Form Types
-export interface StoryGenerationRequest {
-  character: string
-  setting: string
-  lesson: string
-  ageGroup: '3-5' | '6-8' | '9-12'
-  language: string
-  storyLength: 'short' | 'medium' | 'long'
-  templateId?: string
+export type ArtStyle =
+  | 'disney-pixar'
+  | 'paw-patrol'
+  | 'lego'
+  | 'classic-disney';
+
+// =============================================================================
+// GENERATION PROGRESS TYPES
+// =============================================================================
+
+export interface GenerationStep {
+  emoji: string;
+  text: string;
 }
 
-export interface ChildInfo {
-  name: string
-  age: number
-  photo_url?: string
-  interests: string[]
-  favorite_characters: string[]
+export interface GenerationState {
+  isGenerating: boolean;
+  currentStepIndex: number;
+  progress: number;
+  complete: boolean;
+  error?: string;
 }
-
-// Zustand Store Types
-export interface AuthStore {
-  user: User | null
-  isLoading: boolean
-  setUser: (user: User | null) => void
-  setLoading: (loading: boolean) => void
-  signOut: () => void
-}
-
-export interface StoryStore {
-  stories: Story[]
-  currentStory: Story | null
-  isGenerating: boolean
-  generationProgress: number
-  addStory: (story: Story) => void
-  updateStory: (id: string, updates: Partial<Story>) => void
-  setCurrentStory: (story: Story | null) => void
-  setGenerating: (generating: boolean) => void
-  setProgress: (progress: number) => void
-}
-
-export interface CharacterStore {
-  characters: Character[]
-  selectedCharacter: Character | null
-  addCharacter: (character: Character) => void
-  updateCharacter: (id: string, updates: Partial<Character>) => void
-  deleteCharacter: (id: string) => void
-  setSelectedCharacter: (character: Character | null) => void
-}
-
-// External API Types
-export interface GeminiGenerationParams {
-  character: string
-  setting: string
-  lesson: string
-  ageGroup: '3-5' | '6-8' | '9-12'
-  language: string
-  storyLength: 'short' | 'medium' | 'long'
-}
-
-export interface LeonardoImageParams {
-  prompt: string
-  style: 'cute_animals' | 'illustration' | 'watercolor'
-  width?: number
-  height?: number
-}
-
-export interface SupabaseStorageUpload {
-  file: File
-  bucket: string
-  path: string
-} 

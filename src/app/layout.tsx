@@ -9,9 +9,9 @@ const abeezee = ABeeZee({
 });
 
 export const metadata: Metadata = {
-  title: 'AI Kids Story Generator - Create Magical Stories for Your Children',
+  title: 'Bubika - Create Magical Stories for Your Children',
   description:
-    "Generate personalized, illustrated children's stories in seconds with AI. Create unique tales featuring your child's favorite characters and spark their imagination.",
+    "Create personalized, illustrated children's stories in seconds with AI. Create unique tales featuring your child's favorite characters and spark their imagination.",
 };
 
 export default function RootLayout({
