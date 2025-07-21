@@ -525,7 +525,7 @@ export default function LandingPage() {
               className="h-90 w-1/2 rounded-2xl object-cover"
             />
             <div className="sticky top-0 -mb-10 -ml-10 h-full flex-1 rounded-2xl bg-white/80 p-8 shadow-2xl backdrop-blur-xs">
-              <h3 className="mb-3 flex items-center justify-center gap-2 text-2xl font-bold">
+              <h3 className="mb-3 flex items-center gap-2 text-2xl font-bold">
                 Strengthen Family Bonds
                 <Image
                   src="/emojis/Family.png"
@@ -543,7 +543,7 @@ export default function LandingPage() {
           </div>
           <div className="mx-auto flex max-w-5xl items-start">
             <div className="relative -mt-10 -mr-10 h-full flex-1 rounded-2xl bg-white/80 p-8 shadow-2xl backdrop-blur-xs">
-              <h3 className="mb-3 flex items-center justify-center gap-2 text-2xl font-bold">
+              <h3 className="mb-3 flex gap-2 text-2xl font-bold">
                 Hassle-Free Bedtime
                 <Image
                   src="/emojis/Hugging-Face.png"
