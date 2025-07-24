@@ -30,6 +30,7 @@ export interface StoryGenerationParams {
   kidAge: number; // 1-7
   desiredPageCount: number; // Must be 5, 10, or 15
   parentStoryIdea: string;
+  language: string;
 }
 
 export interface StoryPage {

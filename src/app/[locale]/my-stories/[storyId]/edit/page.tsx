@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import Image from 'next/image';
 import {
   ArrowLeftIcon,
@@ -234,7 +234,9 @@ export default function StoryEditPage() {
                 className="animate-pulse"
               />
             </div>
-            <h2 className="mb-2 text-xl font-bold text-white">{t('loading')}</h2>
+            <h2 className="mb-2 text-xl font-bold text-white">
+              {t('loading')}
+            </h2>
             <p className="text-white/80">{t('subloading')}</p>
           </div>
         </div>
@@ -394,7 +396,9 @@ export default function StoryEditPage() {
                   className="flex items-center gap-2 rounded-lg bg-white/30 px-3 py-2 text-white backdrop-blur-sm transition-all hover:bg-white/20"
                 >
                   <EyeIcon className="h-4 w-4" />
-                  <span className="hidden sm:inline">{t('header.preview')}</span>
+                  <span className="hidden sm:inline">
+                    {t('header.preview')}
+                  </span>
                 </Link>
                 <button
                   onClick={handleSave}
@@ -496,14 +500,8 @@ export default function StoryEditPage() {
                         {t('editor.page')} {selectedPage.page_number}
                       </h2>
                       <p className="text-white/80 capitalize">
-                        {t(
-                          `editor.pageType.${selectedPage.page_type.toLowerCase()}` as any
-                        )}{' '}
-                        •
                         {selectedPage.page_type === 'cover' &&
                           t('editor.pageType.cover')}
-                        {selectedPage.page_type === 'story_page' &&
-                          t('editor.pageType.story_page')}
                       </p>
                     </div>
                   </div>

@@ -7,11 +7,12 @@ import { useRouter } from 'next/navigation';
 import RangeSlider from '@/components/RangeSlider';
 import { uploadChildPhoto } from '@/lib/supabase';
 import { useOnboardingStore } from '@/store';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 export default function OnboardingStep1() {
   const router = useRouter();
   const t = useTranslations('onboarding.step1');
+  const locale = useLocale();
   const {
     step1FormData,
     setStep1FormData,
@@ -77,7 +78,7 @@ export default function OnboardingStep1() {
         photoPath: step1FormData.photoPath, // For cleanup if needed
       };
       setStep1Data(dataToStore);
-      router.push('/onboarding/step-2');
+      router.push(`/${locale}/onboarding/step-2`);
     }
   };
 
@@ -132,7 +133,7 @@ export default function OnboardingStep1() {
                 </div>
               </div>
 
-              <h1 className="mb-4 text-2xl font-bold leading-tight text-white sm:mb-6 xl:text-4xl">
+              <h1 className="mb-4 text-2xl leading-tight font-bold text-white sm:mb-6 xl:text-4xl">
                 {t('title')}
               </h1>
               <p className="mx-auto max-w-2xl text-base text-white/90 sm:text-lg">

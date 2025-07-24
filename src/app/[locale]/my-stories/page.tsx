@@ -4,14 +4,15 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useStoryStore } from '@/store';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
+import Footer from '@/components/Footer';
 
 export default function MyStoriesPage() {
   const [loading, setLoading] = useState(true);
   const t = useTranslations('myStories');
   const { getStories, clearAllStoryData } = useStoryStore();
   const stories = getStories();
-
+  const locale = useLocale();
   useEffect(() => {
     // Simple loading simulation since stories come directly from store
     const timer = setTimeout(() => {
@@ -38,7 +39,12 @@ export default function MyStoriesPage() {
         <div className="relative z-10 flex min-h-screen items-center justify-center px-4">
           <div className="text-center">
             <div className="mb-4 flex justify-center">
-              <div className="h-12 w-12 animate-spin rounded-full border-4 border-white/20 border-t-white"></div>
+              <Image
+                src="/emojis/Hourglass-Done.png"
+                alt="Hourglass Done"
+                width={48}
+                height={48}
+              />
             </div>
             <p className="text-lg text-white/90">{t('loading')}</p>
           </div>
@@ -76,7 +82,7 @@ export default function MyStoriesPage() {
           <div className="mx-auto mt-4 max-w-6xl sm:mt-6">
             {/* Header */}
             <div className="mb-8 text-center sm:mb-12">
-              <h1 className="mb-4 text-2xl font-bold leading-tight text-white sm:mb-6 sm:text-3xl md:text-4xl lg:text-5xl">
+              <h1 className="mb-4 text-2xl leading-tight font-bold text-white sm:mb-6 sm:text-3xl md:text-4xl lg:text-5xl">
                 {t('hero.title')}
               </h1>
               <p className="mx-auto max-w-2xl text-base text-white/90 sm:text-lg">
@@ -103,7 +109,7 @@ export default function MyStoriesPage() {
                     {t('noStories.subtitle')}
                   </p>
                   <Link
-                    href="/onboarding/step-1"
+                    href={`/${locale}/onboarding/step-1`}
                     className="inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-600 px-6 py-3 font-semibold text-white transition-all hover:scale-105"
                   >
                     <Image
@@ -121,7 +127,7 @@ export default function MyStoriesPage() {
                 {stories.map(story => (
                   <Link
                     key={story.id}
-                    href={`/my-stories/${story.id}/preview`}
+                    href={`/${locale}/my-stories/${story.id}/preview`}
                     className="group relative overflow-hidden rounded-2xl bg-white/10 p-6 backdrop-blur-md transition-all hover:scale-105 hover:bg-white/20"
                   >
                     {/* Story Image or Placeholder */}
@@ -173,7 +179,7 @@ export default function MyStoriesPage() {
             {/* Create New Story Button */}
             <div className="mt-12 text-center">
               <Link
-                href="/onboarding/step-1"
+                href={`/${locale}/onboarding/step-1`}
                 className="inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-600 px-8 py-4 text-lg font-semibold text-white transition-all hover:scale-105"
                 onClick={() => {
                   clearAllStoryData();
@@ -191,6 +197,7 @@ export default function MyStoriesPage() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

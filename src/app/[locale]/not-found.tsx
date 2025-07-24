@@ -1,12 +1,19 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
-import '@/styles/globals.css';
+import { usePathname } from 'next/navigation';
 
 export default function NotFound() {
+  const t = useTranslations('notFound');
+  const pathname = usePathname();
+
+  // Determine the locale from the pathname
+  const locale = pathname?.split('/')[1] || 'en';
+
   return (
-    <html>
+    <html lang={locale}>
       <body>
         <div className="fixed inset-0 z-50">
           {/* Magical Background */}
@@ -23,22 +30,22 @@ export default function NotFound() {
               <div className="mb-6 flex justify-center">
                 <Image
                   src="/emojis/Hear-No-Evil-Monkey.png"
-                  alt="Hear No Evil Monkey"
+                  alt={t('alt')}
                   width={80}
                   height={80}
                 />
               </div>
               <h1 className="mb-4 text-4xl font-bold text-white sm:text-5xl">
-                Page Not Found
+                {t('title')}
               </h1>
               <p className="mb-8 text-lg text-white/80 sm:text-xl">
-                The page you are looking for does not exist.
+                {t('subtitle')}
               </p>
               <Link
-                href="/"
+                href={`/${locale}`}
                 className="inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-purple-500 to-blue-600 px-6 py-3 font-semibold text-white transition-all hover:scale-105"
               >
-                Go to Home
+                {t('cta')}
               </Link>
             </div>
           </div>

@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef, useCallback } from 'react';
 import { useParams } from 'next/navigation';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import Image from 'next/image';
 import {
   ArrowLeftIcon,
@@ -12,7 +12,7 @@ import {
   DownloadIcon,
 } from 'lucide-react';
 import { StoryPage, GeneratedStory } from '@/types';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 interface Story extends Omit<GeneratedStory, 'pages'> {
   story_pages: (StoryPage & { id: string })[];
@@ -24,7 +24,7 @@ export default function StoryPreviewPage() {
   const params = useParams();
   const storyId = params?.storyId as string;
   const t = useTranslations('storyPreview');
-
+  const locale = useLocale();
   const [story, setStory] = useState<Story | null>(null);
   const [loading, setLoading] = useState(true);
   const [currentPageIndex, setCurrentPageIndex] = useState(0);
@@ -35,7 +35,6 @@ export default function StoryPreviewPage() {
   const touchStartX = useRef<number>(0);
   const touchEndX = useRef<number>(0);
   const containerRef = useRef<HTMLDivElement>(null);
-
   // Fetch story data
   useEffect(() => {
     const fetchStory = async () => {
@@ -208,7 +207,9 @@ export default function StoryPreviewPage() {
                 height={64}
               />
             </div>
-            <h2 className="mb-2 text-xl font-bold text-white">{t('loading')}</h2>
+            <h2 className="mb-2 text-xl font-bold text-white">
+              {t('loading')}
+            </h2>
             <p className="text-white/80">{t('subloading')}</p>
           </div>
         </div>
@@ -293,7 +294,7 @@ export default function StoryPreviewPage() {
             </h1>
             <p className="mb-6 text-white/80">{t('notFound.subtitle')}</p>
             <Link
-              href="/my-stories"
+              href={`/my-stories`}
               className="inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-purple-500 to-blue-600 px-6 py-3 font-semibold text-white transition-all hover:scale-105"
             >
               <ArrowLeftIcon className="h-4 w-4" />

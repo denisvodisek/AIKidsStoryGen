@@ -11,7 +11,7 @@ import {
 } from '@/lib/gemini';
 import { useOnboardingStore, useStoryStore } from '@/store';
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 const generateId = () => {
   return Date.now().toString(36) + Math.random().toString(36).substr(2);
@@ -36,6 +36,7 @@ export default function GeneratePage() {
     clearAllStoryData,
   } = useStoryStore();
   const t = useTranslations('generate');
+  const locale = useLocale();
   // Live timer state
   const [elapsedTime, setElapsedTime] = useState(0);
   const startTimeRef = useRef<number | null>(null);
@@ -209,6 +210,7 @@ export default function GeneratePage() {
             ' ' +
             'LESSONS: ' +
             (step2Data?.themes || []).join(', '),
+        language: locale || 'en',
       });
 
       // Step 2: Story generation complete (70% progress)
@@ -451,7 +453,7 @@ export default function GeneratePage() {
             </div>
             <div className="space-y-6">
               <Link
-                href="/onboarding/step-1"
+                href={`/${locale}/onboarding/step-1`}
                 className="group hover:shadow-3xl relative block w-full overflow-hidden rounded-3xl bg-gradient-to-r from-purple-500 to-blue-600 px-8 py-6 text-center shadow-2xl transition-all hover:scale-105"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-blue-500 opacity-0 transition-opacity group-hover:opacity-100"></div>
@@ -559,8 +561,8 @@ export default function GeneratePage() {
               <Link
                 href={
                   currentStoryId
-                    ? `/my-stories/${currentStoryId}/preview`
-                    : '/my-stories'
+                    ? `/${locale}/my-stories/${currentStoryId}/preview`
+                    : `/${locale}/my-stories`
                 }
                 className="group hover:shadow-3xl relative block w-full overflow-hidden rounded-3xl bg-gradient-to-r from-green-500 to-blue-600 px-4 py-3 text-center shadow-2xl transition-all hover:scale-105 md:px-6 md:py-4"
               >
@@ -581,8 +583,8 @@ export default function GeneratePage() {
                 <Link
                   href={
                     currentStory?.id
-                      ? `/my-stories/${currentStoryId}/edit`
-                      : '/my-stories'
+                      ? `/${locale}/my-stories/${currentStoryId}/edit`
+                      : `/${locale}/my-stories`
                   }
                   className="group flex items-center justify-center gap-3 rounded-2xl bg-white/10 px-6 py-4 backdrop-blur-md transition-all hover:scale-105 hover:bg-white/20"
                 >
@@ -598,7 +600,7 @@ export default function GeneratePage() {
                 </Link>
 
                 <Link
-                  href="/my-stories"
+                  href={`/${locale}/my-stories`}
                   className="group flex items-center justify-center gap-3 rounded-2xl bg-white/10 px-6 py-4 backdrop-blur-md transition-all hover:scale-105 hover:bg-white/20"
                 >
                   <Image
@@ -615,7 +617,7 @@ export default function GeneratePage() {
 
               {/* Create Another Story */}
               <Link
-                href="/onboarding/step-1"
+                href={`/${locale}/onboarding/step-1`}
                 className="group block w-full rounded-3xl bg-white/10 px-6 py-4 backdrop-blur-md transition-all hover:scale-105 hover:bg-white/20"
                 onClick={() => {
                   clearAllStoryData();
@@ -742,7 +744,7 @@ export default function GeneratePage() {
               {/* Secondary Actions */}
               <div className="space-y-4">
                 <Link
-                  href="/onboarding/step-1"
+                  href={`/${locale}/onboarding/step-1`}
                   className="group flex items-center justify-center gap-4 rounded-2xl bg-white/10 px-8 py-5 backdrop-blur-md transition-all hover:scale-105 hover:bg-white/20"
                   onClick={() => {
                     clearAllStoryData();

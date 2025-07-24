@@ -5,11 +5,12 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useOnboardingStore } from '@/store';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 export default function OnboardingStep2() {
   const router = useRouter();
   const t = useTranslations('onboarding.step2');
+  const locale = useLocale();
   const {
     step1Data,
     step2FormData,
@@ -198,7 +199,7 @@ export default function OnboardingStep2() {
         pageCount: step2FormData.pageCount,
       });
 
-      router.push('/auth?next=/generate');
+      router.push(`/${locale}/auth?next=/generate`);
     }
   };
 
@@ -285,7 +286,7 @@ export default function OnboardingStep2() {
                 </div>
               </div>
 
-              <h1 className="mb-4 text-2xl font-bold leading-tight text-white sm:mb-6 xl:text-4xl">
+              <h1 className="mb-4 text-2xl leading-tight font-bold text-white sm:mb-6 xl:text-4xl">
                 {t('title', { name: step1Data?.name || 'your child' })}
               </h1>
               <p className="mx-auto max-w-2xl text-base text-white/90 sm:text-lg">

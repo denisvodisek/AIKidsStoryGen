@@ -232,44 +232,44 @@
       "description": "Potrebujemo še nekaj podrobnosti za ustvarjanje zgodbe. Začnimo to razburljivo potovanje skupaj!",
       "journeyAhead": "Kako Naprej?",
       "step1": "1. korak: Izberi Junaka",
-      "step1Description": "Naloži fotografijo in vse podrobnosti",
+      "step1Description": "Naložite fotografijo in vse podrobnosti",
       "step2": "2. korak: Izberi Pustolovščino",
-      "step2Description": "Izberi temo in slog",
+      "step2Description": "Izberite temo in slog zgodbe",
       "cta": "Začni Čarobno Pustolovščino"
     },
     "generationComplete": {
-      "title": "Zgodba je Pripravljena!",
+      "title": "Vaša Zgodba je Pripravljena!",
       "description": "Čarobna pustolovščina je bila ustvarjena z ogromno ljubezni in ustvarjalnosti!",
-      "readStory": "Preberi Zgodbo",
-      "editStory": "Uredi Zgodbo",
+      "readStory": "Preberite Zgodbo",
+      "editStory": "Uredite Zgodbo",
       "myStories": "Moje Zgodbe",
-      "createAnother": "Ustvari Novo Pustolovščino"
+      "createAnother": "Ustvarite Novo Pustolovščino"
     },
     "generationError": {
-      "rateLimitTitle": "Počakaj Trenutek!",
+      "rateLimitTitle": "Počakajte Trenutek!",
       "connectionIssueTitle": "Težava s Povezavo!",
       "defaultTitle": "Ups, Nekaj je Šlo Narobe!",
       "rateLimitDescription": "Trenutno imamo veliko povpraševanja. Poskusite znova čez nekaj trenutkov!",
-      "connectionIssueDescription": "Hmm izgleda, da je prišlo do težave s povezavo. Preveri svojo internetno povezavo in poskusi znova.",
-      "defaultDescription": "Imamo nekaj tehničnih težav. Poskusi znova čez trenutek!",
-      "retry": "Poskusi Znova",
+      "connectionIssueDescription": "Hmm izgleda, da je prišlo do težave s povezavo. Preverite svojo internetno povezavo in poskusite znova.",
+      "defaultDescription": "Imamo nekaj tehničnih težav. Poskuste znova čez trenutek!",
+      "retry": "Poskusite Znova",
       "retrying": "Poskušam ponovno...",
       "startFresh": "Začni Novo Pustolovščino",
       "needHelp": "Potrebuješ Pomoč?",
       "rateLimitHelp": "Veliko povpraševanje pomeni, da se hkrati ustvarja veliko čarobnih zgodb!",
-      "connectionIssueHelp": "Težave z omrežjem se nažalost zgodijo - ne skrbi, ustvarili bomo tvojo zgodbo!",
-      "defaultHelp": "Ne skrbi, pomagali ti bomo ustvariti čudovito zgodbo!",
-      "contactSupport": "Kontaktiraj Podporo",
+      "connectionIssueHelp": "Težave z omrežjem se nažalost zgodijo - ne skrbite, ustvarili bomo tvojo zgodbo!",
+      "defaultHelp": "Ne skrbite, pomagali ti bomo ustvariti čudovito zgodbo!",
+      "contactSupport": "Kontaktirajte Podporo",
       "quickTips": "💡 Hitri Nasveti",
-      "rateLimitTip1": "Poskusi znova čez 30-60 sekund",
+      "rateLimitTip1": "Poskusite znova čez 30-60 sekund",
       "rateLimitTip2": "Največja obremenitev: večeri in vikendi",
       "rateLimitTip3": "Podatki tvoje zgodbe so shranjeni v brskalniku!",
-      "connectionIssueTip1": "Preveri svojo internetno povezavo",
-      "connectionIssueTip2": "Poskusi osvežiti stran",
+      "connectionIssueTip1": "Preverite svojo internetno povezavo",
+      "connectionIssueTip2": "Poskusite osvežiti stran",
       "connectionIssueTip3": "Tvoj napredek je samodejno shranjen"
     },
     "generating": {
-      "title": "Ustvarjanje Čarobne Zgodbe",
+      "title": "Ustvarjanje Vaše Zgodbe",
       "subtitle": "Naši čarovniki vpletajo čarovnijo v vsako besedo",
       "eta": "V povprečju traja približno 60-120 sekund, da se ustvari zgodba.",
       "progress": "Napredek",
@@ -278,19 +278,19 @@
         "crafting": "📚 Oblikujem personalizirano pustolovščino...",
         "creatingIllustrations": "🎨 Ustvarjam čudovite ilustracije...",
         "finalTouches": "✨ Dodajam še zadnje čarobne dotike...",
-        "ready": "Tvoja zgodba je pripravljena!",
+        "ready": "Vaša zgodba je pripravljena!",
         "transformingHero": "Pretvarjam otroka v glavnega junaka",
         "bringingCharactersToLife": "Ustvarjam nastopajoče like",
         "writingAdventure": "Ustvarjam personalizirano zgodbo",
         "creatingIllustrationsStep": "Ustvarjam čudovite ilustracije",
         "addingMagicalTouches": "Dodajam še zadnje čarobne dotike",
-        "finalizingStory": "Zaključujem tvojo zgodbo"
+        "finalizingStory": "Zaključujem vašo zgodbo"
       }
     }
   },
   "auth": {
     "general": {
-      "title": "Eni Klik Vas Še Loči Od Čarovnije",
+      "title": "Samo Še En Klik Vas Loči Od Čarovnije",
       "subtitle": "Izberite vaš želen način prijave",
       "continueWithGoogle": "Nadaljuj z Google",
       "facebook": "Facebook",
@@ -299,31 +299,31 @@
     },
     "storyFlow": {
       "progressStep": "3. od 3 korakov: Ustvari Račun",
-      "title": "Ustvari Svoj Čarobni Račun",
-      "subtitle": "Začni ustvarjati čarobne zgodbe v samo 30 sekundah!",
-      "waitingText": "Tvoja personalizirana zgodba te že čaka...",
-      "createAccountWithGoogle": "Ustvari Račun z Google",
+      "title": "Ustvarite Vaš Čarobni Račun",
+      "subtitle": "Začnite ustvarjati čarobne zgodbe v samo 30 sekundah!",
+      "waitingText": "Vaša personalizirana zgodba vas že čaka...",
+      "createAccountWithGoogle": "Nadaljujte s prijavo v Google",
       "benefits": {
-        "readyInMinutes": "Tvoja zgodba bo pripravljena v 2 minutah!",
+        "readyInMinutes": "Vaša zgodba bo pripravljena v 2 minutah!",
         "freeTokens": "120 BREZPLAČNIH žetonov - ustvari več zgodb",
-        "personalizedDetails": "Personalizirano z detajli tvojega otroka",
+        "personalizedDetails": "Personalizirana zgodba z detajli vašega otroka",
         "shareInstantly": "Takoj deli z družino in prijatelji"
       },
       "urgency": {
         "almostThere": "Skoraj tam! Samo še 2 koraka...",
-        "nextSteps": "Naslednji korak: Izberi stil zgodbe in dodaj sliko svojega otroka"
+        "nextSteps": "Naslednji korak: Izberite slog zgodbe in dodajte sliko svojega otroka"
       },
-      "termsText": "Z ustvarjanjem računa se strinjaš z našimi čarobnimi pogoji ✨"
+      "termsText": "Z ustvarjanjem računa se strinjate z našimi čarobnimi pogoji ✨"
     },
     "security": {
       "title": "Varno in Zanesljivo",
-      "description": "Tvoji podatki so šifrirani in zaščiteni. Nikoli ne delimo tvojih informacij ali fotografij tvojega otroka z nikomer."
+      "description": "Vaši podatki so šifrirani in zaščiteni. Nikoli ne delimo vaših informacij ali fotografij vašega otroka z nikomer."
     },
     "benefits": {
       "freeTokens": "120 BREZPLAČNIH žetonov",
-      "createInstantly": "Takoj ustvari svojo prvo zgodbo",
-      "safeSecure": "Varno in zanesljivo za tvojo družino",
-      "happyFamilies": "Pridruži se 50.000+ srečnim družinam"
+      "createInstantly": "Ustvarite svojo prvo zgodbo",
+      "safeSecure": "Varno in zanesljivo za vašo družino",
+      "happyFamilies": "Pridružite se 50.000+ srečnim družinam"
     }
   },
   "examples": {
@@ -334,28 +334,28 @@
     "hero": {
       "title1": "Poglejte Čarovnijo",
       "title2": "v Akciji!",
-      "subtitle1": "Odkrijte neverjetne pustolovščine, ki jih je ustvarila naša umetna inteligenca!",
+      "subtitle1": "Odkrijte neverjetne pustolovščine, ki jih je ustvaril naš čarovnik!",
       "subtitle2": "Vsaka zgodba je personalizirana z resničnimi otroki kot junaki svojih čarobnih pravljic."
     },
     "noExamples": {
-      "title": "Primeri Kmalu Na Voljo!",
-      "subtitle": "Pripravljamo izjemne primere zgodb, da vas navdihnemo!",
+      "title": "Primer Bodo Kmalu Na Voljo!",
+      "subtitle": "Pripravljamo primere zgodb, da vas navdihnemo!",
       "cta": "Ustvari Svojo Zgodbo"
     },
     "featured": {
       "title": "✨ Izpostavljena Pustolovščina ✨",
       "pages": "strani",
       "aiGenerated": "Generirano z AI",
-      "read": "Klikni za Branje →"
+      "read": "Kliknite za Branje →"
     },
     "more": {
       "title": "🌟 Več Neverjetnih Zgodb 🌟",
       "read": "Preberi Zgodbo →"
     },
     "cta": {
-      "title": "Ste Pripravljeni Ustvariti Pustolovščino Svojega Otroka?",
-      "subtitle": "Pridružite se tisočim družinam, ki ustvarjajo personalizirane čarobne zgodbe!",
-      "button": "Začni Ustvarjati Zdaj"
+      "title": "Ste Pripravljeni Ustvariti Pustolovščino Za Svojega Otroka?",
+      "subtitle": "Pridružite se tisočim družinam, ki ustvarjajo personalizirane zgodbe!",
+      "button": "Ustvarite Svojo Zgodbo Zdaj!"
     }
   },
   "myStories": {
@@ -367,12 +367,12 @@
     "noStories": {
       "title": "Še Ni Zgodb",
       "subtitle": "Ustvarite svojo prvo čarobno pustolovščino in prikazala se bo tukaj!",
-      "cta": "Ustvari Svojo Prvo Zgodbo"
+      "cta": "Ustvarite Svojo Prvo Zgodbo"
     },
     "storyCard": {
       "pages": "strani"
     },
-    "cta": "Ustvari Novo Pustolovščino"
+    "cta": "Ustvarite Novo Pustolovščino"
   },
   "storyPreview": {
     "loading": "Nalaganje vaše zgodbe...",
@@ -454,17 +454,17 @@
         "secure": "Vaša fotografija je varna, ne bo shranjena in bo uporabljena samo za ustvarjanje vaše zgodbe."
       },
       "preview": {
-        "title": "Naš AI bo to fotografijo spremenil v čaroben risani lik za njihove zgodbe!"
+        "title": "Naš čarovnik bo to fotografijo spremenil v risani lik za vašo zgodbo!"
       },
       "form": {
         "title": "Povejte Nam O Svojem Otroku",
         "name": "Kako je ime vašemu otroku?",
-        "namePlaceholder": "Ema Novak",
+        "namePlaceholder": "Ema, Jakob...",
         "age": "Koliko je star vaš otrok?",
         "ageUnit": "let",
         "gender": "Spol",
         "boy": "Fant",
-        "girl": "Dekle"
+        "girl": "Deklica"
       },
       "privacy": {
         "title": "Kako uporabljamo te informacije?",
@@ -476,19 +476,19 @@
       "back": "Nazaj",
       "generate": "Generiraj",
       "progress": "Korak 2 od 3",
-      "title": "Ustvari Pustolovščino za {name}!",
-      "subtitle": "Izberite, kako želite ustvariti svojo čarobno zgodbo",
+      "title": "Ustvarite Pustolovščino za vašega otroka!",
+      "subtitle": "Izberite, kako želite ustvariti svojo zgodbo",
       "style": {
-        "title": "Izberite Slog Vaše Zgodbe",
+        "title": "Izberite Slog",
         "subtitle": "Izberite vizualni slog za vašo čarobno zgodbo",
         "disney-pixar": "Disney Pixar",
         "disney-pixar-desc": "Barvit 3D animacijski slog",
         "paw-patrol": "Tačke na patrulji",
         "paw-patrol-desc": "Zabaven risani pustolovski slog",
         "lego": "Lego",
-        "lego-desc": "Slog gradnje s kockami",
+        "lego-desc": "Slog z najljubšimi kockami",
         "classic-disney": "Klasični Disney",
-        "classic-disney-desc": "Tradicionalni ročno risani slog"
+        "classic-disney-desc": "Tradicionalni risani slog"
       },
       "customPrompt": {
         "title": "Povejte Nam Svoje Ideje za Zgodbo",

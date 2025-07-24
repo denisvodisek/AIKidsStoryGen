@@ -94,6 +94,14 @@ ${Object.entries(params)
   .map(([key, value]) => `${key}: ${value}`)
   .join('\n')}
 
+//  **Language Rules:**
+//    - The story MUST be generated in the language specified by the 'story_language' variable.
+//    - The following JSON fields MUST be translated into the target language: "story_title", "content", and "chapter_title".
+//    - ALL other JSON keys and values MUST remain in English. This is critical for system compatibility.
+//    - Specifically, "photo_description" and "reasoning" MUST ALWAYS be in English.
+//    - When using other language than English for the story, make sure the grammar is correct, usage of words is correct (VERY IMPORTANT) and that the story makes sense.
+
+
 // 1. **Story Planning & Guardrails:**
 //    - Analyze parentStoryIdea.
 //    - If parentStoryIdea is minimal or vague (e.g., just a lesson like "loyalty"), you MUST autonomously expand it.
@@ -139,26 +147,31 @@ ${Object.entries(params)
 
 Return the story in this exact JSON format:
 {
-  "story_title": "Generated Story Title based on the plot",
+  "story_title": "Generated Story Title based on the plot", // MUST be in the target 'story_language'.
+  "story_language": "${languagePromptEnhancer(params.language)}",
   "story_art_style": "${params.storyArtStyle}",
   "story_art_style_description": "${params.storyArtStyleDescription}",
-    "other_characters": [
+    "characters": [
+    {
+      "name": "${params.kidCharacterName}",
+      "description": "${params.kidCharacterDescription}" // Describe their physical appearance, clothes, and accessories, make sure they are consitent across the story.
+    },
     {
       "name": "Sparky",
-      "description": "Sparky, a tiny, glowing fairy with iridescent wings, wearing a dress made of dewdrops and leaves, with long, flowing silver hair and mischievous green eyes."
+      "description": "Sparky, a tiny, glowing fairy with iridescent wings, wearing a dress made of dewdrops and leaves, with long, flowing silver hair and mischievous green eyes." // Describe their physical appearance, clothes, and accessories, make sure they are consitent across the story.
     },
     {
       "name": "Dino",
-      "description": "Dino, a friendly, plump green dinosaur, short and stout, with large, curious eyes and small, stubby arms, always smiling."
+      "description": "Dino, a friendly, plump green dinosaur, short and stout, with large, curious eyes and small, stubby arms, always smiling." // Describe their physical appearance, clothes, and accessories, make sure they are consitent across the story.
     }
-    // Add more objects for each new character introduced
+    // Add more objects for each new character introduced 
   ],
   "pages": [
     {
       "page_number": 1,
       "page_type": "cover",
       "chapter_title": null, // Cover page does not have a chapter title
-      "content": "[INSERT STORY TITLE HERE]",
+      "content": "[INSERT STORY TITLE HERE]", // MUST be in the target 'story_language'.
       "reasoning": "This page serves as the cover, introducing the story's title and primary protagonist.",
       "photo_description": "Art Style: ${params.storyArtStyleDescription}. " +
                            "Photo description for this page: [Describe the scene, including specific actions, emotions, objects, and setting details (e.g., 'a glowing mushroom in a magical forest'), time of day, lighting, and perspective]. " +
@@ -171,9 +184,9 @@ Return the story in this exact JSON format:
     {
       "page_number": /* Incrementing number, e.g., 2 or 3 */,
       "page_type": "story_page",
-      "chapter_title": "Optional Chapter Title for the start of each new chapter (null if not applicable for this age/page)",
-      "content": "Story text for this page. Keep sentences concise and appropriate for the kidAge.",
-      "reasoning": "Brief explanation of this page's narrative purpose",
+      "chapter_title": "Optional Chapter Title for the start of each new chapter (null if not applicable for this age/page)", // MUST be in the target 'story_language'.
+      "content": "Story text for this page. Keep sentences concise and appropriate for the kidAge.", // MUST be in the target 'story_language'.
+      "reasoning": "Brief explanation of this page's narrative purpose", // MUST be in the target 'story_language'.
       "photo_description": "Art Style: ${params.storyArtStyleDescription}. " +
                            "Photo description for this page: [Describe the specific scene for this page, including actions, emotions, objects, and setting details (e.g., 'a glowing mushroom in a magical forest'), time of day, lighting, and perspective]. " +
                            "The image should be slightly zoomed out, showing more of the environment. " +
@@ -193,9 +206,9 @@ IMPORTANT: Ensure the pages array contains exactly ${params.desiredPageCount} pa
 // 3. Add the fixed composition details:
 //    - For 'cover' pages: "The image should be significantly zoomed out, showing the broader environment and all key elements. IMPORTANT: This image serves as the cover, introducing the story's title and primary protagonist. It should clearly hint at the story's main setting and include all the characters in the story. It should be inspirational."
 //    - For 'story_page' pages: "The image should be slightly zoomed out, showing more of the environment."
-// 4. Add the character descriptions based on the 'characters_on_page' array for this specific page.
+// 4. Add the character descriptions based on the 'characters_on_page' array for this specific page. 
 // How to dynamically generate character descriptions:
-//    - Prepend the art style instruction to each character's detailed description.
+//    - Prepend the art style instruction to each character's detailed description. 
 //    - If '${params.kidCharacterName}' is in 'characters_on_page': "A character must follow the ${params.storyArtStyle} art style: ${params.kidCharacterDescription}."
 //    - If any other character name (e.g., "Dino") is in 'characters_on_page', retrieve its full description from the top-level 'other_characters' array. Prepend the art style: "A character must follow the ${params.storyArtStyle} art style: [CharacterName], [CharacterDescription]."
 //    - Combine all relevant character descriptions into a single, cohesive "Characters present:" section at the end of the 'photo_description' string. Ensure characters consistency throughout the story.
@@ -472,4 +485,14 @@ export const artStylePromptEnhancer = (style: string) => {
     return "A traditional 2D hand-drawn animation style with fluid lines, lush watercolor-like backgrounds, and iconic, graceful character designs. The aesthetic emphasizes soft colors, intricate details in fantastical settings, and a timeless, illustrative quality, reminiscent of 'Snow White', 'Cinderella', or 'Beauty and the Beast'.";
   }
   return defaultStyle;
+};
+
+export const languagePromptEnhancer = (language: string) => {
+  const defaultLanguage = 'en';
+  if (language === 'en') {
+    return defaultLanguage;
+  } else if (language === 'sl') {
+    return 'Slovenian language';
+  }
+  return defaultLanguage;
 };
