@@ -1,0 +1,267 @@
+{
+  "header": {
+    "brand": "Bubika",
+    "signIn": "Prijavi se",
+    "startMagic": "Začni Čarovnijo"
+  },
+  "footer": {
+    "brand": "Bubika",
+    "description": "Ustvarjamo čarobne zgodbe za vse čudovite otroke okoli sveta!",
+    "funStuff": "Zabava 🎮",
+    "features": "Funkcije",
+    "pricing": "Cene",
+    "examples": "Poglej Primere",
+    "helpSupport": "Pomoč in Podpora 🤝",
+    "helpCenter": "Center za Pomoč",
+    "contactUs": "Kontaktiraj Nas",
+    "privacySafety": "Zasebnost in Varnost",
+    "aboutUs": "O Nas 🏢",
+    "about": "O Nas",
+    "blog": "Blog",
+    "joinTeam": "Pridruži se Naši Ekipi",
+    "copyright": "Narejeno z",
+    "forAmazingKidsAndFamilies": "za vse čudovite otroke in družine!"
+  },
+  "buttons": {
+    "continue": "Nadaljuj",
+    "back": "Nazaj",
+    "cancel": "Prekliči",
+    "save": "Shrani",
+    "startCreating": "Začni",
+    "seeExamples": "Poglej Primere",
+    "startYourOwnAdventure": "Začni Svojo Pustolovščino"
+  },
+  "landing": {
+    "hero": {
+      "title": {
+        "createMagical": "Ustvari Čarobne",
+        "adventures": "Zgodbe!"
+      },
+      "subtitle": {
+        "makeChild": "Ustvari svojega otroka kot",
+        "mainCharacter": "glavnega junaka",
+        "inTheirStories": "v njihovih čarobnih zgodbah!",
+        "aiCreates": "Naš AI ustvarja zgodbe s prečudovitimi ilustracijami v sekundah!"
+      },
+      "cta": {
+        "startCreating": "Začni Ustvarjati Svojo",
+        "seeExamples": "Poglej Primere"
+      },
+      "altTexts": {
+        "star": "Zvezda",
+        "bird": "Ptica",
+        "butterfly": "Vrtnica",
+        "book": "Knjiga",
+        "sparkles": "Svetilke",
+        "rocket": "Raketa",
+        "eyes": "Oči"
+      }
+    },
+    "howItWorks": {
+      "step1": {
+        "title": "1. KORAK",
+        "heading": "Naloži in Pretvori",
+        "description": "Naloži svojo fotografijo otroka in počakaj, da ga naš AI čarovnik magično spremeni v glavnega junaka zgodbe!",
+        "security": "100% varno in zasebno - fotografij nikoli ne shranjujemo!",
+        "altTexts": {
+          "snapTransform": "Naloži in Pretvori",
+          "arrow": "Puščica",
+          "lock": "Ključavnica"
+        }
+      },
+      "step2": {
+        "title": "2. KORAK",
+        "heading": "Izberi Pustolovščino",
+        "description": "Izberi iz naših čarobnih predlogov ali ustvari svojo unikatno zgodbo. Začaran gozd, magični grad, vesoljske pustolovščine - izbira je tvoja!",
+        "possibilities": "Neskončne možnosti samo za vas",
+        "altTexts": {
+          "chooseAdventure": "Izberi Pustolovščino",
+          "personalizeStory": "Personaliziraj Zgodbo",
+          "sparkles": "Svetilke"
+        }
+      },
+      "step3": {
+        "title": "3. KORAK",
+        "heading": "Čas za Branje!",
+        "description": "Oglej si, kako se tvoja personalizirana zgodba pojavi s prečudovitimi ilustracijami. Čas za branje je postal magičen!",
+        "bedtime": "Odlično za zgodbico pred spanjem!",
+        "altTexts": {
+          "storyMagic": "Čarovniška Zgodba!",
+          "book": "Knjiga"
+        }
+      }
+    },
+    "storyStyles": {
+      "title": "Izberite Njihovo Idealno Pustolovščino",
+      "subtitle": "Oglej si, kako se vaš otrok zažari in postane glavni junak svoje zgodbe!",
+      "disney": {
+        "title": "Klasična Disneyjeve Čarovnije",
+        "description": "Spremeni svojega otroka v Disneyjevo princeso ali princa!",
+        "badge": "Najljubša izbira za starše"
+      },
+      "pixar": {
+        "title": "Pixar Dogodivščine",
+        "description": "Epske dogodivščine z vrhunskim razvojem likov v zgodbi!",
+        "badge": "Najljubša izbira za otroke"
+      },
+      "lego": {
+        "title": "Lego Pustolovščine",
+        "description": "Izgradi svoje svetove iz LEGO kock z vašim junakom!",
+        "badge": "Otroci obožujejo"
+      },
+      "heroRescue": {
+        "title": "Avanture Tačkinih Patrulj",
+        "description": "Tvoj otrok reši dan z hrabrostjo in ekipno delovanjem!",
+        "badge": "Najbolj zaželen stil"
+      },
+      "altTexts": {
+        "parachute": "Padalec"
+      }
+    },
+    "features": {
+      "bedtimeMagic": "... in naj vam nikoli ne zmanjka zgodbic pred spanjem!",
+      "familyBonds": {
+        "title": "Zbližajte se z vašimi najdražjimi",
+        "description": "Aktivno sodeluj v zgodbici pred spanjem svojega otroka in ustvarjaj neprecenljive skupne trenutke.",
+        "subtitle": "Odkrivajte svetove zgodb skupaj!",
+        "altTexts": {
+          "familyBonding": "Family Bonding",
+          "heart": "Heart",
+          "star": "Star"
+        }
+      },
+      "hassleFree": {
+        "title": "Brez stresa pred spanjem",
+        "description": "Sveže zgodbice pred spanjem vsako noč. Prihranite čas in ustvarite svojo čarobno rutino pred spanjem.",
+        "subtitle": "Nič več težav z \"mi lahko poveš še eno zgodbico\"!",
+        "altTexts": {
+          "hassleFreeBedtime": "Brez stresa pred spanjem",
+          "clock": "Ura",
+          "cupcake": "Kolaček",
+          "grinningCat": "Smejoča mačka"
+        }
+      },
+      "altTexts": {
+        "zzz": "zzz"
+      }
+    },
+    "subscription": {
+      "title": "Ste Pripravljeni Ustvariti Nove Zgodbe Vsako Noč?",
+      "subtitle": "Pridružite se več kot 50,000+ družinam, ki že ustvarjajo nepozabne zgodbe!",
+      "getUnlimited": "Ustvarite personalizirane zgodbe za manj kot en obrok.",
+      "features": {
+        "personalizedStories": {
+          "title": "Personalizirane Zgodbe",
+          "description": "300 žetonov mesečno - nikoli ne boste brez čarobnih zgodb!"
+        },
+        "premiumQuality": {
+          "title": "Premium Kakovost",
+          "description": "Prečudovite ilustracije in personalizirane zgodbe!"
+        },
+        "safe": {
+          "title": "100% Varno",
+          "description": "Zasebno, varno in narejeno za družine!"
+        }
+      },
+      "pricing": {
+        "price": "5,99€",
+        "period": "/mesečno",
+        "comparison": "Manj kot en obrok <image></image> • Prekličite kadarkoli • 30-dnevna garancija"
+      },
+      "cta": {
+        "getUnlimited": "Ustvarite čarobne zgodbe",
+        "tryFree": "Poskusite brezplačno"
+      },
+      "freeTokens": {
+        "startWith": "Po prijavi vas obdarimo z",
+        "tokens": "120 brezplačnimi žetoni",
+        "whenSignUp": "- ustvarite svojo prvo zgodbo še danes!"
+      },
+      "altTexts": {
+        "magic": "Čarovniška Zgodba",
+        "premium": "Premium",
+        "safe": "Varno",
+        "pizza": "Obrok",
+        "crown": "Krona",
+        "rocket": "Raketa",
+        "gift": "Darilo"
+      }
+    },
+    "testimonials": {
+      "title": "Kaj Pravijo Starši",
+      "subtitle": "Naši uporabniki delijo svoje momente veselja!",
+      "reviews": {
+        "sarah": {
+          "name": "Sara B.",
+          "role": "Emina mami, 6 let",
+          "quote": "Emma se naravnost obožuje videti kot princesa! 👸 Vsak večer prosi za svoje posebne zgodbe. Umetna inteligenca jo naredi za junakinjo vsake pustolovščine!",
+          "badge": "💝 \"Najboljša večerna rutina!\""
+        },
+        "mikeLisa": {
+          "name": "Ana & Daniel",
+          "role": "Jakovova starša, 4 leta",
+          "quote": "Naš sramežljivi Jakec je postal tako samozavesten! 🦸‍♂️ Z veseljem vsem pripoveduje o svojih zmajevih dogodivščinah. Zgodbe so tako ustvarjalne in varne!",
+          "badge": "🌟 \"Spodbudilo je njegovo domišljijo!\""
+        },
+        "teacherAmy": {
+          "name": "Učiteljica Amy",
+          "role": "Mama dvojčkov, 5 let",
+          "quote": "Kot učiteljica IN mama sem presenečena! 📚 Moji dvojčki imata vsak svoje edinstvene dogodivščine. Super za bralne veščine in ustvarjalnost!",
+          "badge": "🎯 \"Izobraževalno IN zabavno!\""
+        },
+        "drRodriguez": {
+          "name": "Dr. Rodriguez",
+          "role": "Sofijin oče, 7 let",
+          "quote": "Sofia je iz nejevoljne bralke postala navdušenka nad zgodbami! 📖 Vsak večer bere 30 minut dlje, ker obožuje svoje čarobne pustolovščine."
+        },
+        "techMomJenny": {
+          "name": "Tehnična mama Jenny",
+          "role": "Alexova mama, 8 let",
+          "quote": "Všeč mi je, kako varno in zasebno je! 🔒 Alex dobiva neverjetne zgodbe, jaz pa vem, da so njegovi podatki zaščiteni. Popolno za tehnološko ozaveščene starše!"
+        }
+      },
+      "altTexts": {
+        "loveLetter": "Ljubezensko pismo",
+        "parentReview": "Profilna fotografija ocene starša"
+      }
+    }
+  },
+  "auth": {
+    "general": {
+      "title": "One-Click Magic Access",
+      "subtitle": "Choose your preferred sign-in method",
+      "continueWithGoogle": "Continue with Google",
+      "facebook": "Facebook",
+      "apple": "Apple",
+      "termsText": "By signing in, you agree to our magical terms ✨"
+    },
+    "storyFlow": {
+      "progressStep": "Step 1 of 3: Create Account",
+      "title": "Create Your Story Account",
+      "subtitle": "Start creating magical stories in just 30 seconds!",
+      "waitingText": "Your personalized story is waiting...",
+      "createAccountWithGoogle": "Create Account with Google",
+      "benefits": {
+        "readyInMinutes": "Your story will be ready in 2 minutes!",
+        "freeTokens": "120 FREE tokens - create multiple stories",
+        "personalizedDetails": "Personalized with your child's details",
+        "shareInstantly": "Share instantly with family & friends"
+      },
+      "urgency": {
+        "almostThere": "Almost there! Just 2 more steps...",
+        "nextSteps": "Next: Choose your story style & add your child's photo"
+      },
+      "termsText": "By creating an account, you agree to our magical terms ✨"
+    },
+    "security": {
+      "title": "Safe & Secure",
+      "description": "Your data is encrypted and protected. We never share your information or your child's photos with anyone."
+    },
+    "benefits": {
+      "freeTokens": "120 FREE tokens",
+      "createInstantly": "Create your first story instantly",
+      "safeSecure": "Safe & secure for your family",
+      "happyFamilies": "Join 50,000+ happy families"
+    }
+  }
+}

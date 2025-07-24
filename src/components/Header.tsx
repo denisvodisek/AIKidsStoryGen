@@ -1,13 +1,14 @@
 'use client';
 
-import Link from 'next/link';
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 import { HeaderProps } from '@/types';
 import { useStoryStore } from '@/store/story-store';
 import Image from 'next/image';
 
 export default function Header({ showAuthButton = true }: HeaderProps) {
   const { clearAllStoryData } = useStoryStore();
-
+  const t = useTranslations('header');
   return (
     <header className="container mx-auto px-4 py-6">
       <nav className="flex items-center justify-between">
@@ -22,7 +23,7 @@ export default function Header({ showAuthButton = true }: HeaderProps) {
               />
             </div>
             <span className="text-2xl font-bold tracking-wide text-white">
-              Bubika
+              {t('brand')}
             </span>
           </Link>
         </div>
@@ -32,7 +33,7 @@ export default function Header({ showAuthButton = true }: HeaderProps) {
               href="/auth"
               className="font-medium text-white/90 transition-colors hover:text-yellow-300"
             >
-              Sign In
+              {t('signIn')}
             </Link>
             <Link
               href="/onboarding/step-1"
@@ -41,7 +42,7 @@ export default function Header({ showAuthButton = true }: HeaderProps) {
                 clearAllStoryData();
               }}
             >
-              Start Magic
+              {t('startMagic')}
               <Image
                 src="/emojis/Magic-Wand.png"
                 alt="Magic Wand"

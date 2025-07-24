@@ -1,0 +1,269 @@
+{
+  "header": {
+    "brand": "Bubika",
+    "signIn": "Sign In",
+    "startMagic": "Start Magic"
+  },
+  "footer": {
+    "brand": "Bubika",
+    "description": "Creating magical stories for amazing kids everywhere!",
+    "funStuff": "Fun Stuff 🎮",
+    "features": "Features",
+    "pricing": "Pricing",
+    "examples": "Story Examples",
+    "helpSupport": "Help & Support 🤝",
+    "helpCenter": "Help Center",
+    "contactUs": "Contact Us",
+    "privacySafety": "Privacy & Safety",
+    "aboutUs": "About Us 🏢",
+    "about": "About",
+    "blog": "Blog",
+    "joinTeam": "Join Our Team",
+    "copyright": "Made with",
+    "forAmazingKidsAndFamilies": "for amazing kids and families!"
+  },
+  "buttons": {
+    "continue": "Continue",
+    "back": "Back",
+    "cancel": "Cancel",
+    "save": "Save",
+    "startCreating": "Start Creating",
+    "seeExamples": "See Examples",
+    "startYourOwnAdventure": "Start Your Own Adventure",
+    "tryFreeFirst": "Try Free First",
+    "getUnlimitedMagic": "Get Unlimited Magic"
+  },
+  "landing": {
+    "hero": {
+      "title": {
+        "createMagical": "Create Magical",
+        "adventures": "Adventures!"
+      },
+      "subtitle": {
+        "makeChild": "Make your child the",
+        "mainCharacter": "main character",
+        "inTheirStories": "in their own magical stories!",
+        "aiCreates": "AI creates personalized tales with beautiful pictures in seconds!"
+      },
+      "cta": {
+        "startCreating": "Start Creating",
+        "seeExamples": "See Examples"
+      },
+      "altTexts": {
+        "star": "Star",
+        "bird": "Bird",
+        "butterfly": "Butterfly",
+        "book": "Book",
+        "sparkles": "Sparkles",
+        "rocket": "Rocket",
+        "eyes": "Eyes"
+      }
+    },
+    "howItWorks": {
+      "step1": {
+        "title": "STEP 1",
+        "heading": "Upload & Transform",
+        "description": "Upload your child's photo and watch our AI magically transform them into a story hero!",
+        "security": "100% secure & private - photos are never stored",
+        "altTexts": {
+          "snapTransform": "Snap & Transform",
+          "arrow": "Arrow",
+          "lock": "Lock"
+        }
+      },
+      "step2": {
+        "title": "STEP 2",
+        "heading": "Choose Adventure",
+        "description": "Pick from magical templates or create your own unique storyline. Dragons, castles, space adventures - you choose!",
+        "possibilities": "Unlimited possibilities await",
+        "altTexts": {
+          "chooseAdventure": "Choose Adventure",
+          "personalizeStory": "Personalize Story",
+          "sparkles": "Sparkles"
+        }
+      },
+      "step3": {
+        "title": "STEP 3",
+        "heading": "Story Magic!",
+        "description": "Watch your personalized story come to life with beautiful illustrations. Reading time just became magical!",
+        "bedtime": "Perfect for bedtime stories",
+        "altTexts": {
+          "storyMagic": "Story Magic!",
+          "book": "Book"
+        }
+      }
+    },
+    "storyStyles": {
+      "title": "Pick Their Perfect Adventure",
+      "subtitle": "Watch your child's eyes light up as they see themselves in their favorite world!",
+      "disney": {
+        "title": "Classic Disney Magic",
+        "description": "Transform your child into a Disney princess or prince!",
+        "badge": "Parent favorite"
+      },
+      "pixar": {
+        "title": "Pixar Adventures",
+        "description": "Epic quests with incredible character development!",
+        "badge": "Kids love it"
+      },
+      "lego": {
+        "title": "Lego Adventures",
+        "description": "Build incredible worlds brick by brick with your hero!",
+        "badge": "Kid approved"
+      },
+      "heroRescue": {
+        "title": "Hero Rescue Stories",
+        "description": "Your little one saves the day with courage and teamwork!",
+        "badge": "Top requested"
+      },
+      "altTexts": {
+        "parachute": "Parachute"
+      }
+    },
+    "features": {
+      "bedtimeMagic": "... and never run out of bedtime magic",
+      "familyBonds": {
+        "title": "Strengthen Family Bonds",
+        "description": "Actively participate in your child's bedtime storytelling, creating cherished shared moments.",
+        "subtitle": "Involve your loved ones and explore together!",
+        "altTexts": {
+          "familyBonding": "Family Bonding",
+          "heart": "Heart",
+          "star": "Star"
+        }
+      },
+      "hassleFree": {
+        "title": "Hassle-Free Bedtime",
+        "description": "Fresh stories for bedtime every night, saving parents time and ensuring a smooth, magical bedtime routine.",
+        "subtitle": "No more \"tell me another story\" struggles!",
+        "altTexts": {
+          "hassleFreeBedtime": "Hassle-Free Bedtime",
+          "clock": "Clock",
+          "cupcake": "Cupcake",
+          "grinningCat": "Grinning Cat"
+        }
+      },
+      "altTexts": {
+        "zzz": "zzz"
+      }
+    },
+    "subscription": {
+      "title": "Ready to Create Magic Every Night?",
+      "subtitle": "Join 50,000+ families already creating unforgettable adventures!",
+      "getUnlimited": "Get unlimited personalized stories for less than a coffee.",
+      "features": {
+        "personalizedStories": {
+          "title": "Personalized Stories",
+          "description": "300 tokens monthly - never run out of bedtime magic*!"
+        },
+        "premiumQuality": {
+          "title": "Premium Quality",
+          "description": "Beautiful illustrations & personalized adventures!"
+        },
+        "safe": {
+          "title": "100% Safe",
+          "description": "Private, secure, and designed for families!"
+        }
+      },
+      "pricing": {
+        "price": "$5.99",
+        "period": "/month",
+        "comparison": "Less than a <image></image> • Cancel anytime • 30-day guarantee"
+      },
+      "cta": {
+        "getUnlimited": "Get Unlimited Magic",
+        "tryFree": "Try Free First"
+      },
+      "freeTokens": {
+        "startWith": "Start with",
+        "tokens": "120 free tokens",
+        "whenSignUp": "when you sign up - create your first magical story today!"
+      },
+      "altTexts": {
+        "magic": "Magic",
+        "premium": "Premium",
+        "safe": "Safe",
+        "pizza": "Pizza",
+        "crown": "Crown",
+        "rocket": "Rocket",
+        "gift": "Gift"
+      }
+    },
+    "testimonials": {
+      "title": "What Parents Say",
+      "subtitle": "Real families sharing their magical story adventures!",
+      "reviews": {
+        "sarah": {
+          "name": "Sarah M.",
+          "role": "Mom of Emma, 6",
+          "quote": "Emma absolutely LOVES seeing herself as a princess! 👸 She asks for her special stories every night. The AI makes her the hero of every adventure!",
+          "badge": "💝 \"Best bedtime routine ever!\""
+        },
+        "mikeLisa": {
+          "name": "Mike & Lisa",
+          "role": "Parents of Jake, 4",
+          "quote": "Our shy little Jake has become so confident! 🦸‍♂️ He loves telling everyone about his dragon adventures. The stories are so creative and safe!",
+          "badge": "🌟 \"Boosted his imagination!\""
+        },
+        "teacherAmy": {
+          "name": "Teacher Amy",
+          "role": "Mom of twins, 5",
+          "quote": "As a teacher AND a mom, I'm amazed! 📚 My twins each get their own unique adventures. Great for reading skills and creativity!",
+          "badge": "🎯 \"Educational AND fun!\""
+        },
+        "drRodriguez": {
+          "name": "Dr. Rodriguez",
+          "role": "Dad of Sofia, 7",
+          "quote": "Sofia went from reluctant reader to story enthusiast! 📖 She's reading 30 minutes longer each night because she loves her magical adventures."
+        },
+        "techMomJenny": {
+          "name": "Tech Mom Jenny",
+          "role": "Mom of Alex, 8",
+          "quote": "I love how safe and private it is! 🔒 Alex gets amazing stories while I know his data is protected. Perfect for tech-savvy parents!"
+        }
+      },
+      "altTexts": {
+        "loveLetter": "Love Letter",
+        "parentReview": "Parent Review Profile Photo"
+      }
+    }
+  },
+  "auth": {
+    "general": {
+      "title": "One-Click Magic Access",
+      "subtitle": "Choose your preferred sign-in method",
+      "continueWithGoogle": "Continue with Google",
+      "facebook": "Facebook",
+      "apple": "Apple",
+      "termsText": "By signing in, you agree to our magical terms ✨"
+    },
+    "storyFlow": {
+      "progressStep": "Step 1 of 3: Create Account",
+      "title": "Create Your Story Account",
+      "subtitle": "Start creating magical stories in just 30 seconds!",
+      "waitingText": "Your personalized story is waiting...",
+      "createAccountWithGoogle": "Create Account with Google",
+      "benefits": {
+        "readyInMinutes": "Your story will be ready in 2 minutes!",
+        "freeTokens": "120 FREE tokens - create multiple stories",
+        "personalizedDetails": "Personalized with your child's details",
+        "shareInstantly": "Share instantly with family & friends"
+      },
+      "urgency": {
+        "almostThere": "Almost there! Just 2 more steps...",
+        "nextSteps": "Next: Choose your story style & add your child's photo"
+      },
+      "termsText": "By creating an account, you agree to our magical terms ✨"
+    },
+    "security": {
+      "title": "Safe & Secure",
+      "description": "Your data is encrypted and protected. We never share your information or your child's photos with anyone."
+    },
+    "benefits": {
+      "freeTokens": "120 FREE tokens",
+      "createInstantly": "Create your first story instantly",
+      "safeSecure": "Safe & secure for your family",
+      "happyFamilies": "Join 50,000+ happy families"
+    }
+  }
+}

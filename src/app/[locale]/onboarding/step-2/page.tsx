@@ -175,7 +175,8 @@ export default function OnboardingStep2() {
         customPrompt: step2FormData.customPrompt,
         pageCount: step2FormData.pageCount,
       });
-      router.push('/generate');
+
+      router.push('/auth?next=/generate');
     }
   };
 
@@ -253,7 +254,7 @@ export default function OnboardingStep2() {
               {/* Progress Indicator */}
               <div className="mt-6 mb-6 flex justify-center sm:mt-8">
                 <div className="flex items-center gap-2">
-                  <div className="h-2 w-8 rounded-full bg-white/20"></div>
+                  <div className="h-2 w-8 rounded-full bg-gradient-to-r from-pink-400 to-purple-400"></div>
                   <div className="h-2 w-8 rounded-full bg-gradient-to-r from-cyan-400 to-blue-400"></div>
                   <div className="h-2 w-8 rounded-full bg-white/20"></div>
                   <span className="ml-2 text-sm text-white/70">
