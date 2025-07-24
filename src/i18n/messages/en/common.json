@@ -228,6 +228,69 @@
       }
     }
   },
+  "generate": {
+    "missingData": {
+      "title": "Let's Start Your Adventure!",
+      "description": "We need a few details to create your magical story. Let's embark on this exciting journey together!",
+      "journeyAhead": "Your Journey Ahead",
+      "step1": "Step 1: Your Hero",
+      "step1Description": "Upload photo and details",
+      "step2": "Step 2: Adventure",
+      "step2Description": "Choose theme and style",
+      "cta": "Start Your Magical Adventure"
+    },
+    "generationComplete": {
+      "title": "Your Story is Ready!",
+      "description": "Your magical adventure has been crafted with love and creativity!",
+      "readStory": "Read Your Magical Story",
+      "editStory": "Edit Story",
+      "myStories": "My Stories",
+      "createAnother": "Create Another Adventure"
+    },
+    "generationError": {
+      "rateLimitTitle": "Hold on a Moment!",
+      "connectionIssueTitle": "Connection Issue!",
+      "defaultTitle": "Something Went Wrong!",
+      "rateLimitDescription": "We're experiencing high demand right now. Let's try again in a moment!",
+      "connectionIssueDescription": "It looks like there was a connection problem. Please check your internet connection and try again.",
+      "defaultDescription": "We're having some technical difficulties. Let's try again in a moment!",
+      "retry": "Try Creating Again",
+      "retrying": "Recreating Your Story...",
+      "startFresh": "Start Fresh Adventure",
+      "needHelp": "Need Help?",
+      "rateLimitHelp": "High demand means lots of magical stories are being created!",
+      "connectionIssueHelp": "Network hiccups happen - we'll get your story created!",
+      "defaultHelp": "Don't worry, we'll help you create an amazing story!",
+      "contactSupport": "Contact Support",
+      "quickTips": "💡 Quick Tips",
+      "rateLimitTip1": "Try again in 30-60 seconds",
+      "rateLimitTip2": "Peak times: evenings and weekends",
+      "rateLimitTip3": "Your story settings are saved!",
+      "connectionIssueTip1": "Check your internet connection",
+      "connectionIssueTip2": "Try refreshing the page",
+      "connectionIssueTip3": "Your progress is auto-saved"
+    },
+    "generating": {
+      "title": "Creating Your Magical Story",
+      "subtitle": "Our AI wizards are weaving magic into every word",
+      "eta": "This typically takes 60-120 seconds to generate a story.",
+      "progress": "Progress",
+
+      "status": {
+        "analyzing": "Analyzing your magical character...",
+        "crafting": "📚 Crafting your personalized adventure...",
+        "creatingIllustrations": "🎨 Creating beautiful illustrations...",
+        "finalTouches": "✨ Adding final magical touches...",
+        "ready": "Your story is ready!",
+        "transformingHero": "✨ Transforming your child into a story hero...",
+        "bringingCharactersToLife": "🎭 Bringing characters to life...",
+        "writingAdventure": "📚 Writing your personalized adventure...",
+        "creatingIllustrationsStep": "🎨 Creating beautiful illustrations...",
+        "addingMagicalTouches": "🌟 Adding magical touches...",
+        "finalizingStory": "📖 Finalizing your story..."
+      }
+    }
+  },
   "auth": {
     "general": {
       "title": "One-Click Magic Access",

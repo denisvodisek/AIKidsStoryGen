@@ -77,12 +77,12 @@ const initialGenerationState: GenerationState = {
 };
 
 const defaultGenerationSteps: GenerationStep[] = [
-  { emoji: '✨', text: 'Transforming your child into a story hero' },
-  { emoji: '🎭', text: 'Bringing characters to life' },
-  { emoji: '📚', text: 'Writing your personalized adventure' },
-  { emoji: '🎨', text: 'Creating beautiful illustrations' },
-  { emoji: '🌟', text: 'Adding magical touches' },
-  { emoji: '📖', text: 'Finalizing your story' },
+  { emoji: '✨', text: 'transformingHero' },
+  { emoji: '🎭', text: 'bringingCharactersToLife' },
+  { emoji: '📚', text: 'writingAdventure' },
+  { emoji: '🎨', text: 'creatingIllustrationsStep' },
+  { emoji: '🌟', text: 'addingMagicalTouches' },
+  { emoji: '📖', text: 'finalizingStory' },
 ];
 
 export const useStoryStore = create<StoryStore>()(

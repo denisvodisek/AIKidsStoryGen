@@ -226,6 +226,68 @@
       }
     }
   },
+  "generate": {
+    "missingData": {
+      "title": "Začnimo Pisati Zgodbo!",
+      "description": "Potrebujemo še nekaj podrobnosti za ustvarjanje zgodbe. Začnimo to razburljivo potovanje skupaj!",
+      "journeyAhead": "Kako Naprej?",
+      "step1": "1. korak: Izberi Junaka",
+      "step1Description": "Naloži fotografijo in vse podrobnosti",
+      "step2": "2. korak: Izberi Pustolovščino",
+      "step2Description": "Izberi temo in slog",
+      "cta": "Začni Čarobno Pustolovščino"
+    },
+    "generationComplete": {
+      "title": "Zgodba je Pripravljena!",
+      "description": "Čarobna pustolovščina je bila ustvarjena z ogromno ljubezni in ustvarjalnosti!",
+      "readStory": "Preberi Zgodbo",
+      "editStory": "Uredi Zgodbo",
+      "myStories": "Moje Zgodbe",
+      "createAnother": "Ustvari Novo Pustolovščino"
+    },
+    "generationError": {
+      "rateLimitTitle": "Počakaj Trenutek!",
+      "connectionIssueTitle": "Težava s Povezavo!",
+      "defaultTitle": "Ups, Nekaj je Šlo Narobe!",
+      "rateLimitDescription": "Trenutno imamo veliko povpraševanja. Poskusite znova čez nekaj trenutkov!",
+      "connectionIssueDescription": "Hmm izgleda, da je prišlo do težave s povezavo. Preveri svojo internetno povezavo in poskusi znova.",
+      "defaultDescription": "Imamo nekaj tehničnih težav. Poskusi znova čez trenutek!",
+      "retry": "Poskusi Znova",
+      "retrying": "Poskušam ponovno...",
+      "startFresh": "Začni Novo Pustolovščino",
+      "needHelp": "Potrebuješ Pomoč?",
+      "rateLimitHelp": "Veliko povpraševanje pomeni, da se hkrati ustvarja veliko čarobnih zgodb!",
+      "connectionIssueHelp": "Težave z omrežjem se nažalost zgodijo - ne skrbi, ustvarili bomo tvojo zgodbo!",
+      "defaultHelp": "Ne skrbi, pomagali ti bomo ustvariti čudovito zgodbo!",
+      "contactSupport": "Kontaktiraj Podporo",
+      "quickTips": "💡 Hitri Nasveti",
+      "rateLimitTip1": "Poskusi znova čez 30-60 sekund",
+      "rateLimitTip2": "Največja obremenitev: večeri in vikendi",
+      "rateLimitTip3": "Podatki tvoje zgodbe so shranjeni v brskalniku!",
+      "connectionIssueTip1": "Preveri svojo internetno povezavo",
+      "connectionIssueTip2": "Poskusi osvežiti stran",
+      "connectionIssueTip3": "Tvoj napredek je samodejno shranjen"
+    },
+    "generating": {
+      "title": "Ustvarjanje Čarobne Zgodbe",
+      "subtitle": "Naši čarovniki vpletajo čarovnijo v vsako besedo",
+      "eta": "V povprečju traja približno 60-120 sekund, da se ustvari zgodba.",
+      "progress": "Napredek",
+      "status": {
+        "analyzing": "Analiziram nastopajoče...",
+        "crafting": "📚 Oblikujem personalizirano pustolovščino...",
+        "creatingIllustrations": "🎨 Ustvarjam čudovite ilustracije...",
+        "finalTouches": "✨ Dodajam še zadnje čarobne dotike...",
+        "ready": "Tvoja zgodba je pripravljena!",
+        "transformingHero": "Pretvarjam otroka v glavnega junaka",
+        "bringingCharactersToLife": "Ustvarjam nastopajoče like",
+        "writingAdventure": "Ustvarjam personalizirano zgodbo",
+        "creatingIllustrationsStep": "Ustvarjam čudovite ilustracije",
+        "addingMagicalTouches": "Dodajam še zadnje čarobne dotike",
+        "finalizingStory": "Zaključujem tvojo zgodbo"
+      }
+    }
+  },
   "auth": {
     "general": {
       "title": "Eni Klik Vas Še Loči Od Čarovnije",

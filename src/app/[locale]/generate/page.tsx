@@ -704,7 +704,8 @@ export default function GeneratePage() {
                     ? t('generationError.rateLimitDescription')
                     : isNetworkError
                       ? t('generationError.connectionIssueDescription')
-                      : generationError || t('generationError.defaultDescription')}
+                      : generationError ||
+                        t('generationError.defaultDescription')}
                 </p>
               </div>
             </div>
@@ -941,7 +942,10 @@ export default function GeneratePage() {
                 </div>
                 <div className="flex-1">
                   <p className="font-semibold text-white transition-all duration-500">
-                    {generationSteps[currentStepIndex]?.text}...
+                    {t(
+                      `generating.status.${generationSteps[currentStepIndex]?.text}`
+                    )}
+                    ...
                   </p>
                   <div className="mt-2 flex space-x-1">
                     <div className="h-1 w-6 animate-pulse rounded-full bg-white/40 [animation-delay:-0.3s]"></div>
