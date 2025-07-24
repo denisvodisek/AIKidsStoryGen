@@ -228,40 +228,40 @@
   },
   "auth": {
     "general": {
-      "title": "One-Click Magic Access",
-      "subtitle": "Choose your preferred sign-in method",
-      "continueWithGoogle": "Continue with Google",
+      "title": "Dostop do Čarovnije z Enim Klikom",
+      "subtitle": "Izberite želen način prijave",
+      "continueWithGoogle": "Nadaljuj z Google",
       "facebook": "Facebook",
       "apple": "Apple",
-      "termsText": "By signing in, you agree to our magical terms ✨"
+      "termsText": "S prijavo se strinjate z našimi čarobnimi pogoji ✨"
     },
     "storyFlow": {
-      "progressStep": "Step 1 of 3: Create Account",
-      "title": "Create Your Story Account",
-      "subtitle": "Start creating magical stories in just 30 seconds!",
-      "waitingText": "Your personalized story is waiting...",
-      "createAccountWithGoogle": "Create Account with Google",
+      "progressStep": "3. od 3 korakov: Ustvari Račun",
+      "title": "Ustvari Svoj Čarobni Račun",
+      "subtitle": "Začni ustvarjati čarobne zgodbe v samo 30 sekundah!",
+      "waitingText": "Tvoja personalizirana zgodba te že čaka...",
+      "createAccountWithGoogle": "Ustvari Račun z Google",
       "benefits": {
-        "readyInMinutes": "Your story will be ready in 2 minutes!",
-        "freeTokens": "120 FREE tokens - create multiple stories",
-        "personalizedDetails": "Personalized with your child's details",
-        "shareInstantly": "Share instantly with family & friends"
+        "readyInMinutes": "Tvoja zgodba bo pripravljena v 2 minutah!",
+        "freeTokens": "120 BREZPLAČNIH žetonov - ustvari več zgodb",
+        "personalizedDetails": "Personalizirano z detajli tvojega otroka",
+        "shareInstantly": "Takoj deli z družino in prijatelji"
       },
       "urgency": {
-        "almostThere": "Almost there! Just 2 more steps...",
-        "nextSteps": "Next: Choose your story style & add your child's photo"
+        "almostThere": "Skoraj tam! Samo še 2 koraka...",
+        "nextSteps": "Naslednji korak: Izberi stil zgodbe in dodaj sliko svojega otroka"
       },
-      "termsText": "By creating an account, you agree to our magical terms ✨"
+      "termsText": "Z ustvarjanjem računa se strinjaš z našimi čarobnimi pogoji ✨"
     },
     "security": {
-      "title": "Safe & Secure",
-      "description": "Your data is encrypted and protected. We never share your information or your child's photos with anyone."
+      "title": "Varno in Zanesljivo",
+      "description": "Tvoji podatki so šifrirani in zaščiteni. Nikoli ne delimo tvojih informacij ali fotografij tvojega otroka z nikomer."
     },
     "benefits": {
-      "freeTokens": "120 FREE tokens",
-      "createInstantly": "Create your first story instantly",
-      "safeSecure": "Safe & secure for your family",
-      "happyFamilies": "Join 50,000+ happy families"
+      "freeTokens": "120 BREZPLAČNIH žetonov",
+      "createInstantly": "Takoj ustvari svojo prvo zgodbo",
+      "safeSecure": "Varno in zanesljivo za tvojo družino",
+      "happyFamilies": "Pridruži se 50.000+ srečnim družinam"
     }
   }
 }
