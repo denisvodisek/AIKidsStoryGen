@@ -5,9 +5,11 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useOnboardingStore } from '@/store';
+import { useTranslations } from 'next-intl';
 
 export default function OnboardingStep2() {
   const router = useRouter();
+  const t = useTranslations('onboarding.step2');
   const {
     step1Data,
     step2FormData,
@@ -28,77 +30,97 @@ export default function OnboardingStep2() {
   }, [step1Data, router]);
 
   const destinations = [
-    '🏰 Enchanted Castle',
-    '🌲 Magical Forest',
-    '🏴‍☠️ Pirate Ship',
-    '🚀 Space Station',
-    '🦄 Rainbow Kingdom',
-    '🏔️ Dragon Mountain',
-    '🌊 Underwater Kingdom',
-    '🎪 Circus Adventure',
+    t('destinations.castle'),
+    t('destinations.forest'),
+    t('destinations.pirate'),
+    t('destinations.space'),
+    t('destinations.rainbow'),
+    t('destinations.dragon'),
+    t('destinations.underwater'),
+    t('destinations.circus'),
   ];
 
   const themeOptions = [
-    { id: 'kindness', label: '💝 Kindness', color: 'from-pink-400 to-red-400' },
-    { id: 'sharing', label: '🎁 Sharing', color: 'from-green-400 to-blue-400' },
+    {
+      id: 'kindness',
+      label: t('themes.kindness'),
+      color: 'from-pink-400 to-red-400',
+    },
+    {
+      id: 'sharing',
+      label: t('themes.sharing'),
+      color: 'from-green-400 to-blue-400',
+    },
     {
       id: 'teamwork',
-      label: '🤝 Teamwork',
+      label: t('themes.teamwork'),
       color: 'from-blue-400 to-purple-400',
     },
     {
       id: 'honesty',
-      label: '📢 Honesty',
+      label: t('themes.honesty'),
       color: 'from-yellow-400 to-orange-400',
     },
-    { id: 'courage', label: '🦁 Courage', color: 'from-orange-400 to-red-400' },
+    {
+      id: 'courage',
+      label: t('themes.courage'),
+      color: 'from-orange-400 to-red-400',
+    },
     {
       id: 'friendship',
-      label: '👫 Friendship',
+      label: t('themes.friendship'),
       color: 'from-purple-400 to-pink-400',
     },
-    { id: 'empathy', label: '💙 Empathy', color: 'from-cyan-400 to-blue-400' },
+    {
+      id: 'empathy',
+      label: t('themes.empathy'),
+      color: 'from-cyan-400 to-blue-400',
+    },
     {
       id: 'heroism',
-      label: '🦸 Heroism',
+      label: t('themes.heroism'),
       color: 'from-indigo-400 to-purple-400',
     },
     {
       id: 'cleanliness',
-      label: '🧼 Cleanliness',
+      label: t('themes.cleanliness'),
       color: 'from-green-400 to-cyan-400',
     },
     {
       id: 'second-chance',
-      label: '🔄 2nd Chance',
+      label: t('themes.second-chance'),
       color: 'from-yellow-400 to-green-400',
     },
-    { id: 'safety', label: '🛡️ Safety', color: 'from-blue-400 to-indigo-400' },
+    {
+      id: 'safety',
+      label: t('themes.safety'),
+      color: 'from-blue-400 to-indigo-400',
+    },
   ];
 
   const styleOptions = [
     {
       id: 'disney-pixar',
-      label: 'Disney Pixar',
-      description: 'Colorful 3D animation style',
+      label: t('style.disney-pixar'),
+      description: t('style.disney-pixar-desc'),
       video: '/images/disney-pixar.mp4',
     },
     {
       id: 'paw-patrol',
-      label: 'Paw Patrol',
-      description: 'Fun cartoon adventure style',
+      label: t('style.paw-patrol'),
+      description: t('style.paw-patrol-desc'),
       video: '/images/paw-patrol.mp4',
     },
     {
       id: 'lego',
-      label: 'Lego',
-      description: 'Blocky building brick style',
+      label: t('style.lego'),
+      description: t('style.lego-desc'),
       video: '/images/lego.mp4',
     },
     {
       id: 'classic-disney',
-      label: 'Classic Disney',
-      description: 'Traditional hand-drawn style',
+      label: t('style.classic-disney'),
+      description: t('style.classic-disney-desc'),
       video: '/images/classic-disney.mp4',
     },
   ];
@@ -226,7 +248,7 @@ export default function OnboardingStep2() {
                   className="flex items-center gap-2 rounded-xl bg-white/10 px-3 py-2 text-sm text-white/90 backdrop-blur-sm transition-all hover:bg-white/20"
                 >
                   <span>←</span>
-                  <span className="hidden sm:inline">Back</span>
+                  <span className="hidden sm:inline">{t('back')}</span>
                 </Link>
               </div>
 
@@ -247,7 +269,7 @@ export default function OnboardingStep2() {
                     width={16}
                     height={16}
                   />
-                  <span className="hidden sm:inline">Generate</span>
+                  <span className="hidden sm:inline">{t('generate')}</span>
                 </button>
               </div>
 
@@ -258,16 +280,16 @@ export default function OnboardingStep2() {
                   <div className="h-2 w-8 rounded-full bg-gradient-to-r from-cyan-400 to-blue-400"></div>
                   <div className="h-2 w-8 rounded-full bg-white/20"></div>
                   <span className="ml-2 text-sm text-white/70">
-                    Step 2 of 3
+                    {t('progress')}
                   </span>
                 </div>
               </div>
 
-              <h1 className="mb-4 text-2xl leading-tight font-bold text-white sm:mb-6 xl:text-4xl">
-                Create {step1Data?.name || 'your child'}'s Adventure!
+              <h1 className="mb-4 text-2xl font-bold leading-tight text-white sm:mb-6 xl:text-4xl">
+                {t('title', { name: step1Data?.name || 'your child' })}
               </h1>
               <p className="mx-auto max-w-2xl text-base text-white/90 sm:text-lg">
-                Choose how you'd like to create your magical story
+                {t('subtitle')}
               </p>
             </div>
 
@@ -282,11 +304,9 @@ export default function OnboardingStep2() {
                     height={24}
                     className="object-contain"
                   />
-                  Choose Your Story Style
+                  {t('style.title')}
                 </h2>
-                <p className="text-white/80">
-                  Select the visual style for your magical story
-                </p>
+                <p className="text-white/80">{t('style.subtitle')}</p>
               </div>
 
               <div className="flex max-w-7xl flex-wrap items-center justify-center gap-2 sm:gap-4">
@@ -359,14 +379,14 @@ export default function OnboardingStep2() {
                   </div>
                   <div className="mb-6 flex items-center justify-between">
                     <h2 className="text-lg font-bold text-white xl:text-2xl">
-                      Tell Us Your Story Ideas
+                      {t('customPrompt.title')}
                     </h2>
                     {hasCustomInput && (
                       <button
                         onClick={clearCustomPrompt}
                         className="text-sm text-white/70 transition-colors hover:text-red-400"
                       >
-                        Clear
+                        {t('customPrompt.clear')}
                       </button>
                     )}
                   </div>
@@ -374,7 +394,7 @@ export default function OnboardingStep2() {
                   <textarea
                     value={step2FormData.customPrompt}
                     onChange={handleCustomPromptChange}
-                    placeholder="Describe the adventure you'd like for your child... Include characters, settings, challenges, and the lessons you want them to learn. Be as creative as you want!"
+                    placeholder={t('customPrompt.placeholder')}
                     className="h-48 w-full resize-none rounded-xl border-2 border-white/20 bg-white/10 p-4 text-white backdrop-blur-sm transition-colors placeholder:text-white/60 focus:border-purple-400 focus:outline-none sm:h-64"
                     maxLength={1000}
                     disabled={hasPresetSelections}
@@ -382,7 +402,7 @@ export default function OnboardingStep2() {
 
                   <div className="mt-4 flex justify-between">
                     <p className="text-sm text-white/70">
-                      Write your own unique story concept
+                      {t('customPrompt.subtitle')}
                     </p>
                     <span className="text-sm text-white/60">
                       {step2FormData.customPrompt.length}/1000
@@ -398,8 +418,7 @@ export default function OnboardingStep2() {
                           width={16}
                           height={16}
                         />
-                        Great! We'll create a personalized story based on your
-                        ideas.
+                        {t('customPrompt.success')}
                       </p>
                     </div>
                   )}
@@ -411,7 +430,7 @@ export default function OnboardingStep2() {
                 <div className="flex flex-col items-center">
                   <div className="h-24 w-px bg-white/30"></div>
                   <div className="my-4 rounded-full bg-gradient-to-r from-orange-400 to-pink-500 px-4 py-2 text-sm font-bold text-white shadow-lg">
-                    OR
+                    {t('or')}
                   </div>
                   <div className="h-24 w-px bg-white/30"></div>
                 </div>
@@ -422,7 +441,7 @@ export default function OnboardingStep2() {
                 <div className="flex items-center">
                   <div className="h-px w-20 bg-white/30"></div>
                   <div className="mx-4 rounded-full bg-gradient-to-r from-orange-400 to-pink-500 px-4 py-2 text-sm font-bold text-white shadow-lg">
-                    OR
+                    {t('or')}
                   </div>
                   <div className="h-px w-20 bg-white/30"></div>
                 </div>
@@ -443,14 +462,14 @@ export default function OnboardingStep2() {
                   </div>
                   <div className="mb-6 flex items-center justify-between">
                     <h2 className="text-lg font-bold text-white xl:text-2xl">
-                      Choose From Options
+                      {t('presets.title')}
                     </h2>
                     {hasPresetSelections && (
                       <button
                         onClick={clearPresetSelections}
                         className="text-sm text-white/70 transition-colors hover:text-red-400"
                       >
-                        Clear All
+                        {t('presets.clear')}
                       </button>
                     )}
                   </div>
@@ -465,7 +484,7 @@ export default function OnboardingStep2() {
                           width={20}
                           height={20}
                         />
-                        Where will the adventure take place?
+                        {t('presets.destination')}
                       </h3>
                       <div className="flex flex-wrap gap-2">
                         {displayedDestinations.map(destination => (
@@ -490,7 +509,9 @@ export default function OnboardingStep2() {
                           disabled={hasCustomInput}
                           className="mt-2 text-sm font-medium text-cyan-300 hover:text-cyan-200"
                         >
-                          + {destinations.length - 4} more
+                          {t('presets.more', {
+                            count: destinations.length - 4,
+                          })}
                         </button>
                       )}
                     </div>
@@ -504,11 +525,13 @@ export default function OnboardingStep2() {
                           width={20}
                           height={20}
                         />
-                        What should they learn?
+                        {t('presets.themes')}
                         <span className="ml-2 text-sm text-white/60">
                           {step2FormData.themes.length > 0
-                            ? `(${step2FormData.themes.length}/2 selected)`
-                            : '(Max. 2 options)'}
+                            ? t('presets.themesSelected', {
+                                count: step2FormData.themes.length,
+                              })
+                            : t('presets.themesSubtitle')}
                         </span>
                       </h3>
                       <div className="flex flex-wrap gap-2">
@@ -545,7 +568,9 @@ export default function OnboardingStep2() {
                           disabled={hasCustomInput}
                           className="mt-2 text-sm font-medium text-pink-300 hover:text-pink-200"
                         >
-                          + {themeOptions.length - 6} more
+                          {t('presets.more', {
+                            count: themeOptions.length - 6,
+                          })}
                         </button>
                       )}
                     </div>
@@ -560,8 +585,7 @@ export default function OnboardingStep2() {
                           width={20}
                           height={20}
                         />
-                        Perfect! We'll create a story with your selected
-                        preferences.
+                        {t('presets.success')}
                       </p>
                     </div>
                   )}
@@ -587,21 +611,17 @@ export default function OnboardingStep2() {
                     width={24}
                     height={24}
                   />
-                  <span>Generate Magical Story</span>
+                  <span>{t('generateCta')}</span>
                 </span>
               </button>
 
               {isStep2Valid() && (
-                <p className="mt-4 text-sm text-white/70">
-                  You'll be asked to sign in before we create your magical
-                  story!
-                </p>
+                <p className="mt-4 text-sm text-white/70">{t('signInNote')}</p>
               )}
 
               {!isStep2Valid() && (
                 <p className="mt-4 text-sm text-red-400">
-                  Please either write your own story ideas OR select from the
-                  options above
+                  {t('validationError')}
                 </p>
               )}
             </div>

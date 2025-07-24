@@ -14,6 +14,7 @@ import {
   XIcon,
 } from 'lucide-react';
 import { StoryPage, GeneratedStory } from '@/types';
+import { useTranslations } from 'next-intl';
 
 interface Story extends Omit<GeneratedStory, 'pages'> {
   story_pages: (StoryPage & { id: string })[];
@@ -22,6 +23,7 @@ interface Story extends Omit<GeneratedStory, 'pages'> {
 export default function StoryEditPage() {
   const params = useParams();
   const storyId = params?.storyId as string;
+  const t = useTranslations('storyEdit');
 
   const [story, setStory] = useState<Story | null>(null);
   const [loading, setLoading] = useState(true);
@@ -232,12 +234,8 @@ export default function StoryEditPage() {
                 className="animate-pulse"
               />
             </div>
-            <h2 className="mb-2 text-xl font-bold text-white">
-              Loading story editor...
-            </h2>
-            <p className="text-white/80">
-              Preparing your magical editing workspace
-            </p>
+            <h2 className="mb-2 text-xl font-bold text-white">{t('loading')}</h2>
+            <p className="text-white/80">{t('subloading')}</p>
           </div>
         </div>
       </div>
@@ -267,17 +265,15 @@ export default function StoryEditPage() {
               />
             </div>
             <h1 className="mb-4 text-2xl font-bold text-white">
-              Story Not Found!
+              {t('notFound.title')}
             </h1>
-            <p className="mb-6 text-white/80">
-              The magical story you're looking for seems to have disappeared.
-            </p>
+            <p className="mb-6 text-white/80">{t('notFound.subtitle')}</p>
             <Link
               href="/my-stories"
               className="inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-purple-500 to-blue-600 px-6 py-3 font-semibold text-white transition-all hover:scale-105"
             >
               <ArrowLeftIcon className="h-4 w-4" />
-              Back to Stories
+              {t('notFound.cta')}
             </Link>
           </div>
         </div>
@@ -313,7 +309,7 @@ export default function StoryEditPage() {
                   className="flex items-center gap-2 rounded-lg bg-white/30 px-3 py-2 text-white backdrop-blur-sm transition-all hover:bg-white/20"
                 >
                   <ArrowLeftIcon className="h-4 w-4" />
-                  <span className="hidden sm:inline">Back to Stories</span>
+                  <span className="hidden sm:inline">{t('header.back')}</span>
                 </Link>
                 <div className="hidden h-6 w-px bg-white/30 sm:block"></div>
                 <div className="flex items-center gap-2">
@@ -326,7 +322,7 @@ export default function StoryEditPage() {
                   {isEditingTitle ? (
                     <div className="flex items-center gap-2">
                       <span className="hidden text-lg text-white sm:inline">
-                        Edit:{' '}
+                        {t('header.editTitle')}{' '}
                       </span>
                       <input
                         type="text"
@@ -335,21 +331,21 @@ export default function StoryEditPage() {
                         onKeyDown={handleTitleKeyPress}
                         onBlur={saveTitleEdit}
                         className="w-90 rounded-lg border-2 border-pink-400 bg-white/10 px-3 py-1 text-lg font-bold text-white backdrop-blur-sm placeholder:text-white/60 focus:ring-2 focus:ring-pink-100/20 focus:outline-none"
-                        placeholder="Enter story title..."
+                        placeholder={t('header.titlePlaceholder')}
                         autoFocus
                       />
                       <div className="flex gap-1">
                         <button
                           onClick={saveTitleEdit}
                           className="flex h-8 w-8 items-center justify-center rounded-full bg-green-500 p-1 text-white hover:bg-green-600"
-                          title="Save title"
+                          title={t('header.saveTitle')}
                         >
                           <SaveIcon className="h-4 w-4" />
                         </button>
                         <button
                           onClick={cancelTitleEdit}
                           className="flex h-8 w-8 items-center justify-center rounded-full bg-red-500 p-1 text-white hover:bg-red-600"
-                          title="Cancel editing"
+                          title={t('header.cancelEdit')}
                         >
                           <XIcon className="h-4 w-4" />
                         </button>
@@ -362,7 +358,9 @@ export default function StoryEditPage() {
                       title="Click to edit title"
                     >
                       <h1 className="text-lg font-bold text-white">
-                        <span className="hidden sm:inline">Edit: </span>
+                        <span className="hidden sm:inline">
+                          {t('header.editTitle')}{' '}
+                        </span>
                         {story.story_title}
                       </h1>
                       <Image
@@ -386,7 +384,9 @@ export default function StoryEditPage() {
                       width={16}
                       height={16}
                     />
-                    <span className="hidden sm:inline">Unsaved changes</span>
+                    <span className="hidden sm:inline">
+                      {t('header.unsavedChanges')}
+                    </span>
                   </div>
                 )}
                 <Link
@@ -394,7 +394,7 @@ export default function StoryEditPage() {
                   className="flex items-center gap-2 rounded-lg bg-white/30 px-3 py-2 text-white backdrop-blur-sm transition-all hover:bg-white/20"
                 >
                   <EyeIcon className="h-4 w-4" />
-                  <span className="hidden sm:inline">Preview</span>
+                  <span className="hidden sm:inline">{t('header.preview')}</span>
                 </Link>
                 <button
                   onClick={handleSave}
@@ -403,7 +403,7 @@ export default function StoryEditPage() {
                 >
                   <SaveIcon className="h-4 w-4" />
                   <span className="hidden sm:inline">
-                    {saving ? 'Saving...' : 'Save Changes'}
+                    {saving ? t('header.saving') : t('header.save')}
                   </span>
                 </button>
               </div>
@@ -423,7 +423,9 @@ export default function StoryEditPage() {
                   width={24}
                   height={24}
                 />
-                <h3 className="text-lg font-bold text-white">Story Pages</h3>
+                <h3 className="text-lg font-bold text-white">
+                  {t('sidebar.title')}
+                </h3>
               </div>
 
               <div className="space-y-3">
@@ -459,10 +461,12 @@ export default function StoryEditPage() {
 
                     <div className="space-y-1">
                       <div className="font-bold text-white">
-                        Page {page.page_number}
+                        {t('sidebar.page')} {page.page_number}
                       </div>
                       <div className="text-sm text-white/70 capitalize">
-                        {page.page_type.replace('_', ' ')}
+                        {t(
+                          `sidebar.pageType.${page.page_type.toLowerCase()}` as any
+                        )}
                       </div>
                       <div className="truncate text-xs text-white/60">
                         {page.content.substring(0, 50)}...
@@ -489,14 +493,17 @@ export default function StoryEditPage() {
                           width={24}
                           height={24}
                         />
-                        Page {selectedPage.page_number}
+                        {t('editor.page')} {selectedPage.page_number}
                       </h2>
                       <p className="text-white/80 capitalize">
-                        {selectedPage.page_type.replace('_', ' ')} •
+                        {t(
+                          `editor.pageType.${selectedPage.page_type.toLowerCase()}` as any
+                        )}{' '}
+                        •
                         {selectedPage.page_type === 'cover' &&
-                          ' Story cover page'}
+                          t('editor.pageType.cover')}
                         {selectedPage.page_type === 'story_page' &&
-                          ' Story content page'}
+                          t('editor.pageType.story_page')}
                       </p>
                     </div>
                   </div>
@@ -512,7 +519,7 @@ export default function StoryEditPage() {
                         width={20}
                         height={20}
                       />
-                      Current Image
+                      {t('editor.currentImage')}
                     </label>
 
                     <div className="overflow-hidden rounded-xl border-2 border-white/20 bg-white/5 p-4">
@@ -556,10 +563,10 @@ export default function StoryEditPage() {
                             className="mb-4 opacity-70"
                           />
                           <p className="mb-2 text-lg text-white">
-                            No image generated yet
+                            {t('editor.noImage')}
                           </p>
                           <p className="text-white/70">
-                            Add a description below and regenerate
+                            {t('editor.noImageSubtitle')}
                           </p>
 
                           {selectedPage.photo_description && (
@@ -573,7 +580,7 @@ export default function StoryEditPage() {
                               ) : (
                                 <WandIcon className="h-4 w-4" />
                               )}
-                              Generate Image
+                              {t('editor.generateImage')}
                             </button>
                           )}
                         </div>
@@ -590,7 +597,7 @@ export default function StoryEditPage() {
                         width={20}
                         height={20}
                       />
-                      Page Content
+                      {t('editor.pageContent')}
                     </label>
 
                     <textarea
@@ -602,7 +609,7 @@ export default function StoryEditPage() {
                       }
                       className="w-full rounded-xl border-2 border-white/20 bg-white/10 p-4 font-serif text-lg text-white backdrop-blur-sm placeholder:text-white/60 focus:border-pink-400 focus:ring-2 focus:ring-pink-100/20 focus:outline-none"
                       rows={8}
-                      placeholder="Enter the magical story content for this page..."
+                      placeholder={t('editor.contentPlaceholder')}
                     />
                     <p className="mt-2 flex items-start gap-1 text-sm text-white/70">
                       <Image
@@ -611,7 +618,7 @@ export default function StoryEditPage() {
                         width={16}
                         height={16}
                       />
-                      This text will appear on the page in your story.
+                      {t('editor.contentText')}
                     </p>
                   </div>
 
@@ -660,12 +667,9 @@ export default function StoryEditPage() {
                     height={64}
                     className="mx-auto mb-4 opacity-70"
                   />
-                  <p className="text-xl text-white">
-                    Select a page to start editing
-                  </p>
+                  <p className="text-xl text-white">{t('editor.selectPage')}</p>
                   <p className="text-white/70">
-                    Choose a page from the left to begin your magical editing
-                    journey
+                    {t('editor.selectPageSubtitle')}
                   </p>
                 </div>
               </div>

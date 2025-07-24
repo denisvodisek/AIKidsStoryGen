@@ -12,6 +12,7 @@ import {
   DownloadIcon,
 } from 'lucide-react';
 import { StoryPage, GeneratedStory } from '@/types';
+import { useTranslations } from 'next-intl';
 
 interface Story extends Omit<GeneratedStory, 'pages'> {
   story_pages: (StoryPage & { id: string })[];
@@ -22,6 +23,7 @@ interface Story extends Omit<GeneratedStory, 'pages'> {
 export default function StoryPreviewPage() {
   const params = useParams();
   const storyId = params?.storyId as string;
+  const t = useTranslations('storyPreview');
 
   const [story, setStory] = useState<Story | null>(null);
   const [loading, setLoading] = useState(true);
@@ -206,10 +208,8 @@ export default function StoryPreviewPage() {
                 height={64}
               />
             </div>
-            <h2 className="mb-2 text-xl font-bold text-white">
-              Loading your story...
-            </h2>
-            <p className="text-white/80">Preparing your magical adventure</p>
+            <h2 className="mb-2 text-xl font-bold text-white">{t('loading')}</h2>
+            <p className="text-white/80">{t('subloading')}</p>
           </div>
         </div>
       </div>
@@ -289,17 +289,15 @@ export default function StoryPreviewPage() {
               />
             </div>
             <h1 className="mb-4 text-2xl font-bold text-white">
-              Story Not Found!
+              {t('notFound.title')}
             </h1>
-            <p className="mb-6 text-white/80">
-              The magical story you're looking for seems to have disappeared.
-            </p>
+            <p className="mb-6 text-white/80">{t('notFound.subtitle')}</p>
             <Link
               href="/my-stories"
               className="inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-purple-500 to-blue-600 px-6 py-3 font-semibold text-white transition-all hover:scale-105"
             >
               <ArrowLeftIcon className="h-4 w-4" />
-              Back to Stories
+              {t('notFound.cta')}
             </Link>
           </div>
         </div>
@@ -361,7 +359,7 @@ export default function StoryPreviewPage() {
                   />
                 );
               })()}
-              <p className="text-white">No image for this page</p>
+              <p className="text-white">{t('noImage')}</p>
             </div>
           </div>
         )}
@@ -386,7 +384,7 @@ export default function StoryPreviewPage() {
                 className="flex items-center gap-2 rounded-lg bg-white/20 px-3 py-2 text-white backdrop-blur-sm transition-all hover:bg-white/30"
               >
                 <ArrowLeftIcon className="h-4 w-4" />
-                <span className="hidden sm:inline">Back</span>
+                <span className="hidden sm:inline">{t('topBar.back')}</span>
               </Link>
 
               <div className="hidden h-6 w-px bg-white/30 sm:block"></div>
@@ -409,7 +407,9 @@ export default function StoryPreviewPage() {
                 >
                   <DownloadIcon className="h-4 w-4" />
                   <span className="hidden sm:inline">
-                    {isDownloading ? 'Downloading...' : 'Download'}
+                    {isDownloading
+                      ? t('topBar.downloading')
+                      : t('topBar.download')}
                   </span>
                 </button>
               )}
@@ -419,7 +419,7 @@ export default function StoryPreviewPage() {
                 className="flex items-center gap-2 rounded-lg bg-white/20 px-3 py-2 text-white backdrop-blur-sm transition-all hover:bg-white/30"
               >
                 <EditIcon className="h-4 w-4" />
-                <span className="hidden sm:inline">Edit</span>
+                <span className="hidden sm:inline">{t('topBar.edit')}</span>
               </Link>
             </div>
           </div>
@@ -479,7 +479,9 @@ export default function StoryPreviewPage() {
               className="flex items-center gap-2 rounded-lg bg-white/20 px-4 py-2 text-white backdrop-blur-sm transition-all hover:bg-white/30 disabled:cursor-not-allowed disabled:opacity-50"
             >
               <ChevronLeftIcon className="h-4 w-4" />
-              <span className="hidden sm:inline">Previous</span>
+              <span className="hidden sm:inline">
+                {t('navigation.previous')}
+              </span>
             </button>
 
             {/* Page Indicators */}
@@ -504,7 +506,7 @@ export default function StoryPreviewPage() {
               disabled={!canGoNext}
               className="flex items-center gap-2 rounded-lg bg-white/20 px-4 py-2 text-white backdrop-blur-sm transition-all hover:bg-white/30 disabled:cursor-not-allowed disabled:opacity-50"
             >
-              <span className="hidden sm:inline">Next</span>
+              <span className="hidden sm:inline">{t('navigation.next')}</span>
               <ChevronRightIcon className="h-4 w-4" />
             </button>
           </div>
@@ -518,7 +520,7 @@ export default function StoryPreviewPage() {
         }`}
       >
         <div className="rounded-full bg-black/50 px-4 py-2 backdrop-blur-sm">
-          <p className="text-sm text-white/80">👈 Swipe to navigate 👉</p>
+          <p className="text-sm text-white/80">{t('navigation.swipe')}</p>
         </div>
       </div>
 
@@ -529,9 +531,7 @@ export default function StoryPreviewPage() {
         }`}
       >
         <div className="rounded-full bg-black/50 px-4 py-2 backdrop-blur-sm">
-          <p className="text-sm text-white/80">
-            Use ← → arrow keys or click to navigate
-          </p>
+          <p className="text-sm text-white/80">{t('navigation.keyboard')}</p>
         </div>
       </div>
     </div>

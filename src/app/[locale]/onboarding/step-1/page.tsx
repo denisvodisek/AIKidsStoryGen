@@ -7,9 +7,11 @@ import { useRouter } from 'next/navigation';
 import RangeSlider from '@/components/RangeSlider';
 import { uploadChildPhoto } from '@/lib/supabase';
 import { useOnboardingStore } from '@/store';
+import { useTranslations } from 'next-intl';
 
 export default function OnboardingStep1() {
   const router = useRouter();
+  const t = useTranslations('onboarding.step1');
   const {
     step1FormData,
     setStep1FormData,
@@ -125,17 +127,16 @@ export default function OnboardingStep1() {
                   <div className="h-2 w-8 rounded-full bg-white/20"></div>
                   <div className="h-2 w-8 rounded-full bg-white/20"></div>
                   <span className="ml-2 text-sm text-white/70">
-                    Step 1 of 3
+                    {t('progress')}
                   </span>
                 </div>
               </div>
 
-              <h1 className="mb-4 text-2xl leading-tight font-bold text-white sm:mb-6 xl:text-4xl">
-                Let's Create Your Child's Story!
+              <h1 className="mb-4 text-2xl font-bold leading-tight text-white sm:mb-6 xl:text-4xl">
+                {t('title')}
               </h1>
               <p className="mx-auto max-w-2xl text-base text-white/90 sm:text-lg">
-                First, tell us about your little hero so we can create their
-                perfect adventure
+                {t('subtitle')}
               </p>
             </div>
 
@@ -152,7 +153,7 @@ export default function OnboardingStep1() {
                         height={24}
                         className="-mt-2 mr-2 object-contain"
                       />
-                      Upload Your Child's Photo
+                      {t('photo.title')}
                     </h2>
                     <div className="relative">
                       <input
@@ -175,7 +176,7 @@ export default function OnboardingStep1() {
                           <div className="flex flex-col items-center">
                             <div className="mb-4 h-8 w-8 animate-spin rounded-full border-4 border-pink-200 border-t-pink-400"></div>
                             <p className="font-medium text-pink-300">
-                              Uploading photo...
+                              {t('photo.uploading')}
                             </p>
                           </div>
                         ) : step1FormData.photoPreview ? (
@@ -188,7 +189,7 @@ export default function OnboardingStep1() {
                             />
                             <div className="absolute inset-0 flex items-center justify-center rounded-2xl bg-black/20 opacity-0 transition-opacity hover:opacity-100">
                               <span className="font-semibold text-white">
-                                Change Photo
+                                {t('photo.change')}
                               </span>
                             </div>
                           </div>
@@ -205,11 +206,11 @@ export default function OnboardingStep1() {
                             </div>
                             <p className="text-center text-white/90">
                               <span className="font-semibold text-pink-300">
-                                Click to upload
+                                {t('photo.cta')}
                               </span>
                               <br />
                               <span className="text-sm text-white/70">
-                                or drag and drop your photo here
+                                {t('photo.ctaSubtitle')}
                               </span>
                             </p>
                           </>
@@ -224,8 +225,7 @@ export default function OnboardingStep1() {
                         height={20}
                         className="mr-1 object-contain"
                       />
-                      Your photo is secure, won't be stored, and will only be
-                      used to create your story.
+                      {t('photo.secure')}
                     </p>
                   </div>
 
@@ -240,8 +240,7 @@ export default function OnboardingStep1() {
                           height={24}
                           className="mr-1 object-contain"
                         />
-                        Our AI will transform this photo into a magical cartoon
-                        character for their stories!
+                        {t('preview.title')}
                       </p>
                     </div>
                   )}
@@ -258,13 +257,13 @@ export default function OnboardingStep1() {
                         height={24}
                         className="mr-1 object-contain"
                       />
-                      Tell Us About Your Child
+                      {t('form.title')}
                     </h2>
 
                     {/* Name */}
                     <div className="mb-6">
                       <label className="mb-2 block text-base font-semibold text-white">
-                        What's your child's name?
+                        {t('form.name')}
                       </label>
                       <input
                         type="text"
@@ -272,7 +271,7 @@ export default function OnboardingStep1() {
                         onChange={e =>
                           handleInputChange('name', e.target.value)
                         }
-                        placeholder="Emma Johnson"
+                        placeholder={t('form.namePlaceholder')}
                         className="w-full rounded-xl border-2 border-white/20 bg-white/10 px-4 py-3 text-white backdrop-blur-sm transition-colors placeholder:text-white/60 focus:border-pink-400 focus:ring-2 focus:ring-pink-100/20 focus:outline-none"
                       />
                     </div>
@@ -284,15 +283,15 @@ export default function OnboardingStep1() {
                         max={7}
                         value={step1FormData.age}
                         onChange={age => setStep1FormData({ age })}
-                        label="How old is your child?"
-                        unit="years old"
+                        label={t('form.age')}
+                        unit={t('form.ageUnit')}
                       />
                     </div>
 
                     {/* Gender */}
                     <div className="mb-6">
                       <label className="mb-2 block text-base font-semibold text-white">
-                        Gender
+                        {t('form.gender')}
                       </label>
                       <div className="flex gap-3 sm:flex-row sm:gap-4">
                         <label className="flex cursor-pointer items-center space-x-3 rounded-xl border-2 border-white/20 bg-white/10 px-4 py-3 backdrop-blur-sm transition-all hover:border-pink-300 hover:bg-white/20">
@@ -314,7 +313,7 @@ export default function OnboardingStep1() {
                               height={24}
                               className="mr-1 object-contain"
                             />
-                            Boy
+                            {t('form.boy')}
                           </span>
                         </label>
                         <label className="flex cursor-pointer items-center space-x-3 rounded-xl border-2 border-white/20 bg-white/10 px-4 py-3 backdrop-blur-sm transition-all hover:border-pink-300 hover:bg-white/20">
@@ -336,7 +335,7 @@ export default function OnboardingStep1() {
                               height={24}
                               className="mr-1 object-contain"
                             />
-                            Girl
+                            {t('form.girl')}
                           </span>
                         </label>
                       </div>
@@ -354,12 +353,10 @@ export default function OnboardingStep1() {
                         />
                         <div>
                           <h4 className="font-semibold text-cyan-200">
-                            How do we use this information?
+                            {t('privacy.title')}
                           </h4>
                           <p className="text-sm text-cyan-100/90">
-                            We use a photo reference of your child, age and
-                            gender to create a unique and realistic character
-                            resemblance with the help of AI.
+                            {t('privacy.description')}
                           </p>
                         </div>
                       </div>
@@ -382,7 +379,7 @@ export default function OnboardingStep1() {
                         height={24}
                         className=""
                       />
-                      Continue to Next Step
+                      {t('cta')}
                     </button>
                   </div>
                 </div>
