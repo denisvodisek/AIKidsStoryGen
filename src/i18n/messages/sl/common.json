@@ -194,30 +194,30 @@
         "sarah": {
           "name": "Sara B.",
           "role": "Emina mami, 6 let",
-          "quote": "Emma se naravnost obožuje videti kot princesa! 👸 Vsak večer prosi za svoje posebne zgodbe. Umetna inteligenca jo naredi za junakinjo vsake pustolovščine!",
+          "quote": "Emma se naravnost obožuje videti kot princesa! 👸 Vsak večer prosi za svojo posebno zgodbo, da jo naredim za junakinjo vsake pustolovščine!",
           "badge": "💝 \"Najboljša večerna rutina!\""
         },
         "mikeLisa": {
           "name": "Ana & Daniel",
           "role": "Jakovova starša, 4 leta",
-          "quote": "Naš sramežljivi Jakec je postal tako samozavesten! 🦸‍♂️ Z veseljem vsem pripoveduje o svojih zmajevih dogodivščinah. Zgodbe so tako ustvarjalne in varne!",
+          "quote": "Naš sramežljivi Jakec je postal tako samozavesten! 🦸‍♂️ Z veseljem vsem pripoveduje o svojih zmajevih dogodivščinah. Zgodbe so tako ustvarjalne!",
           "badge": "🌟 \"Spodbudilo je njegovo domišljijo!\""
         },
         "teacherAmy": {
-          "name": "Učiteljica Amy",
+          "name": "Učiteljica Maja",
           "role": "Mama dvojčkov, 5 let",
-          "quote": "Kot učiteljica IN mama sem presenečena! 📚 Moji dvojčki imata vsak svoje edinstvene dogodivščine. Super za bralne veščine in ustvarjalnost!",
+          "quote": "Kot učiteljica IN mama sem presenečena! 📚 Moja dvojčka imata vsak svoje edinstvene dogodivščine. Prav zares super!",
           "badge": "🎯 \"Izobraževalno IN zabavno!\""
         },
         "drRodriguez": {
           "name": "Dr. Rodriguez",
           "role": "Sofijin oče, 7 let",
-          "quote": "Sofia je iz nejevoljne bralke postala navdušenka nad zgodbami! 📖 Vsak večer bere 30 minut dlje, ker obožuje svoje čarobne pustolovščine."
+          "quote": "Sofija je iz nejevoljne bralke postala navdušenka nad zgodbami! 📖 Vsak večer bere 10 minut dlje, ker obožuje svoje čarobne pustolovščine."
         },
         "techMomJenny": {
-          "name": "Tehnična mama Jenny",
-          "role": "Alexova mama, 8 let",
-          "quote": "Všeč mi je, kako varno in zasebno je! 🔒 Alex dobiva neverjetne zgodbe, jaz pa vem, da so njegovi podatki zaščiteni. Popolno za tehnološko ozaveščene starše!"
+          "name": "Mami Anita",
+          "role": "Aleksova mama, 8 let",
+          "quote": "Všeč mi je, kako varno in zasebno je! 🔒 Aleks dobiva neverjetne zgodbe, jaz pa vem, da so njegovi podatki zaščiteni. Popolno za tehnološko ozaveščene starše!"
         }
       },
       "altTexts": {
@@ -228,8 +228,8 @@
   },
   "auth": {
     "general": {
-      "title": "Dostop do Čarovnije z Enim Klikom",
-      "subtitle": "Izberite želen način prijave",
+      "title": "Eni Klik Vas Še Loči Od Čarovnije",
+      "subtitle": "Izberite vaš želen način prijave",
       "continueWithGoogle": "Nadaljuj z Google",
       "facebook": "Facebook",
       "apple": "Apple",

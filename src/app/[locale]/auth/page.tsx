@@ -11,7 +11,7 @@ export default function AuthPage() {
   const nextAction = searchParams?.get('next');
   const isStoryCreationFlow = nextAction === 'generate';
 
-  const t = useTranslations('common');
+  const t = useTranslations('auth');
 
   const [isSignUp, setIsSignUp] = useState(true);
   const [formData, setFormData] = useState({
@@ -87,7 +87,7 @@ export default function AuthPage() {
                   <div className="h-2 w-8 rounded-full bg-gradient-to-r from-cyan-400 to-blue-400"></div>
                   <div className="h-2 w-8 rounded-full bg-gradient-to-r from-green-400 to-blue-400"></div>
                   <span className="ml-2 text-sm text-white/70">
-                    {t('auth.storyFlow.progressStep')}
+                    {t('storyFlow.progressStep')}
                   </span>
                 </div>
               </div>
@@ -98,7 +98,7 @@ export default function AuthPage() {
               {isStoryCreationFlow ? (
                 <>
                   <h1 className="mb-4 text-4xl font-bold text-white drop-shadow-2xl md:text-4xl">
-                    {t('auth.storyFlow.title')}
+                    {t('storyFlow.title')}
                     <Image
                       src="/emojis/Magic-Wand.png"
                       alt="Magic"
@@ -115,7 +115,7 @@ export default function AuthPage() {
                       height={16}
                     />
                     <span className="text-sm font-bold">
-                      {t('auth.storyFlow.waitingText')}
+                      {t('storyFlow.waitingText')}
                     </span>
                     <Image
                       src="/emojis/Sparkles.png"
@@ -125,13 +125,13 @@ export default function AuthPage() {
                     />
                   </div>
                   <p className="text-lg text-white/90">
-                    {t('auth.storyFlow.subtitle')}
+                    {t('storyFlow.subtitle')}
                   </p>
                 </>
               ) : (
                 <>
                   <h1 className="mb-4 text-4xl font-bold text-white drop-shadow-2xl md:text-4xl">
-                    {t('auth.general.title')}
+                    {t('general.title')}
                     <Image
                       src="/emojis/Magic-Wand.png"
                       alt="Magic"
@@ -141,7 +141,7 @@ export default function AuthPage() {
                     />
                   </h1>
                   <p className="text-lg text-white/90">
-                    {t('auth.general.subtitle')}
+                    {t('general.subtitle')}
                   </p>
                 </>
               )}
@@ -164,8 +164,8 @@ export default function AuthPage() {
                     height={24}
                   />
                   {isStoryCreationFlow
-                    ? t('auth.storyFlow.createAccountWithGoogle')
-                    : t('auth.general.continueWithGoogle')}
+                    ? t('storyFlow.createAccountWithGoogle')
+                    : t('general.continueWithGoogle')}
                 </button>
 
                 {/* Facebook & Apple */}
@@ -178,7 +178,7 @@ export default function AuthPage() {
                       height={20}
                       className="invert"
                     />
-                    {t('auth.general.facebook')}
+                    {t('general.facebook')}
                   </button>
                   <button className="flex items-center justify-center gap-2 rounded-xl bg-black px-4 py-2 font-bold text-white shadow-xl transition-all hover:scale-105 hover:bg-gray-900">
                     <Image
@@ -187,7 +187,7 @@ export default function AuthPage() {
                       width={20}
                       height={20}
                     />
-                    {t('auth.general.apple')}
+                    {t('general.apple')}
                   </button>
                 </div>
 
@@ -203,7 +203,7 @@ export default function AuthPage() {
                           height={20}
                         />
                         <span className="text-sm font-bold text-yellow-300">
-                          {t('auth.storyFlow.benefits.readyInMinutes')}
+                          {t('storyFlow.benefits.readyInMinutes')}
                         </span>
                       </div>
                       <div className="flex items-center gap-3 text-white/90">
@@ -215,7 +215,7 @@ export default function AuthPage() {
                         />
                         <span className="text-sm">
                           <span className="font-bold text-yellow-300">
-                            {t('auth.storyFlow.benefits.freeTokens')}
+                            {t('storyFlow.benefits.freeTokens')}
                           </span>{' '}
                         </span>
                         <Image
@@ -233,7 +233,7 @@ export default function AuthPage() {
                           height={20}
                         />
                         <span className="text-sm">
-                          {t('auth.storyFlow.benefits.personalizedDetails')}
+                          {t('storyFlow.benefits.personalizedDetails')}
                         </span>
                       </div>
                       <div className="flex items-center gap-3 text-white/90">
@@ -244,7 +244,7 @@ export default function AuthPage() {
                           height={20}
                         />
                         <span className="text-sm">
-                          {t('auth.storyFlow.benefits.shareInstantly')}
+                          {t('storyFlow.benefits.shareInstantly')}
                         </span>
                       </div>
                     </>
@@ -258,7 +258,7 @@ export default function AuthPage() {
                           height={20}
                         />
                         <span className="text-sm font-bold text-yellow-300">
-                          {t('auth.benefits.freeTokens')}
+                          {t('benefits.freeTokens')}
                         </span>
                         <Image
                           src="/emojis/Party-Popper.png"
@@ -275,7 +275,7 @@ export default function AuthPage() {
                           height={20}
                         />
                         <span className="text-sm">
-                          {t('auth.benefits.createInstantly')}
+                          {t('benefits.createInstantly')}
                         </span>
                       </div>
                       <div className="flex items-center gap-3 text-white/90">
@@ -286,7 +286,7 @@ export default function AuthPage() {
                           height={20}
                         />
                         <span className="text-sm">
-                          {t('auth.benefits.safeSecure')}
+                          {t('benefits.safeSecure')}
                         </span>
                       </div>
                       <div className="flex items-center gap-3 text-white/90">
@@ -297,7 +297,7 @@ export default function AuthPage() {
                           height={20}
                         />
                         <span className="text-sm">
-                          {t('auth.benefits.happyFamilies')}
+                          {t('benefits.happyFamilies')}
                         </span>
                       </div>
                     </>
@@ -315,7 +315,7 @@ export default function AuthPage() {
                         height={20}
                       />
                       <span className="text-sm font-bold text-yellow-300">
-                        {t('auth.storyFlow.urgency.almostThere')}
+                        {t('storyFlow.urgency.almostThere')}
                       </span>
                       <Image
                         src="/emojis/Fire.png"
@@ -326,7 +326,7 @@ export default function AuthPage() {
                     </div>
                     <div className="text-center">
                       <p className="text-xs text-white/80">
-                        {t('auth.storyFlow.urgency.nextSteps')}
+                        {t('storyFlow.urgency.nextSteps')}
                       </p>
                     </div>
                   </div>
@@ -345,10 +345,10 @@ export default function AuthPage() {
                     </div>
                     <div>
                       <h4 className="text-sm font-semibold text-white">
-                        {t('auth.security.title')}
+                        {t('security.title')}
                       </h4>
                       <p className="text-xs leading-relaxed text-white/80">
-                        {t('auth.security.description')}
+                        {t('security.description')}
                       </p>
                     </div>
                   </div>
@@ -360,8 +360,8 @@ export default function AuthPage() {
             <div className="mt-6 text-center">
               <p className="text-sm text-white/70">
                 {isStoryCreationFlow
-                  ? t('auth.storyFlow.termsText')
-                  : t('auth.general.termsText')}
+                  ? t('storyFlow.termsText')
+                  : t('general.termsText')}
               </p>
             </div>
           </div>
