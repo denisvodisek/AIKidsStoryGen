@@ -473,5 +473,68 @@
       "signInNote": "Preden ustvarimo vašo čarobno zgodbo, se boste morali prijaviti!",
       "validationError": "Prosimo, napišite svoje ideje za zgodbo ALI izberite med zgornjimi možnostmi"
     }
+  },
+  "subscription": {
+    "title": "Odklenite Neomejeno Čarovnijo",
+    "subtitle": "Pridobite neomejeno število personaliziranih zgodb za samo 5,99 €/mesec",
+    "tokens": {
+      "remaining": "preostalih žetonov",
+      "low": "⚠️ Zmanjkuje žetonov! Ne pustite, da se čarovnija konča nocoj",
+      "storiesCreated": "{count, plural, one {# ustvarjena zgodba} two {# ustvarjeni zgodbi} few {# ustvarjene zgodbe} other {# ustvarjenih zgodb}}",
+      "storiesLeft": "{count, plural, one {# preostala zgodba} two {# preostali zgodbi} few {# preostale zgodbe} other {# preostalih zgodb}}"
+    },
+    "unlimited": {
+      "popular": "🔥 NAJBOLJ PRILJUBLJENO",
+      "title": "Neomejena Čarovnija",
+      "subtitle": "Popolno za neskončne pustolovščine",
+      "price": "5,99 €",
+      "period": "/mesec",
+      "comparison": "Manj kot kava ☕",
+      "feature1": "300 žetonov mesečno",
+      "feature2": "~3 personalizirane zgodbe",
+      "feature3": "Premium AI kakovost",
+      "feature4": "Prekličite kadarkoli",
+      "cta": "Začnite Z Neomejeno Čarovnijo",
+      "processing": "Obdelovanje...",
+      "guarantee": "30-dnevna garancija vračila denarja"
+    },
+    "addons": {
+      "title": "Potrebujete Več Žetonov?",
+      "subtitle": "Enostavni nakupi žetonov, ko potrebujete dodatne zgodbe",
+      "plan1": {
+        "tokens": "300 Žetonov",
+        "stories": "~3 čarobne zgodbe",
+        "price": "8,99 €",
+        "description": "Popolno za teden dni zgodb"
+      },
+      "plan2": {
+        "badge": "⭐ NAJBOLJŠA VREDNOST",
+        "tokens": "500 Žetonov",
+        "stories": "~5 čarobnih zgodb",
+        "price": "13,99 €",
+        "description": "Prihranite 1,50 €!",
+        "value": "Najboljša vrednost na zgodbo"
+      },
+      "plan3": {
+        "tokens": "1000 Žetonov",
+        "stories": "~10 čarobnih zgodb",
+        "price": "24,99 €",
+        "description": "Prihranite 5,00 €!",
+        "value": "Maksimalna vrednost"
+      },
+      "cta": "Kupi Žetone"
+    },
+    "faq": {
+      "title": "Vprašanja O Naših Paketih?",
+      "subtitle": "Tukaj smo, da vam pomagamo izbrati popolno čarobno izkušnjo",
+      "stories": "Ogled Mojih Zgodb",
+      "support": "Kontaktirajte Podporo"
+    }
+  },
+  "notFound": {
+    "title": "404 - Stran Ni Najdena",
+    "subtitle": "Ups! Čarobna stran, ki jo iščete, je očitno izginila.",
+    "cta": "Pojdi Nazaj Domov",
+    "alt": "Opica si pokriva ušesa"
   }
 }

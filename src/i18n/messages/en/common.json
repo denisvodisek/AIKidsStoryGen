@@ -475,5 +475,68 @@
       "signInNote": "You'll be asked to sign in before we create your magical story!",
       "validationError": "Please either write your own story ideas OR select from the options above"
     }
+  },
+  "subscription": {
+    "title": "Unlock Unlimited Magic",
+    "subtitle": "Get unlimited personalized stories for just $5.99/month",
+    "tokens": {
+      "remaining": "tokens remaining",
+      "low": "⚠️ Running low! Don't let the magic stop tonight",
+      "storiesCreated": "{count, plural, one {# story created} other {# stories created}}",
+      "storiesLeft": "{count, plural, one {# story left} other {# stories left}}"
+    },
+    "unlimited": {
+      "popular": "🔥 MOST POPULAR",
+      "title": "Magic Unlimited",
+      "subtitle": "Perfect for endless adventures",
+      "price": "$5.99",
+      "period": "/month",
+      "comparison": "Less than a coffee ☕",
+      "feature1": "300 tokens monthly",
+      "feature2": "~3 personalized stories",
+      "feature3": "Premium AI quality",
+      "feature4": "Cancel anytime",
+      "cta": "Start Unlimited Magic",
+      "processing": "Processing...",
+      "guarantee": "30-day money-back guarantee"
+    },
+    "addons": {
+      "title": "Need More Tokens?",
+      "subtitle": "Simple token top-ups for when you need extra stories",
+      "plan1": {
+        "tokens": "300 Tokens",
+        "stories": "~3 magical stories",
+        "price": "$8.99",
+        "description": "Perfect for a week of stories"
+      },
+      "plan2": {
+        "badge": "⭐ BEST VALUE",
+        "tokens": "500 Tokens",
+        "stories": "~5 magical stories",
+        "price": "$13.99",
+        "description": "Save $1.50!",
+        "value": "Best value per story"
+      },
+      "plan3": {
+        "tokens": "1000 Tokens",
+        "stories": "~10 magical stories",
+        "price": "$24.99",
+        "description": "Save $5.00!",
+        "value": "Maximum value"
+      },
+      "cta": "Buy Tokens"
+    },
+    "faq": {
+      "title": "Questions About Our Plans?",
+      "subtitle": "We're here to help you choose the perfect magical experience",
+      "stories": "View My Stories",
+      "support": "Contact Support"
+    }
+  },
+  "notFound": {
+    "title": "404 - Page Not Found",
+    "subtitle": "Oops! The magical page you're looking for seems to have vanished.",
+    "cta": "Go Back to Home",
+    "alt": "Monkey covering its ears"
   }
 }
