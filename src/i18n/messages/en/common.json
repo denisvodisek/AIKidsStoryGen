@@ -265,5 +265,215 @@
       "safeSecure": "Safe & secure for your family",
       "happyFamilies": "Join 50,000+ happy families"
     }
+  },
+  "examples": {
+    "loading": {
+      "title": "Loading magical examples...",
+      "subtitle": "Preparing incredible adventures to inspire you"
+    },
+    "hero": {
+      "title1": "See the Magic",
+      "title2": "in Action!",
+      "subtitle1": "Discover incredible adventures created by our AI!",
+      "subtitle2": "Each story is personalized with real children as the heroes of their own magical tales."
+    },
+    "noExamples": {
+      "title": "Examples Coming Soon!",
+      "subtitle": "We're preparing amazing story examples to inspire you!",
+      "cta": "Create Your Own Story"
+    },
+    "featured": {
+      "title": "✨ Featured Adventure ✨",
+      "pages": "pages",
+      "aiGenerated": "AI Generated",
+      "read": "Click to Read →"
+    },
+    "more": {
+      "title": "🌟 More Amazing Stories 🌟",
+      "read": "Read Story →"
+    },
+    "cta": {
+      "title": "Ready to Create Your Child's Adventure?",
+      "subtitle": "Join thousands of families creating personalized magical stories!",
+      "button": "Start Creating Now"
+    }
+  },
+  "myStories": {
+    "loading": "Loading your magical stories...",
+    "hero": {
+      "title": "Your Magical Stories",
+      "subtitle": "All your wonderful adventures in one enchanted library"
+    },
+    "noStories": {
+      "title": "No Stories Yet",
+      "subtitle": "Create your first magical adventure and it will appear here!",
+      "cta": "Create Your First Story"
+    },
+    "storyCard": {
+      "pages": "pages"
+    },
+    "cta": "Create New Adventure"
+  },
+  "storyPreview": {
+    "loading": "Loading your story...",
+    "subloading": "Preparing your magical adventure",
+    "notFound": {
+      "title": "Story Not Found!",
+      "subtitle": "The magical story you're looking for seems to have disappeared.",
+      "cta": "Back to Stories"
+    },
+    "noImage": "No image for this page",
+    "topBar": {
+      "back": "Back",
+      "download": "Download",
+      "downloading": "Downloading...",
+      "edit": "Edit"
+    },
+    "navigation": {
+      "previous": "Previous",
+      "next": "Next",
+      "swipe": "👈 Swipe to navigate 👉",
+      "keyboard": "Use ← → arrow keys or click to navigate"
+    }
+  },
+  "storyEdit": {
+    "loading": "Loading story editor...",
+    "subloading": "Preparing your magical editing workspace",
+    "notFound": {
+      "title": "Story Not Found!",
+      "subtitle": "The magical story you're looking for seems to have disappeared.",
+      "cta": "Back to Stories"
+    },
+    "header": {
+      "back": "Back to Stories",
+      "editTitle": "Edit:",
+      "titlePlaceholder": "Enter story title...",
+      "saveTitle": "Save title",
+      "cancelEdit": "Cancel editing",
+      "unsavedChanges": "Unsaved changes",
+      "preview": "Preview",
+      "saving": "Saving...",
+      "save": "Save Changes"
+    },
+    "sidebar": {
+      "title": "Story Pages",
+      "page": "Page",
+      "pageType": {
+        "cover": "Cover",
+        "story_page": "Story Page"
+      }
+    },
+    "editor": {
+      "page": "Page",
+      "pageType": {
+        "cover": "Story cover page",
+        "story_page": "Story content page"
+      },
+      "currentImage": "Current Image",
+      "noImage": "No image generated yet",
+      "noImageSubtitle": "Add a description below and regenerate",
+      "generateImage": "Generate Image",
+      "pageContent": "Page Content",
+      "contentPlaceholder": "Enter the magical story content for this page...",
+      "contentText": "This text will appear on the page in your story.",
+      "selectPage": "Select a page to start editing",
+      "selectPageSubtitle": "Choose a page from the left to begin your magical editing journey"
+    }
+  },
+  "onboarding": {
+    "step1": {
+      "progress": "Step 1 of 3",
+      "title": "Let's Create Your Child's Story!",
+      "subtitle": "First, tell us about your little hero so we can create their perfect adventure",
+      "photo": {
+        "title": "Upload Your Child's Photo",
+        "uploading": "Uploading photo...",
+        "change": "Change Photo",
+        "cta": "Click to upload",
+        "ctaSubtitle": "or drag and drop your photo here",
+        "secure": "Your photo is secure, won't be stored, and will only be used to create your story."
+      },
+      "preview": {
+        "title": "Our AI will transform this photo into a magical cartoon character for their stories!"
+      },
+      "form": {
+        "title": "Tell Us About Your Child",
+        "name": "What's your child's name?",
+        "namePlaceholder": "Emma Johnson",
+        "age": "How old is your child?",
+        "ageUnit": "years old",
+        "gender": "Gender",
+        "boy": "Boy",
+        "girl": "Girl"
+      },
+      "privacy": {
+        "title": "How do we use this information?",
+        "description": "We use a photo reference of your child, age and gender to create a unique and realistic character resemblance with the help of AI."
+      },
+      "cta": "Continue to Next Step"
+    },
+    "step2": {
+      "back": "Back",
+      "generate": "Generate",
+      "progress": "Step 2 of 3",
+      "title": "Create {name}'s Adventure!",
+      "subtitle": "Choose how you'd like to create your magical story",
+      "style": {
+        "title": "Choose Your Story Style",
+        "subtitle": "Select the visual style for your magical story",
+        "disney-pixar": "Disney Pixar",
+        "disney-pixar-desc": "Colorful 3D animation style",
+        "paw-patrol": "Paw Patrol",
+        "paw-patrol-desc": "Fun cartoon adventure style",
+        "lego": "Lego",
+        "lego-desc": "Blocky building brick style",
+        "classic-disney": "Classic Disney",
+        "classic-disney-desc": "Traditional hand-drawn style"
+      },
+      "customPrompt": {
+        "title": "Tell Us Your Story Ideas",
+        "clear": "Clear",
+        "placeholder": "Describe the adventure you'd like for your child... Include characters, settings, challenges, and the lessons you want them to learn. Be as creative as you want!",
+        "subtitle": "Write your own unique story concept",
+        "success": "Great! We'll create a personalized story based on your ideas."
+      },
+      "or": "OR",
+      "presets": {
+        "title": "Choose From Options",
+        "clear": "Clear All",
+        "destination": "Where will the adventure take place?",
+        "themes": "What should they learn?",
+        "themesSubtitle": "(Max. 2 options)",
+        "themesSelected": "({count}/2 selected)",
+        "more": "+ {count} more",
+        "success": "Perfect! We'll create a story with your selected preferences."
+      },
+      "destinations": {
+        "castle": "🏰 Enchanted Castle",
+        "forest": "🌲 Magical Forest",
+        "pirate": "🏴‍☠️ Pirate Ship",
+        "space": "🚀 Space Station",
+        "rainbow": "🦄 Rainbow Kingdom",
+        "dragon": "🏔️ Dragon Mountain",
+        "underwater": "🌊 Underwater Kingdom",
+        "circus": "🎪 Circus Adventure"
+      },
+      "themes": {
+        "kindness": "💝 Kindness",
+        "sharing": "🎁 Sharing",
+        "teamwork": "🤝 Teamwork",
+        "honesty": "📢 Honesty",
+        "courage": "🦁 Courage",
+        "friendship": "👫 Friendship",
+        "empathy": "💙 Empathy",
+        "heroism": "🦸 Heroism",
+        "cleanliness": "🧼 Cleanliness",
+        "second-chance": "🔄 2nd Chance",
+        "safety": "🛡️ Safety"
+      },
+      "generateCta": "Generate Magical Story",
+      "signInNote": "You'll be asked to sign in before we create your magical story!",
+      "validationError": "Please either write your own story ideas OR select from the options above"
+    }
   }
 }

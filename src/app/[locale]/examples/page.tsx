@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { useTranslations } from 'next-intl';
 
 interface ExampleStory {
   id: string;
@@ -23,6 +24,7 @@ interface ExampleStory {
 export default function ExamplesPage() {
   const [stories, setStories] = useState<ExampleStory[]>([]);
   const [loading, setLoading] = useState(true);
+  const t = useTranslations('examples');
 
   // Specific story IDs to showcase
   const exampleStoryIds = [
@@ -96,11 +98,9 @@ export default function ExamplesPage() {
               />
             </div>
             <h2 className="mb-2 text-xl font-bold text-white">
-              Loading magical examples...
+              {t('loading.title')}
             </h2>
-            <p className="text-white/80">
-              Preparing incredible adventures to inspire you
-            </p>
+            <p className="text-white/80">{t('loading.subtitle')}</p>
           </div>
         </div>
       </div>
@@ -127,12 +127,12 @@ export default function ExamplesPage() {
       <main className="relative z-20 container mx-auto px-4 py-16">
         <div className="relative z-30 mx-auto max-w-4xl text-center">
           <div className="relative mb-8">
-            <h1 className="mb-4 text-3xl leading-tight font-bold text-white drop-shadow-2xl md:text-5xl">
+            <h1 className="mb-4 text-3xl font-bold leading-tight text-white drop-shadow-2xl md:text-5xl">
               <span className="bg-gradient-to-r from-yellow-300 via-pink-300 to-purple-300 bg-clip-text text-transparent">
-                See the Magic
+                {t('hero.title1')}
               </span>{' '}
               <span className="inline-flex items-center justify-center gap-1 text-white">
-                in Action!{' '}
+                {t('hero.title2')}{' '}
                 <Image
                   src="/emojis/Eyes.png"
                   alt="Eyes"
@@ -161,13 +161,10 @@ export default function ExamplesPage() {
             </div>
           </div>
 
-          <p className="mx-auto mb-12 max-w-3xl text-lg leading-relaxed font-light text-white/90 drop-shadow-lg md:text-xl">
-            Discover incredible adventures created by our AI!
+          <p className="mx-auto mb-12 max-w-3xl text-lg font-light leading-relaxed text-white/90 drop-shadow-lg md:text-xl">
+            {t('hero.subtitle1')}
             <br />
-            <span className="font-normal">
-              Each story is personalized with real children as the heroes of
-              their own magical tales.
-            </span>{' '}
+            <span className="font-normal">{t('hero.subtitle2')}</span>{' '}
             <span className="inline-flex items-center justify-center gap-1 ps-1 pe-1">
               <Image
                 src="/emojis/Star-Struck.png"
@@ -199,11 +196,9 @@ export default function ExamplesPage() {
                   />
                 </div>
                 <h2 className="mb-4 text-xl font-bold text-white">
-                  Examples Coming Soon!
+                  {t('noExamples.title')}
                 </h2>
-                <p className="mb-6 text-white/80">
-                  We're preparing amazing story examples to inspire you!
-                </p>
+                <p className="mb-6 text-white/80">{t('noExamples.subtitle')}</p>
                 <Link
                   href="/onboarding/step-1"
                   className="inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-600 px-6 py-3 font-semibold text-white transition-all hover:scale-105"
@@ -214,7 +209,7 @@ export default function ExamplesPage() {
                     width={20}
                     height={20}
                   />
-                  Create Your Own Story
+                  {t('noExamples.cta')}
                 </Link>
               </div>
             </div>
@@ -224,7 +219,7 @@ export default function ExamplesPage() {
               {stories[0] && (
                 <div className="mb-16">
                   <h2 className="mb-8 text-center text-3xl font-bold text-white">
-                    ✨ Featured Adventure ✨
+                    {t('featured.title')}
                   </h2>
                   <Link
                     href={`/my-stories/${stories[0].id}/preview`}
@@ -272,7 +267,8 @@ export default function ExamplesPage() {
                               width={20}
                               height={20}
                             />
-                            {stories[0].story_pages?.length || 0} pages
+                              {stories[0].story_pages?.length || 0}{' '}
+                              {t('featured.pages')}
                           </span>
                           <span className="flex items-center gap-1">
                             <Image
@@ -281,12 +277,12 @@ export default function ExamplesPage() {
                               width={20}
                               height={20}
                             />
-                            AI Generated
+                              {t('featured.aiGenerated')}
                           </span>
                         </div>
                         <div className="flex items-center gap-2 pt-4">
                           <span className="text-lg font-semibold text-pink-300">
-                            Click to Read →
+                              {t('featured.read')}
                           </span>
                           <Image
                             src="/emojis/Sparkles.png"
@@ -308,7 +304,7 @@ export default function ExamplesPage() {
               {stories.length > 1 && (
                 <>
                   <h2 className="mb-8 text-center text-3xl font-bold text-white">
-                    🌟 More Amazing Stories 🌟
+                    {t('more.title')}
                   </h2>
                   <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                     {stories.slice(1).map(story => (
@@ -362,10 +358,11 @@ export default function ExamplesPage() {
                                 width={16}
                                 height={16}
                               />
-                              {story.story_pages?.length || 0} pages
+                              {story.story_pages?.length || 0}{' '}
+                              {t('featured.pages')}
                             </span>
                             <span className="text-xs font-semibold text-pink-300">
-                              Read Story →
+                              {t('more.read')}
                             </span>
                           </div>
                         </div>
@@ -384,12 +381,9 @@ export default function ExamplesPage() {
           <div className="mt-16 text-center">
             <div className="mx-auto max-w-2xl rounded-3xl bg-white/10 p-8 backdrop-blur-md">
               <h2 className="mb-4 text-2xl font-bold text-white">
-                Ready to Create Your Child's Adventure?
+                {t('cta.title')}
               </h2>
-              <p className="mb-6 text-white/80">
-                Join thousands of families creating personalized magical
-                stories!
-              </p>
+              <p className="mb-6 text-white/80">{t('cta.subtitle')}</p>
               <Link
                 href="/onboarding/step-1"
                 className="inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-green-400 to-blue-500 px-8 py-4 text-lg font-semibold text-white transition-all hover:scale-110"
@@ -400,7 +394,7 @@ export default function ExamplesPage() {
                   width={24}
                   height={24}
                 />
-                Start Creating Now
+                {t('cta.button')}
               </Link>
             </div>
           </div>

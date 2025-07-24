@@ -4,9 +4,11 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useStoryStore } from '@/store';
+import { useTranslations } from 'next-intl';
 
 export default function MyStoriesPage() {
   const [loading, setLoading] = useState(true);
+  const t = useTranslations('myStories');
   const { getStories, clearAllStoryData } = useStoryStore();
   const stories = getStories();
 
@@ -38,9 +40,7 @@ export default function MyStoriesPage() {
             <div className="mb-4 flex justify-center">
               <div className="h-12 w-12 animate-spin rounded-full border-4 border-white/20 border-t-white"></div>
             </div>
-            <p className="text-lg text-white/90">
-              Loading your magical stories...
-            </p>
+            <p className="text-lg text-white/90">{t('loading')}</p>
           </div>
         </div>
       </div>
@@ -76,11 +76,11 @@ export default function MyStoriesPage() {
           <div className="mx-auto mt-4 max-w-6xl sm:mt-6">
             {/* Header */}
             <div className="mb-8 text-center sm:mb-12">
-              <h1 className="mb-4 text-2xl leading-tight font-bold text-white sm:mb-6 sm:text-3xl md:text-4xl lg:text-5xl">
-                Your Magical Stories
+              <h1 className="mb-4 text-2xl font-bold leading-tight text-white sm:mb-6 sm:text-3xl md:text-4xl lg:text-5xl">
+                {t('hero.title')}
               </h1>
               <p className="mx-auto max-w-2xl text-base text-white/90 sm:text-lg">
-                All your wonderful adventures in one enchanted library
+                {t('hero.subtitle')}
               </p>
             </div>
 
@@ -97,10 +97,10 @@ export default function MyStoriesPage() {
                     />
                   </div>
                   <h2 className="mb-4 text-xl font-bold text-white">
-                    No Stories Yet
+                    {t('noStories.title')}
                   </h2>
                   <p className="mb-6 text-white/80">
-                    Create your first magical adventure and it will appear here!
+                    {t('noStories.subtitle')}
                   </p>
                   <Link
                     href="/onboarding/step-1"
@@ -112,7 +112,7 @@ export default function MyStoriesPage() {
                       width={20}
                       height={20}
                     />
-                    Create Your First Story
+                    {t('noStories.cta')}
                   </Link>
                 </div>
               </div>
@@ -155,7 +155,7 @@ export default function MyStoriesPage() {
                       </p>
                       <div className="flex items-center justify-between pt-2">
                         <span className="text-xs text-white/60">
-                          {story.pages?.length || 0} pages
+                          {story.pages?.length || 0} {t('storyCard.pages')}
                         </span>
                         <span className="text-xs text-white/60">
                           {new Date(story.createdAt).toLocaleDateString()}
@@ -185,7 +185,7 @@ export default function MyStoriesPage() {
                   width={24}
                   height={24}
                 />
-                Create New Adventure
+                {t('cta')}
               </Link>
             </div>
           </div>

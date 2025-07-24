@@ -263,5 +263,215 @@
       "safeSecure": "Varno in zanesljivo za tvojo družino",
       "happyFamilies": "Pridruži se 50.000+ srečnim družinam"
     }
+  },
+  "examples": {
+    "loading": {
+      "title": "Nalaganje čarobnih primerov...",
+      "subtitle": "Pripravljamo neverjetne pustolovščine, da vas navdihnemo"
+    },
+    "hero": {
+      "title1": "Poglejte Čarovnijo",
+      "title2": "v Akciji!",
+      "subtitle1": "Odkrijte neverjetne pustolovščine, ki jih je ustvarila naša umetna inteligenca!",
+      "subtitle2": "Vsaka zgodba je personalizirana z resničnimi otroki kot junaki svojih čarobnih pravljic."
+    },
+    "noExamples": {
+      "title": "Primeri Kmalu Na Voljo!",
+      "subtitle": "Pripravljamo izjemne primere zgodb, da vas navdihnemo!",
+      "cta": "Ustvari Svojo Zgodbo"
+    },
+    "featured": {
+      "title": "✨ Izpostavljena Pustolovščina ✨",
+      "pages": "strani",
+      "aiGenerated": "Generirano z AI",
+      "read": "Klikni za Branje →"
+    },
+    "more": {
+      "title": "🌟 Več Neverjetnih Zgodb 🌟",
+      "read": "Preberi Zgodbo →"
+    },
+    "cta": {
+      "title": "Ste Pripravljeni Ustvariti Pustolovščino Svojega Otroka?",
+      "subtitle": "Pridružite se tisočim družinam, ki ustvarjajo personalizirane čarobne zgodbe!",
+      "button": "Začni Ustvarjati Zdaj"
+    }
+  },
+  "myStories": {
+    "loading": "Nalaganje vaših čarobnih zgodb...",
+    "hero": {
+      "title": "Vaše Čarobne Zgodbe",
+      "subtitle": "Vse vaše čudovite pustolovščine v eni začarani knjižnici"
+    },
+    "noStories": {
+      "title": "Še Ni Zgodb",
+      "subtitle": "Ustvarite svojo prvo čarobno pustolovščino in prikazala se bo tukaj!",
+      "cta": "Ustvari Svojo Prvo Zgodbo"
+    },
+    "storyCard": {
+      "pages": "strani"
+    },
+    "cta": "Ustvari Novo Pustolovščino"
+  },
+  "storyPreview": {
+    "loading": "Nalaganje vaše zgodbe...",
+    "subloading": "Priprava vaše čarobne pustolovščine",
+    "notFound": {
+      "title": "Zgodba Ni Najdena!",
+      "subtitle": "Čarobna zgodba, ki jo iščete, je izginila.",
+      "cta": "Nazaj na Zgodbe"
+    },
+    "noImage": "Ni slike za to stran",
+    "topBar": {
+      "back": "Nazaj",
+      "download": "Prenesi",
+      "downloading": "Prenašanje...",
+      "edit": "Uredi"
+    },
+    "navigation": {
+      "previous": "Prejšnja",
+      "next": "Naslednja",
+      "swipe": "👈 Povlecite za navigacijo 👉",
+      "keyboard": "Uporabite puščici ← → ali kliknite za navigacijo"
+    }
+  },
+  "storyEdit": {
+    "loading": "Nalaganje urejevalnika zgodb...",
+    "subloading": "Priprava vašega čarobnega delovnega prostora za urejanje",
+    "notFound": {
+      "title": "Zgodba ni najdena!",
+      "subtitle": "Čarobna zgodba, ki jo iščete, je očitno izginila.",
+      "cta": "Nazaj na zgodbe"
+    },
+    "header": {
+      "back": "Nazaj na zgodbe",
+      "editTitle": "Uredi:",
+      "titlePlaceholder": "Vnesite naslov zgodbe...",
+      "saveTitle": "Shrani naslov",
+      "cancelEdit": "Prekliči urejanje",
+      "unsavedChanges": "Neshranjene spremembe",
+      "preview": "Predogled",
+      "saving": "Shranjevanje...",
+      "save": "Shrani spremembe"
+    },
+    "sidebar": {
+      "title": "Strani zgodbe",
+      "page": "Stran",
+      "pageType": {
+        "cover": "Naslovnica",
+        "story_page": "Stran zgodbe"
+      }
+    },
+    "editor": {
+      "page": "Stran",
+      "pageType": {
+        "cover": "Naslovna stran zgodbe",
+        "story_page": "Stran z vsebino zgodbe"
+      },
+      "currentImage": "Trenutna slika",
+      "noImage": "Slika še ni ustvarjena",
+      "noImageSubtitle": "Spodaj dodajte opis in ponovno generirajte",
+      "generateImage": "Ustvari sliko",
+      "pageContent": "Vsebina strani",
+      "contentPlaceholder": "Vnesite čarobno vsebino zgodbe za to stran...",
+      "contentText": "To besedilo se bo pojavilo na strani v vaši zgodbi.",
+      "selectPage": "Izberite stran za začetek urejanja",
+      "selectPageSubtitle": "Izberite stran na levi, da začnete svojo čarobno urejevalno pot"
+    }
+  },
+  "onboarding": {
+    "step1": {
+      "progress": "Korak 1 od 3",
+      "title": "Ustvarimo Zgodbo Vašega Otroka!",
+      "subtitle": "Najprej nam povejte o vašem malem junaku, da lahko ustvarimo njegovo popolno pustolovščino",
+      "photo": {
+        "title": "Naložite Fotografijo Vašega Otroka",
+        "uploading": "Nalaganje fotografije...",
+        "change": "Spremeni Fotografijo",
+        "cta": "Kliknite za nalaganje",
+        "ctaSubtitle": "ali povlecite in spustite svojo fotografijo sem",
+        "secure": "Vaša fotografija je varna, ne bo shranjena in bo uporabljena samo za ustvarjanje vaše zgodbe."
+      },
+      "preview": {
+        "title": "Naš AI bo to fotografijo spremenil v čaroben risani lik za njihove zgodbe!"
+      },
+      "form": {
+        "title": "Povejte Nam O Svojem Otroku",
+        "name": "Kako je ime vašemu otroku?",
+        "namePlaceholder": "Ema Novak",
+        "age": "Koliko je star vaš otrok?",
+        "ageUnit": "let",
+        "gender": "Spol",
+        "boy": "Fant",
+        "girl": "Dekle"
+      },
+      "privacy": {
+        "title": "Kako uporabljamo te informacije?",
+        "description": "Uporabljamo referenčno fotografijo vašega otroka, starost in spol, da s pomočjo AI ustvarimo edinstveno in realistično podobnost lika."
+      },
+      "cta": "Nadaljuj na Naslednji Korak"
+    },
+    "step2": {
+      "back": "Nazaj",
+      "generate": "Generiraj",
+      "progress": "Korak 2 od 3",
+      "title": "Ustvari Pustolovščino za {name}!",
+      "subtitle": "Izberite, kako želite ustvariti svojo čarobno zgodbo",
+      "style": {
+        "title": "Izberite Slog Vaše Zgodbe",
+        "subtitle": "Izberite vizualni slog za vašo čarobno zgodbo",
+        "disney-pixar": "Disney Pixar",
+        "disney-pixar-desc": "Barvit 3D animacijski slog",
+        "paw-patrol": "Tačke na patrulji",
+        "paw-patrol-desc": "Zabaven risani pustolovski slog",
+        "lego": "Lego",
+        "lego-desc": "Slog gradnje s kockami",
+        "classic-disney": "Klasični Disney",
+        "classic-disney-desc": "Tradicionalni ročno risani slog"
+      },
+      "customPrompt": {
+        "title": "Povejte Nam Svoje Ideje za Zgodbo",
+        "clear": "Počisti",
+        "placeholder": "Opišite pustolovščino, ki bi jo želeli za svojega otroka... Vključite like, okolja, izzive in lekcije, ki se jih naj naučijo. Bodite ustvarjalni, kolikor želite!",
+        "subtitle": "Napišite svoj edinstven koncept zgodbe",
+        "success": "Odlično! Ustvarili bomo personalizirano zgodbo na podlagi vaših idej."
+      },
+      "or": "ALI",
+      "presets": {
+        "title": "Izberite Med Možnostmi",
+        "clear": "Počisti Vse",
+        "destination": "Kje se bo odvijala pustolovščina?",
+        "themes": "Kaj naj se naučijo?",
+        "themesSubtitle": "(Največ 2 možnosti)",
+        "themesSelected": "({count}/2 izbranih)",
+        "more": "+ {count} več",
+        "success": "Popolno! Ustvarili bomo zgodbo z vašimi izbranimi preferencami."
+      },
+      "destinations": {
+        "castle": "🏰 Začarani Grad",
+        "forest": "🌲 Čarobni Gozd",
+        "pirate": "🏴‍☠️ Gusarska Ladja",
+        "space": "🚀 Vesoljska Postaja",
+        "rainbow": "🦄 Mavrično Kraljestvo",
+        "dragon": "🏔️ Zmajeva Gora",
+        "underwater": "🌊 Podvodno Kraljestvo",
+        "circus": "🎪 cirkuška Pustolovščina"
+      },
+      "themes": {
+        "kindness": "💝 Prijaznost",
+        "sharing": "🎁 Deljenje",
+        "teamwork": "🤝 Timsko Delo",
+        "honesty": "📢 Iskrenost",
+        "courage": "🦁 Pogum",
+        "friendship": "👫 Prijateljstvo",
+        "empathy": "💙 Empatija",
+        "heroism": "🦸 Junaštvo",
+        "cleanliness": "🧼 Čistoča",
+        "second-chance": "🔄 Druga Priložnost",
+        "safety": "🛡️ Varnost"
+      },
+      "generateCta": "Generiraj Čarobno Zgodbo",
+      "signInNote": "Preden ustvarimo vašo čarobno zgodbo, se boste morali prijaviti!",
+      "validationError": "Prosimo, napišite svoje ideje za zgodbo ALI izberite med zgornjimi možnostmi"
+    }
   }
 }
