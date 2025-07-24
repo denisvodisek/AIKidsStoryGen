@@ -11,6 +11,7 @@ import {
 } from '@/lib/gemini';
 import { useOnboardingStore, useStoryStore } from '@/store';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 const generateId = () => {
   return Date.now().toString(36) + Math.random().toString(36).substr(2);
@@ -34,7 +35,7 @@ export default function GeneratePage() {
     failGeneration,
     clearAllStoryData,
   } = useStoryStore();
-
+  const t = useTranslations('generate');
   // Live timer state
   const [elapsedTime, setElapsedTime] = useState(0);
   const startTimeRef = useRef<number | null>(null);
@@ -394,12 +395,11 @@ export default function GeneratePage() {
               </div>
 
               <h1 className="mb-6 bg-gradient-to-r from-white via-purple-200 to-blue-200 bg-clip-text p-2 text-3xl font-bold text-transparent md:text-5xl">
-                Let's Start Your Adventure!
+                {t('missingData.title')}
               </h1>
               <div className="mx-auto max-w-lg rounded-2xl bg-white/10 p-6 backdrop-blur-md">
                 <p className="text-lg leading-relaxed text-white/90">
-                  We need a few details to create your magical story. Let's
-                  begin this exciting journey together!
+                  {t('missingData.description')}
                 </p>
               </div>
             </div>
@@ -407,7 +407,7 @@ export default function GeneratePage() {
             {/* Journey Steps Preview */}
             <div className="mb-10 rounded-2xl bg-white/5 p-6 backdrop-blur-sm">
               <h3 className="mb-6 text-center text-lg font-semibold text-white">
-                Your Journey Ahead
+                {t('missingData.journeyAhead')}
               </h3>
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="flex items-center gap-4 rounded-xl bg-white/10 p-4">
@@ -421,10 +421,10 @@ export default function GeneratePage() {
                   </div>
                   <div>
                     <div className="font-semibold text-white">
-                      Step 1: Your Hero
+                      {t('missingData.step1')}
                     </div>
                     <div className="text-sm text-white/70">
-                      Upload photo & details
+                      {t('missingData.step1Description')}
                     </div>
                   </div>
                 </div>
@@ -440,10 +440,10 @@ export default function GeneratePage() {
                   </div>
                   <div>
                     <div className="font-semibold text-white">
-                      Step 2: Adventure
+                      {t('missingData.step2')}
                     </div>
                     <div className="text-sm text-white/70">
-                      Choose theme & style
+                      {t('missingData.step2Description')}
                     </div>
                   </div>
                 </div>
@@ -462,7 +462,7 @@ export default function GeneratePage() {
                     width={38}
                     height={38}
                   />
-                  Begin Your Magical Adventure
+                  {t('missingData.cta')}
                 </span>
               </Link>
             </div>
@@ -546,11 +546,10 @@ export default function GeneratePage() {
               </div>
 
               <h1 className="mb-6 bg-gradient-to-r from-white via-yellow-200 to-emerald-200 bg-clip-text p-2 text-3xl font-bold text-transparent md:text-4xl">
-                Your Story is Ready!
+                {t('generationComplete.title')}
               </h1>
               <p className="text-lg text-white/90 md:text-xl">
-                Your magical adventure has been crafted with love and
-                creativity!
+                {t('generationComplete.description')}
               </p>
             </div>
 
@@ -573,7 +572,7 @@ export default function GeneratePage() {
                     width={38}
                     height={38}
                   />
-                  Read Your Magical Story
+                  {t('generationComplete.readStory')}
                 </span>
               </Link>
 
@@ -594,7 +593,7 @@ export default function GeneratePage() {
                     height={24}
                   />
                   <span className="text-lg font-semibold text-white">
-                    Edit Story
+                    {t('generationComplete.editStory')}
                   </span>
                 </Link>
 
@@ -609,7 +608,7 @@ export default function GeneratePage() {
                     height={24}
                   />
                   <span className="text-lg font-semibold text-white">
-                    My Stories
+                    {t('generationComplete.myStories')}
                   </span>
                 </Link>
               </div>
@@ -629,7 +628,7 @@ export default function GeneratePage() {
                     width={24}
                     height={24}
                   />
-                  Create Another Adventure
+                  {t('generationComplete.createAnother')}
                 </span>
               </Link>
             </div>
@@ -694,19 +693,18 @@ export default function GeneratePage() {
 
               <h1 className="mb-6 bg-gradient-to-r from-white via-orange-200 to-yellow-200 bg-clip-text p-2 text-4xl font-bold text-transparent md:text-5xl">
                 {isRateLimit
-                  ? 'Hold On a Moment!'
+                  ? t('generationError.rateLimitTitle')
                   : isNetworkError
-                    ? 'Connection Issue!'
-                    : 'Something Went Wrong!'}
+                    ? t('generationError.connectionIssueTitle')
+                    : t('generationError.defaultTitle')}
               </h1>
               <div className="mx-auto max-w-xl rounded-2xl bg-white/10 p-6 backdrop-blur-md">
                 <p className="text-lg leading-relaxed text-white/90">
                   {isRateLimit
-                    ? "We're experiencing high demand right now. Let's try again in just a moment!"
+                    ? t('generationError.rateLimitDescription')
                     : isNetworkError
-                      ? "It looks like there's a connection issue. Please check your internet and try again."
-                      : generationError ||
-                        "We're experiencing some technical issues. Let's try again in just a moment!"}
+                      ? t('generationError.connectionIssueDescription')
+                      : generationError || t('generationError.defaultDescription')}
                 </p>
               </div>
             </div>
@@ -735,8 +733,8 @@ export default function GeneratePage() {
                     className={isGenerating ? 'animate-spin' : ''}
                   />
                   {isGenerating
-                    ? 'Retrying Your Story...'
-                    : 'Try Creating Again'}
+                    ? t('generationError.retrying')
+                    : t('generationError.retry')}
                 </span>
               </button>
 
@@ -756,22 +754,22 @@ export default function GeneratePage() {
                     height={28}
                   />
                   <span className="text-xl font-semibold text-white">
-                    Start Fresh Adventure
+                    {t('generationError.startFresh')}
                   </span>
                 </Link>
 
                 {/* Help Section */}
                 <div className="rounded-2xl bg-white/5 p-6 backdrop-blur-sm">
                   <h3 className="mb-4 text-center text-lg font-semibold text-white">
-                    Need Help?
+                    {t('generationError.needHelp')}
                   </h3>
                   <div className="space-y-3 text-center">
                     <p className="text-sm text-white/80">
                       {isRateLimit
-                        ? 'High demand means lots of magical stories being created!'
+                        ? t('generationError.rateLimitHelp')
                         : isNetworkError
-                          ? "Network hiccups happen - we'll get your story created!"
-                          : "Don't worry, we'll help you create an amazing story!"}
+                          ? t('generationError.connectionIssueHelp')
+                          : t('generationError.defaultHelp')}
                     </p>
                     <a
                       href="mailto:support@aikidsstorygen.com"
@@ -783,7 +781,7 @@ export default function GeneratePage() {
                         width={16}
                         height={16}
                       />
-                      Contact Support
+                      {t('generationError.contactSupport')}
                     </a>
                   </div>
                 </div>
@@ -792,37 +790,43 @@ export default function GeneratePage() {
                 {(isNetworkError || isRateLimit) && (
                   <div className="rounded-2xl bg-white/5 p-6 backdrop-blur-sm">
                     <h3 className="mb-3 text-center text-lg font-semibold text-white">
-                      💡 Quick Tips
+                      {t('generationError.quickTips')}
                     </h3>
                     <div className="space-y-2 text-sm text-white/80">
                       {isRateLimit ? (
                         <>
                           <div className="flex items-center gap-2">
                             <span className="text-yellow-300">•</span>
-                            <span>Try again in 30-60 seconds</span>
+                            <span>{t('generationError.rateLimitTip1')}</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="text-yellow-300">•</span>
-                            <span>Peak times: evenings & weekends</span>
+                            <span>{t('generationError.rateLimitTip2')}</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="text-yellow-300">•</span>
-                            <span>Your story settings are saved!</span>
+                            <span>{t('generationError.rateLimitTip3')}</span>
                           </div>
                         </>
                       ) : (
                         <>
                           <div className="flex items-center gap-2">
                             <span className="text-blue-300">•</span>
-                            <span>Check your internet connection</span>
+                            <span>
+                              {t('generationError.connectionIssueTip1')}
+                            </span>
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="text-blue-300">•</span>
-                            <span>Try refreshing the page</span>
+                            <span>
+                              {t('generationError.connectionIssueTip2')}
+                            </span>
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="text-blue-300">•</span>
-                            <span>Your progress is automatically saved</span>
+                            <span>
+                              {t('generationError.connectionIssueTip3')}
+                            </span>
                           </div>
                         </>
                       )}
@@ -882,10 +886,10 @@ export default function GeneratePage() {
             </div>
 
             <h1 className="mb-4 bg-gradient-to-r from-white via-yellow-200 to-pink-200 bg-clip-text p-2 text-3xl font-bold text-transparent md:text-5xl">
-              Creating Your Magical Story
+              {t('generating.title')}
             </h1>
             <p className="text-lg text-white/80 md:text-xl">
-              Our AI wizards are weaving magic into every word{' '}
+              {t('generating.subtitle')}{' '}
               <Image
                 src="/emojis/Sparkles.png"
                 alt="Sparkles"
@@ -895,7 +899,7 @@ export default function GeneratePage() {
               />
             </p>
             <div className="mt-2 text-xs text-white/60">
-              On average, it takes 60-120 seconds to create a story.
+              {t('generating.eta')}
             </div>
           </div>
 
@@ -954,7 +958,9 @@ export default function GeneratePage() {
             {/* Main Progress Bar */}
             <div className="mx-auto max-w-lg space-y-4">
               <div className="flex justify-between text-white">
-                <span className="text-lg font-medium">Progress</span>
+                <span className="text-lg font-medium">
+                  {t('generating.progress')}
+                </span>
                 <span className="text-xl font-bold text-yellow-300">
                   {Math.round(progress)}%
                 </span>
@@ -978,17 +984,17 @@ export default function GeneratePage() {
 
               <div className="text-center">
                 <p className="text-sm text-white/90 transition-all duration-500">
-                  {progress < 30 && 'Analyzing your magical character...'}
+                  {progress < 30 && t('generating.status.analyzing')}
                   {progress >= 30 &&
                     progress < 70 &&
-                    '📚 Crafting your personalized adventure...'}
+                    t('generating.status.crafting')}
                   {progress >= 70 &&
                     progress < 90 &&
-                    '🎨 Creating beautiful illustrations...'}
+                    t('generating.status.creatingIllustrations')}
                   {progress >= 90 &&
                     progress < 100 &&
-                    '✨ Adding final magical touches...'}
-                  {progress >= 100 && 'Your story is ready!'}
+                    t('generating.status.finalTouches')}
+                  {progress >= 100 && t('generating.status.ready')}
                 </p>
               </div>
             </div>

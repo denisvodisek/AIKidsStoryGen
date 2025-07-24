@@ -1,0 +1,56 @@
+{
+  "missingData": {
+    "title": "Let's Start Your Adventure!",
+    "description": "We need a few details to create your magical story. Let's begin this exciting journey together!",
+    "journeyAhead": "Your Journey Ahead",
+    "step1": "Step 1: Your Hero",
+    "step1Description": "Upload photo & details",
+    "step2": "Step 2: Adventure",
+    "step2Description": "Choose theme & style",
+    "cta": "Begin Your Magical Adventure"
+  },
+  "generationComplete": {
+    "title": "Your Story is Ready!",
+    "description": "Your magical adventure has been crafted with love and creativity!",
+    "readStory": "Read Your Magical Story",
+    "editStory": "Edit Story",
+    "myStories": "My Stories",
+    "createAnother": "Create Another Adventure"
+  },
+  "generationError": {
+    "rateLimitTitle": "Hold On a Moment!",
+    "connectionIssueTitle": "Connection Issue!",
+    "defaultTitle": "Something Went Wrong!",
+    "rateLimitDescription": "We're experiencing high demand right now. Let's try again in just a moment!",
+    "connectionIssueDescription": "It looks like there's a connection issue. Please check your internet and try again.",
+    "defaultDescription": "We're experiencing some technical issues. Let's try again in just a moment!",
+    "retry": "Try Creating Again",
+    "retrying": "Retrying Your Story...",
+    "startFresh": "Start Fresh Adventure",
+    "needHelp": "Need Help?",
+    "rateLimitHelp": "High demand means lots of magical stories being created!",
+    "connectionIssueHelp": "Network hiccups happen - we'll get your story created!",
+    "defaultHelp": "Don't worry, we'll help you create an amazing story!",
+    "contactSupport": "Contact Support",
+    "quickTips": "💡 Quick Tips",
+    "rateLimitTip1": "Try again in 30-60 seconds",
+    "rateLimitTip2": "Peak times: evenings & weekends",
+    "rateLimitTip3": "Your story settings are saved!",
+    "connectionIssueTip1": "Check your internet connection",
+    "connectionIssueTip2": "Try refreshing the page",
+    "connectionIssueTip3": "Your progress is automatically saved"
+  },
+  "generating": {
+    "title": "Creating Your Magical Story",
+    "subtitle": "Our AI wizards are weaving magic into every word",
+    "eta": "On average, it takes 60-120 seconds to create a story.",
+    "progress": "Progress",
+    "status": {
+      "analyzing": "Analyzing your magical character...",
+      "crafting": "📚 Crafting your personalized adventure...",
+      "creatingIllustrations": "🎨 Creating beautiful illustrations...",
+      "finalTouches": "✨ Adding final magical touches...",
+      "ready": "Your story is ready!"
+    }
+  }
+}

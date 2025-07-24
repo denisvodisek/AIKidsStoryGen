@@ -1,0 +1,56 @@
+{
+  "missingData": {
+    "title": "Začnimo Tvojo Pustolovščino!",
+    "description": "Potrebujemo nekaj podrobnosti za ustvarjanje tvoje čarobne zgodbe. Začnimo to razburljivo potovanje skupaj!",
+    "journeyAhead": "Tvoja Pot Naprej",
+    "step1": "1. korak: Tvoj Junak",
+    "step1Description": "Naloži fotografijo in podrobnosti",
+    "step2": "2. korak: Pustolovščina",
+    "step2Description": "Izberi temo in slog",
+    "cta": "Začni Svojo Čarobno Pustolovščino"
+  },
+  "generationComplete": {
+    "title": "Tvoja Zgodba je Pripravljena!",
+    "description": "Tvoja čarobna pustolovščina je bila ustvarjena z ljubeznijo in ustvarjalnostjo!",
+    "readStory": "Preberi Svojo Čarobno Zgodbo",
+    "editStory": "Uredi Zgodbo",
+    "myStories": "Moje Zgodbe",
+    "createAnother": "Ustvari Novo Pustolovščino"
+  },
+  "generationError": {
+    "rateLimitTitle": "Počakaj Trenutek!",
+    "connectionIssueTitle": "Težava s Povezavo!",
+    "defaultTitle": "Nekaj je Šlo Narobe!",
+    "rateLimitDescription": "Trenutno imamo veliko povpraševanje. Poskusimo znova čez trenutek!",
+    "connectionIssueDescription": "Kaže, da je prišlo do težave s povezavo. Preveri svojo internetno povezavo in poskusi znova.",
+    "defaultDescription": "Imamo nekaj tehničnih težav. Poskusimo znova čez trenutek!",
+    "retry": "Poskusi Znova Ustvariti",
+    "retrying": "Poustvarjam Tvojo Zgodbo...",
+    "startFresh": "Začni Novo Pustolovščino",
+    "needHelp": "Potrebuješ Pomoč?",
+    "rateLimitHelp": "Veliko povpraševanje pomeni, da se ustvarja veliko čarobnih zgodb!",
+    "connectionIssueHelp": "Težave z omrežjem se dogajajo - ustvarili bomo tvojo zgodbo!",
+    "defaultHelp": "Ne skrbi, pomagali ti bomo ustvariti neverjetno zgodbo!",
+    "contactSupport": "Kontaktiraj Podporo",
+    "quickTips": "💡 Hitri Nasveti",
+    "rateLimitTip1": "Poskusi znova čez 30-60 sekund",
+    "rateLimitTip2": "Največja obremenitev: večeri in vikendi",
+    "rateLimitTip3": "Nastavitve tvoje zgodbe so shranjene!",
+    "connectionIssueTip1": "Preveri svojo internetno povezavo",
+    "connectionIssueTip2": "Poskusi osvežiti stran",
+    "connectionIssueTip3": "Tvoj napredek je samodejno shranjen"
+  },
+  "generating": {
+    "title": "Ustvarjanje Tvoje Čarobne Zgodbe",
+    "subtitle": "Naši AI čarovniki vpletajo čarovnijo v vsako besedo",
+    "eta": "V povprečju traja 60-120 sekund, da se ustvari zgodba.",
+    "progress": "Napredek",
+    "status": {
+      "analyzing": "Analiziram tvoj čarobni lik...",
+      "crafting": "📚 Oblikujem tvojo personalizirano pustolovščino...",
+      "creatingIllustrations": "🎨 Ustvarjam čudovite ilustracije...",
+      "finalTouches": "✨ Dodajam zadnje čarobne dotike...",
+      "ready": "Tvoja zgodba je pripravljena!"
+    }
+  }
+}
