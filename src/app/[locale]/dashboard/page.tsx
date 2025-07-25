@@ -52,7 +52,12 @@ export default function Dashboard() {
       <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-purple-600 via-indigo-700 to-blue-800">
         <div className="text-center">
           <div className="mb-4">
-            <div className="mx-auto h-12 w-12 animate-spin rounded-full border-4 border-white/20 border-t-white"></div>
+            <Image
+              src="/emojis/Hourglass-Done.png"
+              alt="Hourglass Done"
+              width={40}
+              height={40}
+            />
           </div>
           <p className="text-white">Loading...</p>
         </div>
@@ -108,8 +113,13 @@ export default function Dashboard() {
 
           {loading ? (
             <div className="text-center">
-              <div className="mb-4">
-                <div className="mx-auto h-8 w-8 animate-spin rounded-full border-2 border-white/20 border-t-white"></div>
+              <div className="mt-4 mb-4 flex justify-center">
+                <Image
+                  src="/emojis/Hourglass-Done.png"
+                  alt="Hourglass Done"
+                  width={40}
+                  height={40}
+                />
               </div>
               <p className="text-white/80">Loading your stories...</p>
             </div>
