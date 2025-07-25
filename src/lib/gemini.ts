@@ -354,6 +354,10 @@ export const generateImages = async (
   ): Promise<{ pageNumber: number; photoUrl: string | null }> => {
     try {
       const imagePrompt = page.photo_description;
+      console.log(
+        `🎨 Generating image for page ${page.page_number} with prompt:`,
+        imagePrompt
+      );
 
       const response = await genAI.models.generateImages({
         model: 'models/imagen-3.0-generate-002',
@@ -365,23 +369,42 @@ export const generateImages = async (
         },
       });
 
+      console.log('📸 Gemini response:', {
+        hasResponse: !!response,
+        hasGeneratedImages: !!response?.generatedImages,
+        imagesCount: response?.generatedImages?.length || 0,
+        hasImageBytes: !!response?.generatedImages?.[0]?.image?.imageBytes,
+      });
+
       if (!response?.generatedImages) {
-        throw new Error('No image data received');
+        throw new Error('No generatedImages in response');
       }
       if (!response.generatedImages?.[0]?.image?.imageBytes) {
-        throw new Error('No image data received');
+        throw new Error('No imageBytes in first generated image');
       }
+
       const imageData = response.generatedImages[0].image.imageBytes;
+      console.log(
+        `✅ Generated image data for page ${page.page_number}, size: ${imageData.length} chars`
+      );
 
       const result = await storeStoryImage(
         imageData,
         storyId,
         page.page_number
       );
+
       if (result.error) {
-        console.error('Failed to store image:', result.error);
+        console.error(
+          `💾 Failed to store image for page ${page.page_number}:`,
+          result.error
+        );
+        throw new Error(`Storage failed: ${String(result.error)}`);
       } else {
-        console.log('Image stored:', result.data?.publicUrl);
+        console.log(
+          `💾 Image stored successfully for page ${page.page_number}:`,
+          result.data?.publicUrl
+        );
       }
 
       return {
@@ -393,6 +416,15 @@ export const generateImages = async (
         `❌ Failed to generate image for page ${page.page_number}:`,
         error
       );
+
+      // Log more details about the error
+      if (error instanceof Error) {
+        console.error(`❌ Error details:`, {
+          message: error.message,
+          stack: error.stack,
+          name: error.name,
+        });
+      }
 
       // Retry logic with exponential backoff
       if (retryCount < MAX_RETRIES) {

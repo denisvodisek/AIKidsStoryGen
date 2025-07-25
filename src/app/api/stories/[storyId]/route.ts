@@ -4,10 +4,12 @@ import { getStoryById, updateStoryPage } from '@/lib/supabase';
 // GET /api/stories/[storyId] - Fetch story with pages
 export async function GET(
   request: NextRequest,
-  { params }: { params: { storyId: string } }
+  { params }: { params: Promise<{ storyId: string }> }
 ) {
   try {
-    const { storyId } = params;
+    const { storyId } = await params;
+
+    console.log('storyId', storyId);
 
     if (!storyId) {
       return NextResponse.json(
@@ -17,7 +19,7 @@ export async function GET(
     }
 
     const { data: story, error } = await getStoryById(storyId);
-
+    console.log('story', story);
     if (error) {
       console.error('Error fetching story:', error);
       return NextResponse.json(
@@ -43,10 +45,10 @@ export async function GET(
 // PUT /api/stories/[storyId] - Update story content
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { storyId: string } }
+  { params }: { params: Promise<{ storyId: string }> }
 ) {
   try {
-    const { storyId } = params;
+    const { storyId } = await params;
     const body = await request.json();
 
     if (!storyId) {

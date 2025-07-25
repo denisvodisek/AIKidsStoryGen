@@ -1,9 +1,11 @@
 'use client';
 
-import { useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useState, useEffect } from 'react';
+import { useTranslations, useLocale } from 'next-intl';
 import Image from 'next/image';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
+import { useRouter } from '@/i18n/navigation';
+import { useAuthStore } from '@/store/auth-store';
 
 export default function AuthPage() {
   const router = useRouter();
@@ -11,40 +13,46 @@ export default function AuthPage() {
   const nextAction = searchParams?.get('next');
   const isStoryCreationFlow = nextAction === 'generate';
 
+  const { signInWithGoogle, isLoading, user } = useAuthStore();
   const t = useTranslations('auth');
+  const locale = useLocale();
 
-  const [isSignUp, setIsSignUp] = useState(true);
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-    name: '',
-  });
-  const [isLoading, setIsLoading] = useState(false);
+  // Store next URL for after auth callback
+  useEffect(() => {
+    if (nextAction) {
+      localStorage.setItem('auth_next_url', nextAction);
+    }
+  }, [nextAction]);
 
-  const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-
-    // Simulate authentication process
-    setTimeout(() => {
-      // After successful auth, redirect based on next parameter
+  // Redirect if already authenticated
+  useEffect(() => {
+    if (user) {
       if (nextAction === 'generate') {
         router.push('/generate');
+      } else if (nextAction) {
+        router.push(nextAction);
       } else {
         router.push('/dashboard');
       }
-    }, 2000);
+    }
+  }, [user, nextAction, router]);
+
+  const handleGoogleSignIn = async () => {
+    const { error } = await signInWithGoogle(locale);
+    if (error) {
+      console.error('Sign in error:', error);
+      // You could show an error toast here
+    }
   };
 
-  const isFormValid = () => {
-    if (isSignUp) {
-      return formData.email && formData.password && formData.name;
-    }
-    return formData.email && formData.password;
+  const handleFacebookSignIn = async () => {
+    // TODO: Implement Facebook auth when needed
+    console.log('Facebook auth not implemented yet');
+  };
+
+  const handleAppleSignIn = async () => {
+    // TODO: Implement Apple auth when needed
+    console.log('Apple auth not implemented yet');
   };
 
   return (
@@ -156,21 +164,35 @@ export default function AuthPage() {
                 <div className="absolute bottom-4 left-6 h-2 w-2 animate-ping rounded-full bg-blue-300/60 [animation-delay:-1s]"></div>
 
                 {/* Google Login - Primary */}
-                <button className="mb-4 flex w-full items-center justify-center gap-3 rounded-xl bg-white px-6 py-4 text-lg font-bold text-gray-700 shadow-xl transition-all hover:scale-105 hover:bg-gray-50">
-                  <Image
-                    src="/images/google-logo.png"
-                    alt="Google"
-                    width={24}
-                    height={24}
-                  />
-                  {isStoryCreationFlow
-                    ? t('storyFlow.createAccountWithGoogle')
-                    : t('general.continueWithGoogle')}
+                <button
+                  onClick={handleGoogleSignIn}
+                  disabled={isLoading}
+                  className="mb-4 flex w-full items-center justify-center gap-3 rounded-xl bg-white px-6 py-4 text-lg font-bold text-gray-700 shadow-xl transition-all hover:scale-105 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                  {isLoading ? (
+                    <div className="h-6 w-6 animate-spin rounded-full border-2 border-gray-300 border-t-gray-600"></div>
+                  ) : (
+                    <Image
+                      src="/images/google-logo.png"
+                      alt="Google"
+                      width={24}
+                      height={24}
+                    />
+                  )}
+                  {isLoading
+                    ? 'Signing in...'
+                    : isStoryCreationFlow
+                      ? t('storyFlow.createAccountWithGoogle')
+                      : t('general.continueWithGoogle')}
                 </button>
 
                 {/* Facebook & Apple */}
                 <div className="grid grid-cols-2 gap-4">
-                  <button className="flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-2 font-bold text-white shadow-xl transition-all hover:scale-105 hover:bg-blue-700">
+                  <button
+                    onClick={handleFacebookSignIn}
+                    disabled={isLoading}
+                    className="flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-2 font-bold text-white shadow-xl transition-all hover:scale-105 hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
+                  >
                     <Image
                       src="/images/facebook-logo.png"
                       alt="Facebook"
@@ -180,7 +202,11 @@ export default function AuthPage() {
                     />
                     {t('general.facebook')}
                   </button>
-                  <button className="flex items-center justify-center gap-2 rounded-xl bg-black px-4 py-2 font-bold text-white shadow-xl transition-all hover:scale-105 hover:bg-gray-900">
+                  <button
+                    onClick={handleAppleSignIn}
+                    disabled={isLoading}
+                    className="flex items-center justify-center gap-2 rounded-xl bg-black px-4 py-2 font-bold text-white shadow-xl transition-all hover:scale-105 hover:bg-gray-900 disabled:cursor-not-allowed disabled:opacity-50"
+                  >
                     <Image
                       src="/images/apple-logo.png"
                       alt="Apple"

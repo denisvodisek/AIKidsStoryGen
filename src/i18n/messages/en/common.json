@@ -2,7 +2,12 @@
   "header": {
     "brand": "Bubika",
     "signIn": "Sign In",
-    "startMagic": "Start Magic"
+    "startMagic": "Start Magic",
+    "myStories": "My Stories",
+    "createStory": "Create Story",
+    "subscription": "Subscription",
+    "signOut": "Sign Out",
+    "dashboard": "Dashboard"
   },
   "footer": {
     "brand": "Bubika",

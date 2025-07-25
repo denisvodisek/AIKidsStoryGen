@@ -135,9 +135,10 @@ export const useStoryStore = create<StoryStore>()(
           try {
             console.log('💾 Saving new story to database:', story.story_title);
 
-            // Save story to database
+            // Save story to database with character relationship
             const { data, error } = await saveStory({
               story_title: story.story_title,
+              character_id: state.characterId || undefined, // Link to the character!
               generation_params: story, // Store entire story object as generation_params for now
               photo_generation_stats: story.photo_generation_stats || {
                 total: 0,
@@ -149,6 +150,11 @@ export const useStoryStore = create<StoryStore>()(
                 complete: true,
                 progress: 100,
               },
+            });
+
+            console.log('🔗 Linking story to character:', {
+              storyTitle: story.story_title,
+              characterId: state.characterId,
             });
 
             if (data) {

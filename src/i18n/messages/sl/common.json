@@ -2,7 +2,12 @@
   "header": {
     "brand": "Bubika",
     "signIn": "Prijavi se",
-    "startMagic": "Začni Čarovnijo"
+    "startMagic": "Začni Čarovnijo",
+    "myStories": "Moje Zgodbe",
+    "createStory": "Ustvari Zgodbo",
+    "subscription": "Naročnina",
+    "signOut": "Odjavi se",
+    "dashboard": "Nadzorna Plošča"
   },
   "footer": {
     "brand": "Bubika",

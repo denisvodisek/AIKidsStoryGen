@@ -57,18 +57,27 @@ export const uploadChildPhoto = async (file: File, userId?: string) => {
       return { data: null, error: new Error('File too large or invalid') };
     }
 
-    // Generate a unique filename
+    // Get current user for storage path organization
+    let currentUserId = userId;
+    if (!currentUserId) {
+      const { user } = await getCurrentUser();
+      currentUserId = user?.id || 'anonymous';
+    }
+
+    // Generate a unique filename with user context
     const fileExt = file.name.split('.').pop() || 'jpg';
     const fileName = `${Date.now()}-${Math.random().toString(36).substring(2)}.${fileExt}`;
-    const filePath = `child-photos/${fileName}`;
+    const filePath = `child-photos/${currentUserId}/${fileName}`;
 
-    // console.log('Uploading file:', {
-    //   fileName,
-    //   size: file.size,
-    //   type: file.type,
-    // });
+    console.log('Uploading file:', {
+      fileName,
+      filePath,
+      userId: currentUserId,
+      size: file.size,
+      type: file.type,
+    });
 
-    // Upload file to Supabase Storage
+    // Upload file to Supabase Storage with user context
     const { data, error } = await supabase.storage
       .from('aikidsstorygen')
       .upload(filePath, file, {
@@ -337,11 +346,24 @@ export const saveCharacterAnalysis = async (characterData: {
   description: string;
   generation_params?: any;
   avatar_data?: any;
+  user_id?: string; // Optional for backward compatibility
 }) => {
   try {
+    // Get current user if user_id not provided
+    let userId = characterData.user_id;
+    if (!userId) {
+      const { user } = await getCurrentUser();
+      userId = user?.id;
+    }
+
+    const dataToInsert = {
+      ...characterData,
+      user_id: userId, // Include user_id in the insert
+    };
+
     const { data, error } = await supabase
       .from('characters')
-      .insert([characterData])
+      .insert([dataToInsert])
       .select()
       .single();
 
@@ -384,11 +406,25 @@ export const saveStory = async (storyData: {
   generation_params: any;
   photo_generation_stats?: any;
   generation_state?: any;
+  user_id?: string; // Optional for backward compatibility
+  character_id?: string; // Link to the character used for this story
 }) => {
   try {
+    // Get current user if user_id not provided
+    let userId = storyData.user_id;
+    if (!userId) {
+      const { user } = await getCurrentUser();
+      userId = user?.id;
+    }
+
+    const dataToInsert = {
+      ...storyData,
+      user_id: userId, // Include user_id in the insert
+    };
+
     const { data, error } = await supabase
       .from('stories')
-      .insert([storyData])
+      .insert([dataToInsert])
       .select()
       .single();
 
@@ -397,7 +433,12 @@ export const saveStory = async (storyData: {
       return { data: null, error };
     }
 
-    console.log('Story saved successfully:', data.id);
+    console.log(
+      'Story saved successfully:',
+      data.id,
+      'linked to character:',
+      storyData.character_id
+    );
     return { data, error: null };
   } catch (error) {
     console.error('Story save error:', error);
@@ -459,11 +500,19 @@ export const getStoryById = async (storyId: string) => {
       `
       )
       .eq('id', storyId)
-      .single();
+      .maybeSingle();
 
     if (error) {
       console.error('Error getting story:', error);
       return { data: null, error };
+    }
+
+    if (!data) {
+      console.log(`❌ Story not found or access denied: ${storyId}`);
+      return {
+        data: null,
+        error: new Error('Story not found or access denied'),
+      };
     }
 
     return { data, error: null };
@@ -620,13 +669,31 @@ export const generateSessionToken = () => {
 
 export const getAllStoriesByUser = async (userId?: string) => {
   try {
-    // For now, get all stories since we don't have user auth yet
+    // Get current user if userId not provided
+    let targetUserId = userId;
+    if (!targetUserId) {
+      const { user } = await getCurrentUser();
+      targetUserId = user?.id;
+    }
+
+    // If still no user, return empty result
+    if (!targetUserId) {
+      return { data: [], error: null };
+    }
+
     const { data, error } = await supabase
       .from('stories')
       .select(
         `
         *,
-        story_pages!inner (
+        characters (
+          id,
+          character_name,
+          character_age,
+          character_gender,
+          description
+        ),
+        story_pages (
           id,
           page_number,
           page_type,
@@ -635,6 +702,7 @@ export const getAllStoriesByUser = async (userId?: string) => {
         )
       `
       )
+      .eq('user_id', targetUserId) // Filter by user_id
       .order('created_at', { ascending: false });
 
     if (error) {
@@ -642,6 +710,7 @@ export const getAllStoriesByUser = async (userId?: string) => {
       return { data: null, error };
     }
 
+    console.log('✅ Retrieved stories with character info:', data?.length || 0);
     return { data, error: null };
   } catch (error) {
     console.error('Get stories error:', error);
