@@ -154,7 +154,7 @@ Return the story in this exact JSON format:
     "characters": [
     {
       "name": "${params.kidCharacterName}",
-      "description": "${params.kidCharacterDescription}" // Describe their physical appearance, clothes, and accessories, make sure they are consitent across the story.
+      "description": "${params.kidCharacterDescription}" // Describe their physical appearance, clothes, and accessories, make sure they are consitent across the story, use story_art_style and story_art_style_description to describe their appearance and overall look.
     },
     {
       "name": "Sparky",
@@ -209,8 +209,8 @@ IMPORTANT: Ensure the pages array contains exactly ${params.desiredPageCount} pa
 // 4. Add the character descriptions based on the 'characters_on_page' array for this specific page. 
 // How to dynamically generate character descriptions:
 //    - Prepend the art style instruction to each character's detailed description. 
-//    - If '${params.kidCharacterName}' is in 'characters_on_page': "A character must follow the ${params.storyArtStyle} art style: ${params.kidCharacterDescription}."
-//    - If any other character name (e.g., "Dino") is in 'characters_on_page', retrieve its full description from the top-level 'other_characters' array. Prepend the art style: "A character must follow the ${params.storyArtStyle} art style: [CharacterName], [CharacterDescription]."
+//    - If '${params.kidCharacterName}' is in 'characters_on_page': A character must follow their description from the top-level 'characters' array.
+//    - If any other character name (e.g., "Dino") is in 'characters_on_page', retrieve its full description from the top-level 'characters' array. Prepend the art style: "A character must follow the ${params.storyArtStyle} art style: [CharacterName], [CharacterDescription]."
 //    - Combine all relevant character descriptions into a single, cohesive "Characters present:" section at the end of the 'photo_description' string. Ensure characters consistency throughout the story.
 `;
 
